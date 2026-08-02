@@ -1,0 +1,1704 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nadel &amp; Zwirn e.U. — Stickerei aus Klagenfurt</title>
+<meta name="description" content="Nadel & Zwirn e.U.: Individuelle Stickerei für Firmen und Privatkunden in Klagenfurt und Kärnten. Firmenlogos, Caps und Textilien, gestickt mit Madeira Polyneon NE 40. Start des Geschäftsbetriebs: 1. Jänner 2027.">
+<!-- Seite ist bis zum offiziellen Geschäftsstart (1. Jänner 2027) nur für Kunden mit
+     persönlich mitgeteiltem Zugangscode gedacht, siehe Zugangssperre weiter unten.
+     Deshalb hier zusätzlich explizit von der Suchmaschinen-Indexierung ausnehmen,
+     ergänzend zur robots.txt im selben Ordner. -->
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="Logo.png">
+
+<!-- Google Fonts mit lokalem Fallback-Stack, falls keine Verbindung besteht -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yellowtail&family=Archivo+Black&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+  /* ============================================================
+     NADEL & ZWIRN e.U. — Marketing-Website
+     NEUES DESIGNSYSTEM (kompletter Neubau, kein Karten-/Boxen-Stil
+     mehr): monochromes Editorial-Layout in Schwarz/Anthrazit/Weiß,
+     orientiert an großformatigen Foto-Grids ohne Abstände, riesiger
+     Lauftext-Typografie als Sektionstrenner und flachen Zeilen-
+     Layouts statt Boxen. Rot ist nur noch ein minimaler Akzent.
+     Dieser <style>-Block ist bewusst identisch mit dem aus
+     partner.html, damit beide Seiten optisch ein System bilden.
+     ============================================================ */
+
+  :root{
+    /* Monochrome Basis: mehrere Dunkeltöne für Layering */
+    --bg-0: #0a0a0a;
+    --bg-1: #121212;
+    --bg-2: #1a1a1a;
+    --bg-3: #242424;
+
+    /* Text: Creme-Weiß auf Schwarz, Grautöne für sekundären Text */
+    --fg:      #f3f2ee;
+    --fg-dim:  #a7a6a1;
+    --fg-faint:#6c6c67;
+
+    /* Trennlinien: gedeckte Grautöne, keine Farbflächen */
+    --line:      #2b2b2b;
+    --line-soft: #202020;
+
+    /* Rot: ausschließlich minimaler Akzent (Links, CTA-Rahmen, Marquee-Trenner, Nummerierung) */
+    --red:      #c9282c;
+    --red-dim:  rgba(201,40,44,0.55);
+
+    --font-script:  'Yellowtail', cursive;
+    --font-display: 'Archivo Black', 'Inter', Arial, sans-serif;
+    --font-body:    'Inter', Arial, sans-serif;
+
+    --container: 1360px;
+    --header-h: 84px;
+    --transition: 240ms ease;
+  }
+
+  *, *::before, *::after{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    *, *::before, *::after{ animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  }
+
+  body{
+    margin: 0;
+    background-color: var(--bg-0);
+    color: var(--fg);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4{
+    font-family: var(--font-display);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.005em;
+    line-height: 0.98;
+    margin: 0 0 0.4em;
+    color: var(--fg);
+    overflow-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+  }
+
+  p{ margin: 0 0 1em; color: var(--fg-dim); }
+  ul{ margin: 0; padding: 0; list-style: none; }
+  img{ max-width: 100%; display: block; }
+  a{ color: inherit; }
+
+  .container{
+    width: 100%;
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  .eyebrow{
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--fg-faint);
+    margin-bottom: 1.1em;
+    display: inline-block;
+  }
+  .eyebrow::before{
+    content: '';
+    display: inline-block;
+    width: 18px;
+    height: 1px;
+    background: var(--red);
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+
+  .section{
+    padding: 108px 0;
+    position: relative;
+    background: var(--bg-0);
+  }
+  .section.alt{ background: var(--bg-1); }
+
+  .section-head{
+    max-width: 760px;
+    margin: 0 0 64px;
+    border-top: 1px solid var(--line);
+    padding-top: 28px;
+  }
+  .section-head h2{ font-size: clamp(2.1rem, 4.6vw, 3.6rem); }
+  .section-head p{ font-size: 1.05rem; max-width: 62ch; }
+
+  .btn{
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55em;
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: color var(--transition), background var(--transition), border-color var(--transition);
+  }
+  .btn-primary{
+    background: var(--fg);
+    color: var(--bg-0);
+    border-color: var(--fg);
+    padding: 1em 1.9em;
+  }
+  .btn-primary:hover, .btn-primary:focus-visible{
+    background: var(--red);
+    border-color: var(--red);
+    color: var(--fg);
+  }
+  .btn-outline{
+    background: transparent;
+    color: var(--fg);
+    padding: 1em 1.9em;
+    border: 1px solid var(--fg);
+  }
+  .btn-outline:hover, .btn-outline:focus-visible{
+    color: var(--red);
+    border-color: var(--red);
+  }
+  .btn-outline .arrow{ transition: transform var(--transition); }
+  .btn-outline:hover .arrow{ transform: translate(2px, -2px); }
+
+  :focus-visible{
+    outline: 2px solid var(--red);
+    outline-offset: 3px;
+  }
+
+  .skip-link{
+    position: absolute;
+    left: -999px;
+    top: 0;
+    background: var(--fg);
+    color: var(--bg-0);
+    padding: 12px 20px;
+    font-family: var(--font-body);
+    font-weight: 700;
+    z-index: 999;
+  }
+  .skip-link:focus{ left: 0; }
+
+  /* ---------- Header: fixiert, dunkel/transparent, Cursiv-Logo links,
+     schlichte Text-Navigation rechts, Hamburger ganz rechts ---------- */
+  .site-header{
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 500;
+    height: var(--header-h);
+    display: flex;
+    align-items: center;
+    background-color: rgba(10,10,10,0.72);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .header-inner{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+  .brand-link{
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--fg);
+  }
+  .brand-emblem{
+    height: 46px;
+    width: auto;
+    align-self: center;
+    /* Logo vektor.png hat einen reinen schwarzen Bildhintergrund. Screen-Blend
+       macht dieses Schwarz auf dem dunklen Header unsichtbar, nur die farbigen
+       Linien (Pantherkopf-Emblem) bleiben sichtbar. */
+    mix-blend-mode: screen;
+  }
+  .brand-script{
+    font-family: var(--font-script);
+    font-size: 2rem;
+    line-height: 1;
+    color: var(--fg);
+  }
+  .brand-tagline{
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 0.6rem;
+    font-weight: 600;
+    color: var(--fg-faint);
+    display: none;
+  }
+  @media (min-width: 560px){ .brand-tagline{ display: inline; } }
+
+  .main-nav ul{
+    display: flex;
+    gap: 34px;
+  }
+  .main-nav a{
+    position: relative;
+    display: inline-block;
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--fg-dim);
+    padding: 6px 0;
+    transition: color var(--transition);
+  }
+  .main-nav a::after{
+    content: '';
+    position: absolute;
+    left: 0; bottom: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--red);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition);
+  }
+  .main-nav a:hover, .main-nav a:focus-visible{ color: var(--fg); }
+  .main-nav a:hover::after, .main-nav a:focus-visible::after{ transform: scaleX(1); }
+  .main-nav a[aria-current="page"]{ color: var(--fg); }
+  .main-nav a[aria-current="page"]::after{ transform: scaleX(1); }
+
+  .nav-toggle{
+    display: none;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    position: relative;
+    margin-left: 20px;
+  }
+  .nav-toggle span, .nav-toggle span::before, .nav-toggle span::after{
+    content: '';
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    height: 1px;
+    background: var(--fg);
+    transition: transform var(--transition), opacity var(--transition), top var(--transition);
+  }
+  .nav-toggle span{ top: 19px; }
+  .nav-toggle span::before{ top: -7px; }
+  .nav-toggle span::after{ top: 7px; }
+  .nav-toggle[aria-expanded="true"] span{ background: transparent; }
+  .nav-toggle[aria-expanded="true"] span::before{ top: 0; transform: rotate(45deg); background: var(--red); }
+  .nav-toggle[aria-expanded="true"] span::after{ top: 0; transform: rotate(-45deg); background: var(--red); }
+
+  @media (max-width: 860px){
+    .main-nav{
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 100vh;
+      width: min(340px, 84vw);
+      background: var(--bg-1);
+      border-left: 1px solid var(--line);
+      transform: translateX(100%);
+      transition: transform 360ms ease;
+      padding: 120px 32px 32px;
+      z-index: 400;
+    }
+    .main-nav.is-open{ transform: translateX(0); }
+    .main-nav ul{ flex-direction: column; gap: 6px; }
+    .main-nav a{ display: block; padding: 14px 0; font-size: 1rem; border-bottom: 1px solid var(--line-soft); }
+    .main-nav a::after{ display: none; }
+    .nav-toggle{ display: block; }
+    .nav-scrim{
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 360ms ease;
+      z-index: 350;
+    }
+    .nav-scrim.is-open{ opacity: 1; pointer-events: auto; }
+  }
+
+  /* ---------- Hero: volle Viewport-Höhe, dunkel, riesige Ghost-
+     Typografie im Hintergrund, EIN zentrales hochkant-Foto ---------- */
+  .hero{
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--bg-0);
+    padding: calc(var(--header-h) + 48px) 24px 64px;
+    text-align: center;
+  }
+  .hero-bg{
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-image: url("ChatGPT Image 9. März 2026, 17_15_59.png");
+    background-size: cover;
+    background-position: center 30%;
+    background-repeat: no-repeat;
+    filter: grayscale(1) contrast(1.1);
+  }
+  .hero-scrim{
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: linear-gradient(180deg, rgba(10,10,10,0.62) 0%, rgba(10,10,10,0.72) 45%, rgba(10,10,10,0.88) 100%);
+  }
+  .hero-ghost{
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    z-index: 0;
+    pointer-events: none;
+  }
+  .ghost-row{ overflow: hidden; width: 100%; }
+  .ghost-row .ghost-track{
+    display: inline-flex;
+    width: max-content;
+    white-space: nowrap;
+    animation: ghost-scroll 80s linear infinite;
+    will-change: transform;
+  }
+  .ghost-row.reverse .ghost-track{ animation-direction: reverse; animation-duration: 100s; }
+  .ghost-row span{
+    font-family: var(--font-display);
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: clamp(3.4rem, 9vw, 7.6rem);
+    line-height: 1;
+    letter-spacing: 0.01em;
+    padding-right: 0.5em;
+    color: transparent;
+    -webkit-text-stroke: 4.5px rgba(243,242,238,0.16);
+  }
+  @keyframes ghost-scroll{
+    from{ transform: translateX(0); }
+    to{ transform: translateX(-50%); }
+  }
+
+  .hero-content{ position: relative; z-index: 1; max-width: 720px; }
+  .hero-content .eyebrow{ text-shadow: 0 1px 12px rgba(0,0,0,0.5); }
+  .hero h1{
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    margin-bottom: 0.4em;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.55);
+  }
+  .hero-claim{
+    font-size: 1.08rem;
+    max-width: 56ch;
+    margin: 0 auto;
+    color: var(--fg);
+    text-shadow: 0 1px 14px rgba(0,0,0,0.6);
+  }
+  .hero-actions{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 1.8em;
+  }
+
+  /* ---------- Scroll reveal ---------- */
+  .reveal{
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 750ms ease, transform 750ms ease;
+  }
+  .reveal.is-visible{
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ---------- Vollbild-Bildergrid ohne Abstände: dünne Trennlinien
+     zwischen den Spalten statt Karten/Boxen ---------- */
+  .grid-editorial{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .grid-col{ background: var(--bg-0); display: flex; flex-direction: column; }
+  .g-photo{ aspect-ratio: 4 / 5; overflow: hidden; }
+  .g-photo img{ width: 100%; height: 100%; object-fit: cover; transition: transform 700ms ease; }
+  .grid-col:hover .g-photo img{ transform: scale(1.06); }
+  .g-body{ padding: 32px 30px 40px; flex: 1; }
+  .g-num{
+    font-family: var(--font-display);
+    font-size: 1rem;
+    color: var(--red);
+    margin-bottom: 0.6em;
+  }
+  .g-body h3{ font-size: clamp(1.25rem, 2vw, 1.6rem); margin-bottom: 0.4em; }
+  .g-body p{ font-size: 0.95rem; max-width: 40ch; margin-bottom: 0; }
+
+  @media (max-width: 900px){
+    .grid-editorial{ grid-template-columns: 1fr; }
+  }
+
+  /* ---------- Riesige Lauftext-Zeile (Marquee) als Sektionstrenner ---------- */
+  .marquee-big{
+    overflow: hidden;
+    background: var(--bg-0);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 26px 0;
+  }
+  .marquee-big .marquee-track{
+    display: inline-flex;
+    align-items: center;
+    width: max-content;
+    white-space: nowrap;
+    animation: marquee-scroll 34s linear infinite;
+    will-change: transform;
+  }
+  .marquee-big span{
+    font-family: var(--font-display);
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: clamp(1.8rem, 5.4vw, 3.6rem);
+    line-height: 1;
+    color: var(--bg-3);
+    padding: 0 0.4em;
+  }
+  .marquee-big span.sep{ color: var(--red); font-size: clamp(1rem, 2vw, 1.6rem); }
+  @keyframes marquee-scroll{
+    from{ transform: translateX(0); }
+    to{ transform: translateX(-50%); }
+  }
+
+  /* ---------- Zweispaltige Text-Grid-Zeilen: dünne Trennlinie, links
+     Eyebrow, rechts großer fetter Wert ---------- */
+  .stat-rows{ border-bottom: 1px solid var(--line); }
+  .stat-row{
+    display: grid;
+    grid-template-columns: minmax(160px, 300px) 1fr;
+    gap: 24px;
+    align-items: baseline;
+    padding: 26px 0;
+    border-top: 1px solid var(--line);
+  }
+  .stat-row .stat-label{
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--fg-faint);
+  }
+  .stat-row .stat-value{
+    font-family: var(--font-display);
+    font-size: clamp(1.2rem, 2.6vw, 2rem);
+    text-transform: uppercase;
+    color: var(--fg);
+  }
+  .stat-row .stat-value small{
+    display: block;
+    font-family: var(--font-body);
+    text-transform: none;
+    font-size: 0.95rem;
+    color: var(--fg-dim);
+    letter-spacing: normal;
+    margin-top: 6px;
+  }
+  @media (max-width: 640px){
+    .stat-row{ grid-template-columns: 1fr; gap: 6px; }
+  }
+
+  /* ---------- Warum-Liste als nummerierte flache Zeilen ---------- */
+  .warum-intro-grid{
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 56px;
+    align-items: center;
+    margin-bottom: 56px;
+  }
+  .warum-photo{
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border: 1px solid var(--line);
+  }
+  .warum-photo img{ width: 100%; height: 100%; object-fit: cover; display: block; }
+  @media (max-width: 880px){
+    .warum-intro-grid{ grid-template-columns: 1fr; gap: 32px; }
+  }
+
+  .why-list{ border-bottom: 1px solid var(--line); margin-top: 8px; }
+  .why-list li{
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    gap: 20px;
+    padding: 30px 0;
+    border-top: 1px solid var(--line);
+  }
+  .why-list .wl-num{
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    color: var(--red);
+  }
+  .why-list h3{ font-size: clamp(1.1rem, 1.8vw, 1.4rem); margin-bottom: 0.3em; }
+  .why-list p{ font-size: 0.96rem; margin-bottom: 0; max-width: 62ch; }
+  @media (max-width: 600px){
+    .why-list li{ grid-template-columns: 1fr; gap: 8px; }
+  }
+
+  /* ---------- CTA-Zeile: großer Text links, quadratischer Pfeil-
+     Rahmen rechts, ganze Zeile klickbar ---------- */
+  .cta-row{
+    display: block;
+    text-decoration: none;
+    color: var(--fg);
+    border-top: 1px solid var(--line);
+  }
+  .cta-row-inner{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 44px 0;
+    transition: padding var(--transition);
+  }
+  .cta-row-text{
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    font-size: clamp(1.6rem, 4.4vw, 3.1rem);
+    line-height: 1;
+    transition: color var(--transition);
+  }
+  .cta-arrow{
+    flex: none;
+    width: 64px;
+    height: 64px;
+    border: 1px solid var(--fg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: background var(--transition), border-color var(--transition), color var(--transition), transform var(--transition);
+  }
+  .cta-row:hover .cta-row-text, .cta-row:focus-visible .cta-row-text{ color: var(--red); }
+  .cta-row:hover .cta-arrow, .cta-row:focus-visible .cta-arrow{
+    background: var(--red);
+    border-color: var(--red);
+    color: var(--fg);
+    transform: rotate(45deg);
+  }
+
+  /* ---------- Galerie: Vollbild-Grid ohne Abstände ---------- */
+  .gallery-grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 220px;
+    gap: 1px;
+    background: var(--line);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .gallery-item{
+    position: relative;
+    grid-column: span 1;
+    grid-row: span 1;
+    overflow: hidden;
+    padding: 0;
+    cursor: pointer;
+    background: var(--bg-0);
+    border: none;
+  }
+  .gallery-item.large{ grid-column: span 2; grid-row: span 2; }
+  .gallery-item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 600ms ease;
+  }
+  .gallery-item:hover img, .gallery-item:focus-visible img{ transform: scale(1.08); }
+  .gallery-item .cap{
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    padding: 14px 16px;
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    color: var(--fg);
+    background: linear-gradient(0deg, rgba(0,0,0,0.85), transparent);
+    text-align: left;
+    opacity: 0;
+    transition: opacity var(--transition);
+  }
+  .gallery-item:hover .cap, .gallery-item:focus-visible .cap{ opacity: 1; }
+
+  @media (max-width: 760px){
+    .gallery-grid{ grid-template-columns: repeat(2, 1fr); grid-auto-rows: 200px; }
+    .gallery-item.large{ grid-column: span 2; grid-row: span 1; }
+  }
+
+  /* ---------- Video-Feld (Stanley/Stella Partnerschaft): schmales
+     Kino-Banner über die volle Breite, bewusst deutlich flacher als
+     das großformatige Digitaldruck-Video auf partner.html. ---------- */
+  .partner-video-field{
+    position: relative;
+    width: 100%;
+    aspect-ratio: 21 / 7;
+    max-height: 42vh;
+    overflow: hidden;
+    background: #000;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  @media (max-width: 640px){
+    .partner-video-field{ aspect-ratio: 4 / 5; max-height: 56vh; }
+  }
+  .partner-video-field video{
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+  .partner-video-caption{
+    text-align: left;
+    margin-top: 20px;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--fg-faint);
+  }
+
+  /* ---------- Lightbox ---------- */
+  .lightbox{
+    position: fixed;
+    inset: 0;
+    background: rgba(6,6,6,0.96);
+    color: var(--fg);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 900;
+    padding: 32px;
+  }
+  .lightbox.is-open{ display: flex; }
+  .lightbox figure{
+    max-width: min(92vw, 1100px);
+    max-height: 90vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  .lightbox img{
+    max-width: 100%;
+    max-height: 78vh;
+    border: 1px solid var(--line);
+  }
+  .lightbox figcaption{
+    font-family: var(--font-body);
+    color: var(--fg-dim);
+    font-size: 0.88rem;
+    text-align: center;
+  }
+  .lightbox-close{
+    position: absolute;
+    top: 24px;
+    right: 28px;
+    width: 46px;
+    height: 46px;
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--fg);
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: border-color var(--transition), color var(--transition);
+  }
+  .lightbox-close:hover, .lightbox-close:focus-visible{ border-color: var(--red); color: var(--red); }
+
+  /* ---------- Kontakt ---------- */
+  .kontakt-grid{
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 64px;
+  }
+  @media (max-width: 880px){ .kontakt-grid{ grid-template-columns: 1fr; gap: 48px; } }
+  .kontakt-grid-full{ grid-template-columns: 1fr; }
+
+  .kontakt-address{ margin-top: 32px; border-top: 1px solid var(--line); }
+  .kontakt-address .addr-row{
+    display: grid;
+    grid-template-columns: minmax(100px,160px) 1fr;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .kontakt-address dt{ font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 700; color: var(--fg-faint); margin: 0; }
+  .kontakt-address dd{ margin: 0; color: var(--fg); }
+
+  .form-row{ margin-bottom: 24px; }
+  .form-row label{
+    display: block;
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--fg-faint);
+    margin-bottom: 10px;
+  }
+  .form-row input, .form-row select, .form-row textarea{
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    border-bottom: 1px solid var(--line);
+    background: transparent;
+    color: var(--fg);
+    font-family: var(--font-body);
+    font-size: 1rem;
+  }
+  .form-row select option{ background: var(--bg-1); color: var(--fg); }
+  .form-row textarea{ min-height: 120px; resize: vertical; }
+  .form-row input:focus, .form-row select:focus, .form-row textarea:focus{ outline: none; border-color: var(--red); }
+  .form-row input::placeholder, .form-row textarea::placeholder{ color: var(--fg-faint); }
+  .form-note{ font-size: 0.85rem; color: var(--fg-faint); margin-top: 12px; }
+  .form-status{
+    margin-top: 16px;
+    font-size: 0.9rem;
+    color: var(--red);
+    min-height: 1.2em;
+  }
+  .form-status.is-success{ color: var(--fg); }
+
+  .file-field{ margin-bottom: 24px; }
+  .file-field .file-label{
+    display: block;
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--fg-faint);
+    margin-bottom: 10px;
+  }
+  .file-drop{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    width: 100%;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--line);
+    cursor: pointer;
+    transition: border-color var(--transition);
+  }
+  .file-drop:hover, .file-drop:focus-within{ border-color: var(--red); }
+  .file-drop-cta{
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--fg);
+    white-space: nowrap;
+  }
+  .file-drop-name{
+    font-size: 0.9rem;
+    color: var(--fg-faint);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .file-field input[type="file"]{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+  }
+  .file-hint{ font-size: 0.8rem; color: var(--fg-faint); margin-top: 8px; }
+  .honey-field{ position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+  /* ---------- Seitenkopf "Unser Partner" (nur partner.html): echtes
+     GALVI-Geschäftsgebäude als Hintergrund, analog zum Hero-Muster,
+     dunkler Verlauf für Lesbarkeit ---------- */
+  .page-hero{
+    position: relative;
+    color: var(--fg);
+    background-color: var(--bg-0);
+    background-image:
+      linear-gradient(180deg, rgba(6,6,6,0.82) 0%, rgba(6,6,6,0.90) 55%, rgba(6,6,6,0.97) 100%),
+      url('https://media.galvi.at/about-us/galvi-promotions-geschaeft-cutted.jpg');
+    background-size: cover;
+    background-position: center 65%;
+    padding: calc(var(--header-h) + 96px) 0 88px;
+    border-bottom: 1px solid var(--line);
+    text-align: center;
+  }
+  .page-hero-inner{ max-width: 780px; margin: 0 auto; }
+  .page-hero h1{
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    color: var(--fg);
+    margin-bottom: 0.4em;
+  }
+  .page-hero p{
+    max-width: 62ch;
+    margin: 0 auto;
+    color: var(--fg-dim);
+    font-size: 1.05rem;
+  }
+  .page-hero-actions{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 1.8em;
+  }
+
+  /* ---------- Zitat-Block (Kundenstimme von der GALVI-Website) ---------- */
+  .partner-quote{
+    border-left: 2px solid var(--red);
+    padding: 4px 0 4px 26px;
+    max-width: 640px;
+    margin: 48px 0 0;
+  }
+  .partner-quote p{
+    font-family: var(--font-display);
+    text-transform: none;
+    font-style: italic;
+    font-size: 1.25rem;
+    color: var(--fg);
+    line-height: 1.35;
+  }
+  .partner-quote cite{
+    display: block;
+    font-style: normal;
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.75rem;
+    color: var(--fg-faint);
+  }
+
+  .external-note{ font-size: 0.85rem; color: var(--fg-faint); }
+
+  /* ---------- Footer: minimal, dünne Trennlinie, reiner Text ---------- */
+  .site-footer{
+    background: var(--bg-0);
+    color: var(--fg-dim);
+    border-top: 1px solid var(--line);
+    padding: 56px 0 32px;
+  }
+  .footer-grid{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 24px;
+    padding-bottom: 32px;
+  }
+  .site-footer .foot-brand{
+    font-family: var(--font-script);
+    font-size: 1.8rem;
+    color: var(--fg);
+  }
+  .site-footer p{ font-size: 0.86rem; margin: 4px 0; color: var(--fg-dim); }
+  .site-footer .legal-note{
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    font-size: 0.8rem;
+    color: var(--fg-faint);
+  }
+
+  /* ============================================================
+     ZUGANGSSPERRE ("Coming Soon"-Gate) mit Countdown
+     Deckt die komplette Seite ab, bis der richtige Zugangscode
+     eingegeben wurde oder localStorage das bereits von einem
+     früheren Besuch bestätigt. Siehe ausführlicher Kommentar im
+     Script-Block: das ist KEIN echter Sicherheitsstandard, nur ein
+     Deterrent gegen zufällige Besucher/Suchmaschinen vor dem
+     offiziellen Start am 1. Jänner 2027. Dieser Block ist bewusst
+     identisch mit dem aus partner.html.
+     ============================================================ */
+  html:not(.nz-unlocked) .site-header,
+  html:not(.nz-unlocked) .nav-scrim,
+  html:not(.nz-unlocked) main,
+  html:not(.nz-unlocked) .site-footer{
+    display: none !important;
+  }
+  .access-gate{
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-0);
+    padding: 32px;
+    text-align: center;
+    overflow-y: auto;
+  }
+  html.nz-unlocked .access-gate{ display: none; }
+  .access-gate-inner{ max-width: 460px; width: 100%; margin: auto; }
+  .access-gate-brand{
+    display: block;
+    font-family: var(--font-script);
+    font-size: 2.4rem;
+    color: var(--fg);
+    margin-bottom: 0.6em;
+  }
+  .access-gate-msg{
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    font-size: clamp(1.1rem, 3vw, 1.5rem);
+    color: var(--fg);
+    margin-bottom: 1em;
+  }
+  .access-countdown{
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-bottom: 2em;
+  }
+  .ac-unit{ display: flex; flex-direction: column; align-items: center; min-width: 60px; }
+  .ac-num{
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 5vw, 2.6rem);
+    color: var(--red);
+    line-height: 1;
+  }
+  .ac-label{
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--fg-faint);
+    margin-top: 6px;
+  }
+  .access-gate-question{
+    font-size: 0.95rem;
+    color: var(--fg-dim);
+    margin-bottom: 1em;
+    border-top: 1px solid var(--line);
+    padding-top: 1.4em;
+  }
+  .access-gate-form{
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .access-gate-input{
+    flex: 1;
+    min-width: 180px;
+    padding: 12px 14px;
+    border: 1px solid var(--line);
+    background: var(--bg-1);
+    color: var(--fg);
+    font-family: var(--font-body);
+    font-size: 1rem;
+  }
+  .access-gate-input:focus{ outline: none; border-color: var(--red); }
+  .access-gate-error{
+    margin-top: 1em;
+    font-size: 0.85rem;
+    color: var(--red);
+    min-height: 1.2em;
+  }
+</style>
+</head>
+<body>
+
+<!-- Läuft synchron als erstes im <body>, noch bevor Header/Main geparst werden,
+     damit bei bereits entsperrtem Besucher (localStorage gesetzt) kein kurzes
+     Aufblitzen der Zugangssperre passiert. Die CSS-Regel oben blendet Header/
+     Main/Footer standardmäßig aus (html:not(.nz-unlocked)); dieses Skript setzt
+     die Klasse nz-unlocked sofort, falls der Zugangscode bereits bestätigt wurde. -->
+<script>
+(function(){
+  try{
+    if(window.localStorage && localStorage.getItem('nzAccessUnlocked_v1') === '1'){
+      document.documentElement.classList.add('nz-unlocked');
+    }
+  }catch(e){ /* localStorage evtl. blockiert (privater Modus o.ä.) - Sperre bleibt aktiv */ }
+})();
+</script>
+
+<!-- ============ ZUGANGSSPERRE ============
+     Kein echter Sicherheitsstandard: der Vergleichscode liegt (nur gehasht,
+     nicht im Klartext) im öffentlich einsehbaren Quelltext dieser Seite. Wer
+     "Seitenquelltext anzeigen" nutzt, kann den Hash sehen und mit vertretbarem
+     Aufwand knacken. Das ist ausschließlich ein Deterrent gegen zufällige
+     Besucher und Suchmaschinen, bis der offizielle Geschäftsstart am
+     1. Jänner 2027 erfolgt ist - siehe auch robots.txt und
+     <meta name="robots"> im <head>. Zusätzlich zeigt diese Seite jedem
+     Besucher, auch ohne Code, einen sekundengenauen Countdown als
+     "Coming Soon"-Botschaft. -->
+<div class="access-gate" id="accessGate" role="dialog" aria-modal="true" aria-label="Zugang zu Nadel &amp; Zwirn">
+  <div class="access-gate-inner">
+    <span class="access-gate-brand">Nadel &amp; Zwirn</span>
+    <p class="access-gate-msg" id="accessGateMsg">Nadel &amp; Zwirn startet am 1. Jänner 2027.</p>
+    <div class="access-countdown" id="accessCountdown">
+      <div class="ac-unit"><span class="ac-num" id="acDays">00</span><span class="ac-label">Tage</span></div>
+      <div class="ac-unit"><span class="ac-num" id="acHours">00</span><span class="ac-label">Std</span></div>
+      <div class="ac-unit"><span class="ac-num" id="acMinutes">00</span><span class="ac-label">Min</span></div>
+      <div class="ac-unit"><span class="ac-num" id="acSeconds">00</span><span class="ac-label">Sek</span></div>
+    </div>
+    <p class="access-gate-question">Hast du einen Zugangscode von uns erhalten?</p>
+    <div class="access-gate-form">
+      <label for="accessCode" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Zugangscode</label>
+      <input type="password" id="accessCode" class="access-gate-input" autocomplete="off" placeholder="Zugangscode eingeben" aria-label="Zugangscode">
+      <button type="button" class="btn btn-primary" id="accessSubmit">Bestätigen</button>
+    </div>
+    <p class="access-gate-error" id="accessError" role="alert" aria-live="assertive"></p>
+  </div>
+</div>
+
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand-link" href="#top">
+      <img class="brand-emblem" src="Logo vektor.png" alt="Nadel &amp; Zwirn Emblem: Pantherkopf mit gekreuzten Nähnadeln">
+      <span class="brand-script">Nadel &amp; Zwirn</span>
+      <span class="brand-tagline">Stickerei aus Klagenfurt</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Menü öffnen">
+      <span></span>
+    </button>
+    <nav class="main-nav" id="mainNav" aria-label="Hauptnavigation">
+      <ul>
+        <li><a href="#leistungen">Leistungen</a></li>
+        <li><a href="#warum">Warum wir</a></li>
+        <li><a href="#galerie">Galerie</a></li>
+        <li><a href="partner.html">Unser Partner</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<div class="nav-scrim" id="navScrim"></div>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-scrim" aria-hidden="true"></div>
+    <div class="hero-ghost" aria-hidden="true">
+      <div class="ghost-row">
+        <div class="ghost-track">
+          <span>Stick der auffällt</span><span>Stick der auffällt</span><span>Stick der auffällt</span><span>Stick der auffällt</span>
+        </div>
+      </div>
+      <div class="ghost-row reverse">
+        <div class="ghost-track">
+          <span>Qualität die bleibt</span><span>Qualität die bleibt</span><span>Qualität die bleibt</span><span>Qualität die bleibt</span>
+        </div>
+      </div>
+      <div class="ghost-row">
+        <div class="ghost-track">
+          <span>Stick der auffällt</span><span>Stick der auffällt</span><span>Stick der auffällt</span><span>Stick der auffällt</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-content">
+      <h1>Stickerei, die hält was sie sticht.</h1>
+      <p class="hero-claim">Firmenlogos, Caps und Textilien, gestickt auf einer Maschine, mit einem einzigen Garn-Standard. Kein Massenprodukt, sondern eine Anfertigung für dich, gefertigt in Klagenfurt für Kunden in ganz Kärnten.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#kontakt">Jetzt anfragen <span class="arrow">↗</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LEISTUNGEN: Vollbild-Bildergrid ============ -->
+  <section class="section" id="leistungen">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Leistungen</span>
+        <h2>Was können wir für dich tun?</h2>
+        <p>Firmenlogos, Caps und Textilien — drei Kernbereiche, jeder mit demselben Garn-Standard und derselben Sorgfalt gefertigt, egal ob ein einzelnes Stück oder eine größere Stückzahl bestellt wird.</p>
+      </div>
+    </div>
+    <div class="grid-editorial">
+      <article class="grid-col reveal">
+        <div class="g-photo"><img src="ChatGPT Image 9. März 2026, 17_15_59.png" alt="Gestickter Pantherkopf, Makroaufnahme"></div>
+        <div class="g-body">
+          <div class="g-num">01</div>
+          <h3>Stick auf Arbeits-/Alltagstextilien</h3>
+          <p>Dein Firmenlogo, gestickt auf Arbeitskleidung, Poloshirts, Jacken oder Taschen. Sauber digitalisiert und über die gesamte Bestellung einheitlich umgesetzt.</p>
+        </div>
+      </article>
+      <article class="grid-col reveal">
+        <div class="g-photo"><img src="Post_hat_embroidery.jpg" alt="Hellgrüne Kappe mit Blatt-Logo im Stickvorgang auf einer Mehrkopf-Stickmaschine"></div>
+        <div class="g-body">
+          <div class="g-num">02</div>
+          <h3>Cap- und Mützen-Stickerei</h3>
+          <p>Individuelle Stickerei auf Caps und Mützen, vom Einzelstück bis zur größeren Stückzahl fürs Team, den Verein oder die Veranstaltung.</p>
+        </div>
+      </article>
+      <article class="grid-col reveal">
+        <div class="g-photo"><img src="ChatGPT Image 17. Juni 2026, 10_18_35.png" alt="Grauer Frottee-Bademantel mit rundem Monogramm-Logo auf der Brust bestickt"></div>
+        <div class="g-body">
+          <div class="g-num">03</div>
+          <h3>Wellness- und Hotelbekleidung</h3>
+          <p>Handtücher, Bademäntel und weitere Wellness-Textilien nach Wunsch bestickt, für Hotels, Wellness- und Beauty-Betriebe sowie private Anlässe wie Hochzeiten und Jubiläen.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ MARQUEE ALS SEKTIONSTRENNER ============ -->
+  <div class="marquee-big" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Firmenlogos</span><span class="sep">✕</span>
+      <span>Caps &amp; Mützen</span><span class="sep">✕</span>
+      <span>Textilien</span><span class="sep">✕</span>
+      <span>Madeira Polyneon NE 40</span><span class="sep">✕</span>
+      <span>Firmenlogos</span><span class="sep">✕</span>
+      <span>Caps &amp; Mützen</span><span class="sep">✕</span>
+      <span>Textilien</span><span class="sep">✕</span>
+      <span>Madeira Polyneon NE 40</span><span class="sep">✕</span>
+    </div>
+  </div>
+
+  <!-- ============ WARUM NADEL & ZWIRN ============ -->
+  <section class="section alt" id="warum">
+    <div class="container">
+      <div class="warum-intro-grid">
+        <div class="section-head reveal" style="margin-bottom: 0;">
+          <span class="eyebrow">Warum Nadel &amp; Zwirn</span>
+          <h2>Handwerk statt Massenware</h2>
+          <p>Vier Grundsätze, an denen sich jeder Auftrag orientiert, unabhängig von Größe oder Stückzahl. Nadel &amp; Zwirn e.U. ist ein Ein-Personen-Betrieb von Raphael Gritsch: kein Team, keine Zwischenhändler, sondern direkter Kontakt zwischen Gründer und Kunde.</p>
+        </div>
+        <div class="warum-photo reveal">
+          <img src="images stickamschine(1).jfif" alt="Happy Mehrkopf-Stickmaschine bestickt einen bunten Ahornblatt-Anhänger auf hellem Stoff">
+        </div>
+      </div>
+
+      <ul class="why-list">
+        <li class="reveal">
+          <span class="wl-num">01</span>
+          <div>
+            <h3>Maßanfertigung</h3>
+            <p>Jeder Auftrag wird individuell digitalisiert und auf Größe, Stoff und Design abgestimmt. Keine Stangenware.</p>
+          </div>
+        </li>
+        <li class="reveal">
+          <span class="wl-num">02</span>
+          <div>
+            <h3>Ein Garn-Standard</h3>
+            <p>Gestickt wird ausschließlich mit Madeira Polyneon NE 40 auf einer Happy V2 Einzelkopf-Stickmaschine. Ein einziger Qualitätsstandard, für jeden Auftrag gleich, keine Billig-Alternativen.</p>
+          </div>
+        </li>
+        <li class="reveal">
+          <span class="wl-num">03</span>
+          <div>
+            <h3>Regional gefertigt</h3>
+            <p>Produziert in Klagenfurt, mit kurzen Wegen zu Kunden in ganz Kärnten. Made in Austria statt Massenware von weit her.</p>
+          </div>
+        </li>
+        <li class="reveal">
+          <span class="wl-num">04</span>
+          <div>
+            <h3>Qualität und Zuverlässigkeit</h3>
+            <p>Persönliche Betreuung durch den Gründer selbst, von der ersten Anfrage bis zur Auslieferung.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ MARQUEE ALS SEKTIONSTRENNER ============ -->
+  <div class="marquee-big" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Stick der auffällt</span><span class="sep">✕</span>
+      <span>Qualität die bleibt</span><span class="sep">✕</span>
+      <span>Stick der auffällt</span><span class="sep">✕</span>
+      <span>Qualität die bleibt</span><span class="sep">✕</span>
+      <span>Stick der auffällt</span><span class="sep">✕</span>
+      <span>Qualität die bleibt</span><span class="sep">✕</span>
+      <span>Stick der auffällt</span><span class="sep">✕</span>
+      <span>Qualität die bleibt</span><span class="sep">✕</span>
+    </div>
+  </div>
+
+  <!-- ============ PARTNERSCHAFT MIT GALVI: STANLEY/STELLA ============ -->
+  <section class="section alt" id="partner-teaser">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>Textilien aus bester Qualität</h2>
+        <p>Nachhaltige Textilien aus 100&nbsp;% Bio-Baumwolle und recycelten Materialien, über unseren Partner GALVI Promotion Products.</p>
+        <p style="margin-top: 24px;"><a class="btn btn-outline" href="partner.html#nachhaltigkeit">Mehr erfahren <span class="arrow">↗</span></a></p>
+      </div>
+    </div>
+
+    <!-- Video liegt lokal im selben Ordner (07 Anhänge/Website/), kein Hotlinking, keine
+         Drittanbieter-Abhängigkeit. Trotzdem preload="metadata" statt voll, da die Datei
+         rund 32MB groß ist — es sollen nicht ungefragt 32MB geladen werden, bevor jemand
+         überhaupt zur Sektion scrollt.
+
+         KEIN autoplay-Attribut: gleicher, bereits gelöster Bug wie beim Digitaldruck-Video
+         auf partner.html (siehe dortiger Kommentar bei "digitaldruckVideo"). Mit autoplay
+         würde das Video bereits unsichtbar oberhalb im Viewport zu spielen beginnen, während
+         Besucher noch weiter oben lesen — das wirkt wie ein Sprung mitten ins Video hinein.
+         Stattdessen: ein dedizierter IntersectionObserver (siehe Script-Block unten) startet
+         die Wiedergabe erst, wenn die Sektion tatsächlich sichtbar wird, setzt currentTime
+         vorher auf 0 und beobachtet danach nicht mehr weiter (unobserve nach dem ersten
+         Trigger) — das Video startet so für jeden Besucher garantiert bei 0:00. -->
+    <div class="partner-video-field reveal" id="stanleyVideoField">
+      <video id="stanleyVideo" muted loop playsinline controls preload="metadata">
+        <source src="STST_AW24_CAPSULE_MUSIC MERCH_DJ SET (1).mp4" type="video/mp4">
+        Ihr Browser unterstützt das eingebettete Video nicht. <a href="STST_AW24_CAPSULE_MUSIC MERCH_DJ SET (1).mp4">Video direkt öffnen</a>.
+      </video>
+    </div>
+    <div class="container">
+    </div>
+  </section>
+
+  <!-- ============ GALERIE ============ -->
+  <section class="section" id="galerie">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Galerie</span>
+        <h2>Stickerei im Detail</h2>
+        <p>Ausschnitte aus Werkstatt und Fertigung. Klick auf ein Bild für die Vollbildansicht.</p>
+      </div>
+    </div>
+
+    <div class="gallery-grid">
+      <button type="button" class="gallery-item large reveal" data-full="Beispiele/Beispiel 2.jpg" data-caption="Detailreiche mehrfarbige Automotiv-Stickerei: blaues Sportauto vor Kirschblüten-Mond-Motiv auf grauem Hoodie">
+        <img src="Beispiele/Beispiel 2.jpg" alt="Gesticktes blaues Sportauto vor Kirschblüten-Mond-Motiv auf grauem Hoodie">
+        <span class="cap">Sportauto mit Kirschblüten, Hoodie</span>
+      </button>
+
+      <button type="button" class="gallery-item reveal" data-full="Beispiele/Beispiel1.jfif" data-caption="Zwei Stitch-Figuren beim albernen Spielen unter der Dusche, gestickt auf hellgrauem Hoodie">
+        <img src="Beispiele/Beispiel1.jfif" alt="Zwei Stitch-Figuren beim Spielen unter der Dusche, gestickt auf hellgrauem Hoodie">
+        <span class="cap">Lilo &amp; Stitch, Hoodie</span>
+      </button>
+
+      <button type="button" class="gallery-item reveal" data-full="Beispiele/Beispiel 3.jfif" data-caption="Gestickte Stitch-Figur mit fünf rosa Herzen auf marineblauem Stoff, noch im Stickrahmen der Maschine">
+        <img src="Beispiele/Beispiel 3.jfif" alt="Gestickte Stitch-Figur mit fünf rosa Herzen auf marineblauem Stoff, im Stickrahmen">
+        <span class="cap">Stitch mit Herzen, im Stickrahmen</span>
+      </button>
+
+      <button type="button" class="gallery-item reveal" data-full="Beispiele/Beispiel 6.jfif" data-caption="Rotes Sportauto vor Mond- und Bergsilhouette, gestickt im Stickrahmen einer Mehrkopf-Stickmaschine">
+        <img src="Beispiele/Beispiel 6.jfif" alt="Rotes Sportauto vor Mond- und Bergsilhouette, im Stickrahmen einer Mehrkopf-Stickmaschine">
+        <span class="cap">Sportauto vor Bergsilhouette</span>
+      </button>
+
+      <button type="button" class="gallery-item reveal" data-full="Beispiele/Beispiel 7.jfif" data-caption="Kunstvoller Bonsai-Baum mit japanischen Schriftzeichen, gestickt auf hellem Stoff">
+        <img src="Beispiele/Beispiel 7.jfif" alt="Kunstvoller Bonsai-Baum mit japanischen Schriftzeichen, gestickt auf hellem Stoff">
+        <span class="cap">Bonsai mit Schriftzeichen</span>
+      </button>
+
+      <button type="button" class="gallery-item reveal" data-full="Beispiele/Beispiel 8.jfif" data-caption="Schriftzug „London 47 AD United Kingdom“ mit Big-Ben-Skyline, gestickt auf olivgrünem Sweatshirt">
+        <img src="Beispiele/Beispiel 8.jfif" alt="Schriftzug London 47 AD United Kingdom mit Big-Ben-Skyline, gestickt auf olivgrünem Sweatshirt">
+        <span class="cap">London-Schriftzug, Sweatshirt</span>
+      </button>
+
+      <button type="button" class="gallery-item reveal" data-full="Beispiele/Beispiel 9.jfif" data-caption="Geschmolzener, bunter Zauberwürfel, gestickt auf mintfarbenem Hoodie">
+        <img src="Beispiele/Beispiel 9.jfif" alt="Geschmolzener, bunter Zauberwürfel, gestickt auf mintfarbenem Hoodie">
+        <span class="cap">Geschmolzener Zauberwürfel</span>
+      </button>
+
+      <button type="button" class="gallery-item reveal" data-full="Beispiele/Beispiel 10.jfif" data-caption="Rosafarbener Toyota Supra mit Schriftzug „Supra“, gestickt auf weißem Shirt">
+        <img src="Beispiele/Beispiel 10.jfif" alt="Rosafarbener Toyota Supra mit Schriftzug Supra, gestickt auf weißem Shirt">
+        <span class="cap">Toyota Supra, Shirt</span>
+      </button>
+
+      <button type="button" class="gallery-item reveal" data-full="Beispiele/Beispiel 11.jfif" data-caption="Katze mit Monster-Energy-Dose, gestickt auf schwarzem Stoff">
+        <img src="Beispiele/Beispiel 11.jfif" alt="Katze mit Monster-Energy-Dose, gestickt auf schwarzem Stoff">
+        <span class="cap">Katze mit Energy-Dose</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ============ KONTAKT ============ -->
+  <section class="section alt" id="kontakt">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Kontakt</span>
+        <h2>Direkt Kontakt aufnehmen</h2>
+      </div>
+
+      <div class="kontakt-grid kontakt-grid-full">
+        <form class="kontakt-form reveal" id="kontaktForm" method="POST" action="https://formsubmit.co/ajax/raphael.gritsch@gmail.com" enctype="multipart/form-data">
+          <input type="hidden" name="_subject" value="Neue Anfrage über nadelundzwirn.at">
+          <input type="hidden" name="_template" value="table">
+          <div class="form-row honey-field" aria-hidden="true">
+            <label for="kf-honey">Bitte leer lassen</label>
+            <input type="text" id="kf-honey" name="_honey" tabindex="-1" autocomplete="off">
+          </div>
+          <div class="form-row">
+            <label for="kf-name">Name</label>
+            <input type="text" id="kf-name" name="name" required placeholder="Vor- und Nachname">
+          </div>
+          <div class="form-row">
+            <label for="kf-email">E-Mail</label>
+            <input type="email" id="kf-email" name="email" required placeholder="deine@email.at">
+          </div>
+          <div class="form-row">
+            <label for="kf-telefon">Telefon (optional)</label>
+            <input type="text" id="kf-telefon" name="telefon" placeholder="Für Rückfragen">
+          </div>
+          <div class="form-row">
+            <label for="kf-anliegen">Anliegen</label>
+            <select id="kf-anliegen" name="anliegen">
+              <option value="Stick auf Arbeits-/Alltagstextilien">Stick auf Arbeits-/Alltagstextilien</option>
+              <option value="Cap- und Mützen-Stickerei">Cap- und Mützen-Stickerei</option>
+              <option value="Stick auf Textilien">Stick auf Textilien (Handtücher, Bademäntel, Polos, ...)</option>
+              <option value="Sonstiges">Sonstiges</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="kf-nachricht">Nachricht</label>
+            <textarea id="kf-nachricht" name="nachricht" required placeholder="Was soll bestickt werden, wie viele Stück, bis wann?"></textarea>
+          </div>
+          <div class="file-field">
+            <label class="file-label" for="kf-attachment">Design/Logo hochladen (optional, max. 10MB)</label>
+            <label class="file-drop" for="kf-attachment">
+              <span class="file-drop-cta">Datei wählen</span>
+              <span class="file-drop-name" id="kf-file-name">Keine Datei ausgewählt</span>
+            </label>
+            <input type="file" id="kf-attachment" name="attachment" accept="image/png, image/jpeg, image/svg+xml, application/pdf, .ai, .eps, .dst, .pes">
+            <p class="file-hint">Erlaubt: PNG, JPG, SVG, PDF, AI, EPS, DST, PES. Kombiniertes Limit aller Anhänge: 10MB.</p>
+          </div>
+          <button type="submit" class="btn btn-primary" id="kf-submit">Anfrage senden</button>
+          <p class="form-note">Deine Anfrage wird direkt über dieses Formular verschickt, inklusive eventuell angehängter Datei. Es öffnet sich kein E-Mail-Programm.</p>
+          <p class="form-status" id="formStatus" role="status"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="foot-brand">Nadel &amp; Zwirn</div>
+      <p>Klagenfurt, Kärnten, Österreich</p>
+      <p>© <span id="foot-year"></span> Nadel &amp; Zwirn e.U.</p>
+    </div>
+    <p class="legal-note">Nadel &amp; Zwirn e.U. hat den Geschäftsbetrieb noch nicht aufgenommen (Start: 1. Jänner 2027). Impressum und Datenschutzerklärung folgen vor dem Start des Geschäftsbetriebs.</p>
+  </div>
+</footer>
+
+<!-- ============ LIGHTBOX ============ -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Bildansicht">
+  <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Bildansicht schließen">&times;</button>
+  <figure>
+    <img src="" alt="" id="lightboxImg">
+    <figcaption id="lightboxCaption"></figcaption>
+  </figure>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- Zugangssperre (Coming-Soon-Gate) ----------
+     WICHTIG: Das ist KEIN echter Sicherheitsstandard. Der Vergleichscode
+     liegt im öffentlich einsehbaren Quelltext dieser Seite - nur gehasht,
+     nicht im Klartext -, aber wer "Seitenquelltext anzeigen" oder die
+     Entwicklertools nutzt, kann sich den Hash ansehen und ihn mit
+     vertretbarem Aufwand knacken (djb2 ist keine kryptografische
+     Hashfunktion). Der Zweck ist ausschließlich, zufällige Besucher und
+     Suchmaschinen-Crawler vor dem offiziellen Geschäftsstart am
+     1. Jänner 2027 von der Seite fernzuhalten - siehe dazu ergänzend die
+     robots.txt im selben Ordner und das <meta name="robots"> im <head>.
+     Gleiches djb2-Hashverfahren wie im bestehenden PW_GATE-Muster im
+     privaten Dashboard-Projekt: hash = 5381; je Zeichen:
+     hash = ((hash*33) + charCode) >>> 0. */
+  var ACCESS_STORAGE_KEY = 'nzAccessUnlocked_v1';
+
+  function djb2Hash(str){
+    var hash = 5381;
+    for(var i = 0; i < str.length; i++){
+      hash = ((hash * 33) + str.charCodeAt(i)) >>> 0;
+    }
+    return hash;
+  }
+
+  var ACCESS_CODE_HASH = djb2Hash('Raphael'); // Hash von "Raphael", nicht der Klartext-Code selbst
+
+  var accessGate = document.getElementById('accessGate');
+  var accessCode = document.getElementById('accessCode');
+  var accessSubmit = document.getElementById('accessSubmit');
+  var accessError = document.getElementById('accessError');
+
+  function unlockAccess(){
+    try{ localStorage.setItem(ACCESS_STORAGE_KEY, '1'); }catch(e){ /* localStorage evtl. blockiert */ }
+    document.documentElement.classList.add('nz-unlocked');
+    if(accessGate){ accessGate.style.display = 'none'; }
+  }
+
+  function checkAccessCode(){
+    if(!accessCode) return;
+    var value = accessCode.value;
+    if(value.length > 0 && djb2Hash(value) === ACCESS_CODE_HASH){
+      if(accessError){ accessError.textContent = ''; }
+      unlockAccess();
+    } else {
+      if(accessError){ accessError.textContent = 'Falscher Zugangscode. Bitte erneut versuchen.'; }
+      accessCode.value = '';
+      accessCode.focus();
+    }
+  }
+
+  if(accessGate){
+    var alreadyUnlocked = false;
+    try{ alreadyUnlocked = window.localStorage && localStorage.getItem(ACCESS_STORAGE_KEY) === '1'; }catch(e){}
+
+    if(alreadyUnlocked){
+      unlockAccess();
+    } else {
+      if(accessCode){ accessCode.focus(); }
+      if(accessSubmit){ accessSubmit.addEventListener('click', checkAccessCode); }
+      if(accessCode){
+        accessCode.addEventListener('keydown', function(e){
+          if(e.key === 'Enter'){ e.preventDefault(); checkAccessCode(); }
+        });
+      }
+    }
+
+    /* ---------- Live-Countdown bis zum Geschäftsstart (1. Jänner 2027, 00:00) ----------
+       Läuft unabhängig davon, ob der Code schon eingegeben wurde, damit auch
+       Besucher ohne Zugangscode sofort sehen, wann die Seite offiziell startet. */
+    var accessTarget = new Date(2027, 0, 1, 0, 0, 0).getTime();
+    var acDays = document.getElementById('acDays');
+    var acHours = document.getElementById('acHours');
+    var acMinutes = document.getElementById('acMinutes');
+    var acSeconds = document.getElementById('acSeconds');
+    var accessCountdownEl = document.getElementById('accessCountdown');
+    var accessMsgEl = document.getElementById('accessGateMsg');
+    var accessCountdownTimer = null;
+
+    function pad(n){ n = String(n); return n.length < 2 ? '0' + n : n; }
+
+    function updateAccessCountdown(){
+      var diff = accessTarget - Date.now();
+      if(diff <= 0){
+        if(accessMsgEl){ accessMsgEl.textContent = 'Nadel & Zwirn ist gestartet.'; }
+        if(accessCountdownEl){ accessCountdownEl.style.display = 'none'; }
+        if(accessCountdownTimer){ clearInterval(accessCountdownTimer); }
+        return;
+      }
+      var totalSeconds = Math.floor(diff / 1000);
+      var days = Math.floor(totalSeconds / 86400);
+      var hours = Math.floor((totalSeconds % 86400) / 3600);
+      var minutes = Math.floor((totalSeconds % 3600) / 60);
+      var seconds = totalSeconds % 60;
+      if(acDays){ acDays.textContent = pad(days); }
+      if(acHours){ acHours.textContent = pad(hours); }
+      if(acMinutes){ acMinutes.textContent = pad(minutes); }
+      if(acSeconds){ acSeconds.textContent = pad(seconds); }
+    }
+    updateAccessCountdown();
+    accessCountdownTimer = setInterval(updateAccessCountdown, 1000);
+  }
+
+  /* ---------- Mobiles Menü ---------- */
+  var navToggle = document.getElementById('navToggle');
+  var mainNav = document.getElementById('mainNav');
+  var navScrim = document.getElementById('navScrim');
+
+  function closeNav(){
+    navToggle.setAttribute('aria-expanded', 'false');
+    mainNav.classList.remove('is-open');
+    navScrim.classList.remove('is-open');
+  }
+  function openNav(){
+    navToggle.setAttribute('aria-expanded', 'true');
+    mainNav.classList.add('is-open');
+    navScrim.classList.add('is-open');
+  }
+  navToggle.addEventListener('click', function(){
+    var expanded = navToggle.getAttribute('aria-expanded') === 'true';
+    if(expanded){ closeNav(); } else { openNav(); }
+  });
+  navScrim.addEventListener('click', closeNav);
+  mainNav.querySelectorAll('a').forEach(function(link){
+    link.addEventListener('click', closeNav);
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){ closeNav(); }
+  });
+
+  /* ---------- Lightbox ---------- */
+  var lightbox = document.getElementById('lightbox');
+  var lightboxImg = document.getElementById('lightboxImg');
+  var lightboxCaption = document.getElementById('lightboxCaption');
+  var lightboxClose = document.getElementById('lightboxClose');
+  var lastFocused = null;
+
+  function openLightbox(src, alt, caption){
+    lastFocused = document.activeElement;
+    lightboxImg.src = src;
+    lightboxImg.alt = alt || '';
+    lightboxCaption.textContent = caption || '';
+    lightbox.classList.add('is-open');
+    lightboxClose.focus();
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox(){
+    lightbox.classList.remove('is-open');
+    lightboxImg.src = '';
+    document.body.style.overflow = '';
+    if(lastFocused){ lastFocused.focus(); }
+  }
+
+  document.querySelectorAll('.gallery-item').forEach(function(item){
+    item.addEventListener('click', function(){
+      var full = item.getAttribute('data-full');
+      var img = item.querySelector('img');
+      openLightbox(full, img.getAttribute('alt'), item.getAttribute('data-caption'));
+    });
+  });
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', function(e){
+    if(e.target === lightbox){ closeLightbox(); }
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && lightbox.classList.contains('is-open')){ closeLightbox(); }
+  });
+
+  /* ---------- Kontaktformular: FormSubmit.co per AJAX (echtes Backend, inkl. Datei-Upload) ---------- */
+  var kontaktForm = document.getElementById('kontaktForm');
+  var formStatus = document.getElementById('formStatus');
+  var submitBtn = document.getElementById('kf-submit');
+  var fileInput = document.getElementById('kf-attachment');
+  var fileNameLabel = document.getElementById('kf-file-name');
+
+  if(fileInput){
+    fileInput.addEventListener('change', function(){
+      if(fileInput.files && fileInput.files.length > 0){
+        fileNameLabel.textContent = fileInput.files[0].name;
+      } else {
+        fileNameLabel.textContent = 'Keine Datei ausgewählt';
+      }
+    });
+  }
+
+  kontaktForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = document.getElementById('kf-name').value.trim();
+    var email = document.getElementById('kf-email').value.trim();
+    var nachricht = document.getElementById('kf-nachricht').value.trim();
+
+    if(!name || !email || !nachricht){
+      formStatus.classList.remove('is-success');
+      formStatus.textContent = 'Bitte Name, E-Mail und Nachricht ausfüllen.';
+      return;
+    }
+
+    var formData = new FormData(kontaktForm);
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Wird gesendet...';
+    formStatus.classList.remove('is-success');
+    formStatus.textContent = '';
+
+    fetch(kontaktForm.action, {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(function(response){
+      if(response.ok){
+        kontaktForm.reset();
+        fileNameLabel.textContent = 'Keine Datei ausgewählt';
+        formStatus.classList.add('is-success');
+        formStatus.textContent = 'Danke, deine Anfrage ist angekommen. Du bekommst so schnell wie möglich Antwort.';
+      } else {
+        formStatus.classList.remove('is-success');
+        formStatus.textContent = 'Senden fehlgeschlagen. Bitte versuch es erneut oder schreib direkt an raphael.gritsch@gmail.com.';
+      }
+    })
+    .catch(function(){
+      formStatus.classList.remove('is-success');
+      formStatus.textContent = 'Senden fehlgeschlagen. Bitte versuch es erneut oder schreib direkt an raphael.gritsch@gmail.com.';
+    })
+    .finally(function(){
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Anfrage senden';
+    });
+  });
+
+  /* ---------- Footer-Jahr ---------- */
+  document.getElementById('foot-year').textContent = new Date().getFullYear();
+
+  /* ---------- Scroll-Reveal ---------- */
+  var revealEls = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('is-visible'); });
+  }
+
+  /* ---------- Video: erst abspielen, wenn die Sektion tatsächlich
+     sichtbar wird (identisches Muster wie beim Digitaldruck-Video auf
+     partner.html, siehe HTML-Kommentar über dem Video-Markup dort und
+     hier). Eigener, unabhängiger Observer mit garantiertem Einmal-
+     Trigger: unobserve() direkt nach dem ersten Sichtbarwerden. ---------- */
+  var stanleyVideo = document.getElementById('stanleyVideo');
+  var stanleyVideoField = document.getElementById('stanleyVideoField');
+  if(stanleyVideo && stanleyVideoField && 'IntersectionObserver' in window){
+    var stanleyVideoIO = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          stanleyVideo.currentTime = 0;
+          var playPromise = stanleyVideo.play();
+          if(playPromise && typeof playPromise.catch === 'function'){
+            playPromise.catch(function(){ /* Autoplay ggf. blockiert; controls bleiben sichtbar */ });
+          }
+          stanleyVideoIO.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    stanleyVideoIO.observe(stanleyVideoField);
+  }
+
+})();
+</script>
+
+</body>
+</html>

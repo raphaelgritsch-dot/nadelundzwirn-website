@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seite nicht gefunden — Nadel &amp; Zwirn</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#0a0a0a">
+
+<link href="fonts/fonts.css" rel="stylesheet">
+
+<style>
+  :root{
+    --bg-0: #0a0a0a;
+    --fg: #f3f2ee;
+    --fg-dim: #a7a6a1;
+    --red: #c9282c;
+    --font-script: 'Yellowtail', cursive;
+    --font-display: 'Archivo Black', 'Inter', Arial, sans-serif;
+    --font-body: 'Inter', Arial, sans-serif;
+  }
+  *, *::before, *::after{ box-sizing: border-box; }
+  html, body{
+    height: 100%;
+    margin: 0;
+    background: var(--bg-0);
+    color: var(--fg);
+    font-family: var(--font-body);
+  }
+  body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 24px;
+  }
+  .brand{
+    font-family: var(--font-script);
+    font-size: 2.2rem;
+    display: block;
+    margin-bottom: 32px;
+    color: var(--fg);
+    text-decoration: none;
+  }
+  .code{
+    font-family: var(--font-display);
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: clamp(3rem, 12vw, 6rem);
+    color: var(--red);
+    line-height: 1;
+    margin: 0 0 16px;
+  }
+  h1{
+    font-family: var(--font-display);
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: clamp(1.2rem, 3vw, 1.6rem);
+    margin: 0 0 12px;
+  }
+  p{ color: var(--fg-dim); margin: 0 0 32px; }
+  a.back{
+    display: inline-block;
+    padding: 14px 28px;
+    border: 1px solid var(--fg);
+    color: var(--fg);
+    text-decoration: none;
+    font-size: 0.9rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: 200ms ease;
+  }
+  a.back:hover{ background: var(--fg); color: var(--bg-0); }
+</style>
+</head>
+<body>
+  <div>
+    <a class="brand" href="index.html">Nadel &amp; Zwirn</a>
+    <p class="code">404</p>
+    <h1>Diese Seite gibt es nicht</h1>
+    <p>Der Link ist entweder falsch oder die Seite wurde verschoben.</p>
+    <a class="back" href="index.html">Zurück zur Startseite</a>
+  </div>
+
+<!-- Cloudflare Web Analytics -->
+<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "d2bb370d2871487e9fd8d55ac31a9ff3"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</body>
+</html>

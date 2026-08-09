@@ -4,3 +4,18 @@ NadelZwirn_Preisliste.pdf
 
 # Netlify-CLI-Lokalstatus, nicht für GitHub Pages relevant
 .netlify/
+
+# Unbenutzte Bilddateien: auf keiner Seite verlinkt, nur lokale
+# Arbeitsdateien/Entwürfe. Bleiben lokal im Vault erhalten, werden
+# aber nicht mehr mit auf GitHub Pages deployed (Repo-Größe).
+Logo.png
+ChatGPT Image 20. März 2026, 14_27_00.png
+ChatGPT Image 20. März 2026, 14_27_03.png
+ChatGPT Image 20. März 2026, 14_27_06.png
+ChatGPT Image 21. März 2026, 18_23_11.png
+Design ohne Titel (3).png
+Design ohne Titel (5).png
+Design ohne Titel (6).png
+stickmaschine_bottom_left.png
+bottom_right.png
+brother-vr.jpg

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nadel &amp; Zwirn e.U. — Stickerei aus Klagenfurt</title>
-<meta name="description" content="Nadel & Zwirn e.U.: Individuelle Stickerei für Firmen und Privatkunden in Klagenfurt und Kärnten. Firmenlogos, Caps und Textilien, gestickt mit Madeira Polyneon NE 40. Start des Geschäftsbetriebs: 1. Jänner 2027.">
+<title>Nadel &amp; Zwirn — Stickerei aus Klagenfurt</title>
+<meta name="description" content="Nadel & Zwirn: Individuelle Stickerei für Firmen und Privatkunden in Klagenfurt und Kärnten. Firmenlogos, Caps und Textilien, gestickt mit Madeira Polyneon NE 40. Start des Geschäftsbetriebs: 1. Jänner 2027.">
 <!-- Seite ist bis zum offiziellen Geschäftsstart (1. Jänner 2027) nur für Kunden mit
      persönlich mitgeteiltem Zugangscode gedacht, siehe Zugangssperre weiter unten.
      Deshalb hier zusätzlich explizit von der Suchmaschinen-Indexierung ausnehmen,
@@ -13,13 +13,14 @@
 <link rel="icon" href="Logo.png">
 
 <!-- Google Fonts mit lokalem Fallback-Stack, falls keine Verbindung besteht -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Yellowtail&family=Archivo+Black&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<!-- Schriften jetzt lokal gehostet statt von Google-Servern geladen
+     (siehe fonts/fonts.css) — vermeidet IP-Übertragung an Google beim
+     Seitenaufruf, siehe Datenschutzerklärung. -->
+<link href="fonts/fonts.css" rel="stylesheet">
 
 <style>
   /* ============================================================
-     NADEL & ZWIRN e.U. — Marketing-Website
+     NADEL & ZWIRN — Marketing-Website
      NEUES DESIGNSYSTEM (kompletter Neubau, kein Karten-/Boxen-Stil
      mehr): monochromes Editorial-Layout in Schwarz/Anthrazit/Weiß,
      orientiert an großformatigen Foto-Grids ohne Abstände, riesiger
@@ -217,13 +218,13 @@
   }
   .brand-link{
     display: flex;
-    align-items: baseline;
+    align-items: center;
     gap: 12px;
     text-decoration: none;
     color: var(--fg);
   }
   .brand-emblem{
-    height: 46px;
+    height: 64px;
     width: auto;
     align-self: center;
     /* Logo vektor.png hat einen reinen schwarzen Bildhintergrund. Screen-Blend
@@ -1134,7 +1135,7 @@
     </div>
     <div class="hero-content">
       <h1>Stickerei, die hält was sie sticht.</h1>
-      <p class="hero-claim">Firmenlogos, Caps und Textilien, gestickt auf einer Maschine, mit einem einzigen Garn-Standard. Kein Massenprodukt, sondern eine Anfertigung für dich, gefertigt in Klagenfurt für Kunden in ganz Kärnten.</p>
+      <p class="hero-claim">Dein Logo auf Shirts, Caps und Teamkleidung – bestickt statt aufgedruckt, für einen Auftritt, der im Kopf bleibt. Keine Massenware von der Stange, sondern eine Anfertigung genau für dich: gefertigt in Klagenfurt, geliefert in ganz Kärnten.</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="#kontakt">Jetzt anfragen <span class="arrow">↗</span></a>
       </div>
@@ -1199,7 +1200,7 @@
         <div class="section-head reveal" style="margin-bottom: 0;">
           <span class="eyebrow">Warum Nadel &amp; Zwirn</span>
           <h2>Handwerk statt Massenware</h2>
-          <p>Vier Grundsätze, an denen sich jeder Auftrag orientiert, unabhängig von Größe oder Stückzahl. Nadel &amp; Zwirn e.U. ist ein Ein-Personen-Betrieb von Raphael Gritsch: kein Team, keine Zwischenhändler, sondern direkter Kontakt zwischen Gründer und Kunde.</p>
+          <p>Vier Grundsätze, an denen sich jeder Auftrag orientiert, unabhängig von Größe oder Stückzahl. Nadel &amp; Zwirn ist ein Ein-Personen-Betrieb von Raphael Gritsch: kein Team, keine Zwischenhändler, sondern direkter Kontakt zwischen Gründer und Kunde.</p>
         </div>
         <div class="warum-photo reveal">
           <img src="images stickamschine(1).jfif" alt="Happy Mehrkopf-Stickmaschine bestickt einen bunten Ahornblatt-Anhänger auf hellem Stoff">
@@ -1409,9 +1410,9 @@
     <div class="footer-grid">
       <div class="foot-brand">Nadel &amp; Zwirn</div>
       <p>Klagenfurt, Kärnten, Österreich</p>
-      <p>© <span id="foot-year"></span> Nadel &amp; Zwirn e.U.</p>
+      <p>© <span id="foot-year"></span> Raphael Gritsch, Nadel &amp; Zwirn</p>
     </div>
-    <p class="legal-note">Nadel &amp; Zwirn e.U. hat den Geschäftsbetrieb noch nicht aufgenommen (Start: 1. Jänner 2027). Impressum und Datenschutzerklärung folgen vor dem Start des Geschäftsbetriebs.</p>
+    <p class="legal-note">Nadel &amp; Zwirn hat den Geschäftsbetrieb noch nicht aufgenommen (Start: 1. Jänner 2027). <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutzerklärung</a> · <a href="agb.html">AGB</a></p>
   </div>
 </footer>
 

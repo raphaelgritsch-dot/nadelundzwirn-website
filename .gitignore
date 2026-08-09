@@ -1,3 +1,6 @@
 # Interne Geschäftsunterlagen, nicht für die öffentliche Website bestimmt
 NadelZwirn_Kosten.xlsx
 NadelZwirn_Preisliste.pdf
+
+# Netlify-CLI-Lokalstatus, nicht für GitHub Pages relevant
+.netlify/

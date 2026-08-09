@@ -623,6 +623,52 @@
     .ablauf-grid{ grid-template-columns: 1fr; gap: 36px; }
   }
 
+  /* ---------- FAQ-Sektion: natives <details>/<summary> als Accordion,
+     kein zusätzliches JS nötig. Trennlinien statt Boxen, passend zum
+     restlichen Editorial-Stil. Direkt vor Kontakt platziert, um
+     typische Fragen (Mindestmenge, Preis, Lieferzeit, Ablauf) schon
+     vor der ersten Kontaktaufnahme zu beantworten. ---------- */
+  .faq-list{ max-width: 780px; margin-top: 8px; border-top: 1px solid var(--line); }
+  .faq-item{ border-bottom: 1px solid var(--line); }
+  .faq-item summary{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 24px 0;
+    cursor: pointer;
+    list-style: none;
+    font-family: var(--font-display);
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+    color: var(--fg);
+  }
+  .faq-item summary::-webkit-details-marker{ display: none; }
+  .faq-item .faq-toggle{
+    flex: none;
+    width: 22px;
+    height: 22px;
+    position: relative;
+    color: var(--red);
+  }
+  .faq-item .faq-toggle::before,
+  .faq-item .faq-toggle::after{
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    background: currentColor;
+    transform: translate(-50%, -50%);
+    transition: transform 200ms ease;
+  }
+  .faq-item .faq-toggle::before{ width: 14px; height: 1.5px; }
+  .faq-item .faq-toggle::after{ width: 1.5px; height: 14px; }
+  .faq-item[open] .faq-toggle::after{ transform: translate(-50%, -50%) rotate(90deg); opacity: 0; }
+  .faq-item p{ font-size: 0.96rem; color: var(--fg-dim); max-width: 62ch; margin: 0 0 26px; }
+  @media (max-width: 600px){
+    .faq-item summary{ font-size: 0.92rem; }
+  }
+
   /* ---------- CTA-Zeile: großer Text links, quadratischer Pfeil-
      Rahmen rechts, ganze Zeile klickbar ---------- */
   .cta-row{

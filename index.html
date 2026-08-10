@@ -726,27 +726,41 @@
     transform: rotate(45deg);
   }
 
-  /* ---------- Galerie: Vollbild-Grid ohne Abstände ---------- */
-  .gallery-grid{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 220px;
-    gap: 1px;
-    background: var(--line);
+  /* ---------- Galerie: automatisch laufende Slideshow (rechts nach
+     links), gleiches Prinzip wie die Text-Marquees anderswo auf der
+     Seite. Trackliste wird 1x im Markup dupliziert, damit die
+     Endlosschleife nahtlos ist (Animation läuft von 0 auf -50%).
+     Pausiert bei Hover/Fokus, damit man ein Bild in Ruhe anklicken
+     kann. Lightbox-Funktion bleibt erhalten (gleiche .gallery-item-
+     Klasse, JS bindet weiterhin an alle Treffer inkl. Duplikate). ---------- */
+  .gallery-marquee-wrap{
+    overflow: hidden;
     border-top: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
   }
+  .gallery-marquee-track{
+    display: flex;
+    width: max-content;
+    animation: gallery-scroll 42s linear infinite;
+  }
+  .gallery-marquee-track:hover,
+  .gallery-marquee-track:focus-within{ animation-play-state: paused; }
+  @keyframes gallery-scroll{
+    from{ transform: translateX(0); }
+    to{ transform: translateX(-50%); }
+  }
   .gallery-item{
     position: relative;
-    grid-column: span 1;
-    grid-row: span 1;
+    flex: none;
+    width: 300px;
+    height: 360px;
     overflow: hidden;
     padding: 0;
     cursor: pointer;
     background: var(--bg-0);
     border: none;
+    border-right: 1px solid var(--line);
   }
-  .gallery-item.large{ grid-column: span 2; grid-row: span 2; }
   .gallery-item img{
     width: 100%;
     height: 100%;
@@ -772,8 +786,7 @@
   .gallery-item:hover .cap, .gallery-item:focus-visible .cap{ opacity: 1; }
 
   @media (max-width: 760px){
-    .gallery-grid{ grid-template-columns: repeat(2, 1fr); grid-auto-rows: 200px; }
-    .gallery-item.large{ grid-column: span 2; grid-row: span 1; }
+    .gallery-item{ width: 220px; height: 280px; }
   }
 
   /* ---------- Video-Feld (Stanley/Stella Partnerschaft): schmales

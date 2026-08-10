@@ -197,6 +197,19 @@
   .btn-outline .arrow{ transition: transform var(--transition); }
   .btn-outline:hover .arrow{ transform: translate(2px, -2px); }
 
+  /* ---------- WhatsApp-Kontaktoption: schnellerer Weg neben dem
+     Formular, gleicher .btn-outline-Stil, mit kleinem WhatsApp-Icon
+     davor. Reduziert die Hemmschwelle vor dem ersten Kontakt. ---------- */
+  .kontakt-alt{
+    max-width: 640px;
+    margin-top: 32px;
+    padding-top: 28px;
+    border-top: 1px solid var(--line);
+  }
+  .kontakt-alt p{ font-size: 0.94rem; color: var(--fg-dim); margin: 0 0 16px; }
+  .kontakt-alt .btn-outline{ gap: 0.7em; }
+  .kontakt-alt .btn-outline svg{ width: 18px; height: 18px; flex: none; }
+
   :focus-visible{
     outline: 2px solid var(--red);
     outline-offset: 3px;

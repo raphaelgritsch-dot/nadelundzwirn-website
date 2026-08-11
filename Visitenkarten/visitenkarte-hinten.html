@@ -3,18 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <title>Visitenkarte Rückseite — Nadel & Zwirn</title>
-<link href="fonts/fonts.css" rel="stylesheet">
+<link href="../fonts/fonts.css" rel="stylesheet">
 <style>
   @page{ size: 85mm 55mm; margin: 0; }
   *{ box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  html, body{ margin: 0; padding: 0; background: #ccc; }
+  html, body{ margin: 0; padding: 0; background: #444; }
   body{ display: flex; align-items: center; justify-content: center; min-height: 100vh; }
 
   :root{
-    --cream: #e9e0d2;
+    --bg-0: #0a0a0a;
+    --fg: #f3f2ee;
+    --fg-faint: #6c6c67;
+    --line: #2b2b2b;
     --red: #c9282c;
-    --red-dark: #8f1c1f;
-    --font-display: 'Archivo Black', 'Inter', Arial, sans-serif;
+    --font-script: 'Yellowtail', cursive;
     --font-body: 'Inter', Arial, sans-serif;
   }
 
@@ -23,84 +25,93 @@
     height: 55mm;
     position: relative;
     overflow: hidden;
-    background: var(--cream);
-    box-shadow: 0 4px 24px rgba(0,0,0,0.25);
+    background: var(--bg-0);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.4);
   }
 
-  /* Großes rotes Feld, diagonal geschnitten, lässt oben links eine
-     Creme-Ecke frei (wie im Referenzbild) */
-  .red-field{
+  .brand-block{
     position: absolute;
-    inset: 0;
-    background: var(--red);
-    clip-path: polygon(0 34%, 46% 0, 100% 0, 100% 100%, 0 100%);
+    left: 0; right: 0; top: 5mm;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
-
-  /* Diagonale Streifen-Deko in der Creme-Ecke oben links */
-  .stripes{
-    position: absolute;
-    left: 4mm; top: 4mm;
-    width: 26mm; height: 16mm;
+  .emblem{
+    height: 15mm;
+    width: auto;
   }
-  .stripes span{
-    position: absolute;
-    left: 0; top: 0;
-    width: 30mm;
-    height: 0.9mm;
-    background: var(--red);
-    transform-origin: left center;
-    transform: rotate(-34deg);
-  }
-  .stripes span:nth-child(1){ top: 0mm; }
-  .stripes span:nth-child(2){ top: 2.3mm; }
-  .stripes span:nth-child(3){ top: 4.6mm; }
-
-  /* QR-Feld oben rechts */
-  .qr-box{
-    position: absolute;
-    right: 5mm; top: 5mm;
-    width: 17mm; height: 17mm;
-    background: #fff;
-    padding: 1.4mm;
-  }
-  .qr-box img{ width: 100%; height: 100%; display: block; }
-
-  /* Markenname unten links */
-  .brand{
-    position: absolute;
-    left: 6mm; bottom: 6.5mm;
-    color: var(--cream);
-  }
-  .brand .word{
-    font-family: var(--font-display);
-    font-weight: 400;
-    font-size: 6.6mm;
+  .word{
+    font-family: var(--font-script);
+    color: var(--fg);
+    font-size: 8mm;
     line-height: 1;
-    margin: 0 0 1.6mm;
+    margin: 1.5mm 0 1mm;
   }
-  .brand .tagline{
+  .tagline{
     font-family: var(--font-body);
     font-weight: 600;
-    font-size: 2.3mm;
+    font-size: 2mm;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: rgba(233,224,210,0.75);
+    color: var(--fg-faint);
     margin: 0;
   }
+
+  .divider{
+    position: absolute;
+    left: 8mm; right: 8mm; top: 34.5mm;
+    border: none;
+    border-top: 0.25mm solid var(--line);
+  }
+
+  .bottom-row{
+    position: absolute;
+    left: 8mm; right: 8mm; bottom: 4.5mm;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .bottom-row .url{
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 2.6mm;
+    color: var(--fg);
+  }
+  .bottom-row .hint{
+    font-family: var(--font-body);
+    font-size: 1.8mm;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--fg-faint);
+    margin: 0.8mm 0 0;
+  }
+
+  .qr-box{
+    width: 15mm; height: 15mm;
+    background: #fff;
+    border: 0.4mm solid var(--red);
+    padding: 1mm;
+    flex: none;
+  }
+  .qr-box img{ width: 100%; height: 100%; display: block; }
 </style>
 </head>
 <body>
   <div class="card">
-    <div class="red-field"></div>
-    <div class="stripes">
-      <span></span><span></span><span></span>
-    </div>
-    <div class="qr-box">
-      <img src="qr-nadelundzwirn.svg" alt="QR-Code zu nadelundzwirn.at">
-    </div>
-    <div class="brand">
+    <div class="brand-block">
+      <img class="emblem" src="../Logo vektor.png" alt="Nadel &amp; Zwirn Emblem: Pantherkopf mit gekreuzten Nähnadeln">
       <p class="word">Nadel &amp; Zwirn</p>
-      <p class="tagline">Ihr Stickbetrieb</p>
+      <p class="tagline">Stickerei aus Klagenfurt</p>
+    </div>
+    <hr class="divider">
+    <div class="bottom-row">
+      <div>
+        <p class="url">nadelundzwirn.at</p>
+        <p class="hint">QR-Code scannen</p>
+      </div>
+      <div class="qr-box">
+        <img src="qr-nadelundzwirn.svg" alt="QR-Code zu nadelundzwirn.at">
+      </div>
     </div>
   </div>
 </body>

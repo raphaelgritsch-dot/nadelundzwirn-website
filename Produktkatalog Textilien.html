@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Nadel &amp; Zwirn — Textilkatalog</title>
+<link href="fonts/fonts.css" rel="stylesheet">
+<style>
+  :root{
+    --bg-0: #0a0a0a;
+    --bg-1: #121212;
+    --bg-2: #1a1a1a;
+    --fg:      #f3f2ee;
+    --fg-dim:  #a7a6a1;
+    --fg-faint:#6c6c67;
+    --line:      #2b2b2b;
+    --line-soft: #202020;
+    --red:      #c9282c;
+    --font-script:  'Yellowtail', cursive;
+    --font-display: 'Archivo Black', 'Inter', Arial, sans-serif;
+    --font-body:    'Inter', Arial, sans-serif;
+  }
+  *,*::before,*::after{ box-sizing: border-box; }
+  html,body{ margin:0; padding:0; background:var(--bg-0); color:var(--fg); font-family:var(--font-body); }
+  body{ font-size:12.5px; line-height:1.5; -webkit-font-smoothing:antialiased; }
+  h1,h2,h3{ font-family:var(--font-display); font-weight:400; text-transform:uppercase; letter-spacing:0.005em; line-height:0.98; margin:0; color:var(--fg); }
+  p{ margin:0 0 0.8em; color:var(--fg-dim); }
+  img{ max-width:100%; display:block; }
+
+  @page{ size: A4; margin: 0; }
+  @media print{
+    .pdf-page{ break-after: page; }
+    .pdf-page:last-child{ break-after: auto; }
+  }
+
+  .pdf-page{
+    width: 210mm;
+    height: 297mm;
+    position: relative;
+    overflow: hidden;
+    background: var(--bg-0);
+    page-break-after: always;
+  }
+  .pdf-page:last-child{ page-break-after: auto; }
+
+  .eyebrow{
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 9px;
+    font-weight: 700;
+    color: var(--fg-faint);
+    display: inline-block;
+  }
+  .eyebrow::before{
+    content:'';
+    display:inline-block;
+    width:16px; height:1px;
+    background:var(--red);
+    margin-right:8px;
+    vertical-align:middle;
+  }
+
+  /* ---------- Cover ---------- */
+  .cover{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding: 20mm;
+  }
+  .cover .brand-script{ font-family:var(--font-script); font-size:34px; color:var(--fg); margin-bottom:6mm; }
+  .cover .brand-tagline{
+    font-family:var(--font-body); text-transform:uppercase; letter-spacing:0.16em;
+    font-size:9px; font-weight:600; color:var(--fg-faint); margin-bottom:22mm;
+  }
+  .cover h1{
+    font-size: 46px;
+    -webkit-text-stroke: 1.5px var(--fg);
+    color: transparent;
+    margin-bottom: 4mm;
+  }
+  .cover h1 span{ display:block; }
+  .cover .cover-sub{
+    font-size: 13px;
+    color: var(--fg-dim);
+    max-width: 110mm;
+    margin: 0 auto 14mm;
+  }
+  .cover .cover-meta{
+    border-top: 1px solid var(--line);
+    padding-top: 6mm;
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--fg-faint);
+  }
+
+  /* ---------- Content pages ---------- */
+  .page-inner{ padding: 18mm 16mm; height:100%; display:flex; flex-direction:column; }
+  .page-head{ border-top:1px solid var(--line); padding-top:5mm; margin-bottom:8mm; }
+  .page-head h2{ font-size:24px; margin-top:2mm; }
+  .page-foot{
+    margin-top:auto;
+    border-top:1px solid var(--line);
+    padding-top:3mm;
+    display:flex;
+    justify-content:space-between;
+    font-size:8.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--fg-faint);
+  }
+
+  .intro-list{ margin-top:4mm; }
+  .intro-list li{
+    display:grid;
+    grid-template-columns: 14mm 1fr;
+    gap:4mm;
+    padding:5mm 0;
+    border-top:1px solid var(--line);
+  }
+  .intro-list .num{ font-family:var(--font-display); color:var(--red); font-size:14px; }
+  .intro-list h3{ font-size:13px; margin-bottom:2mm; }
+  .intro-list p{ font-size:11px; margin-bottom:0; }
+  .intro-list{ border-bottom:1px solid var(--line); }
+
+  /* ---------- Product page ---------- */
+  .product-grid{
+    display:grid;
+    grid-template-columns: 78mm 1fr;
+    gap:10mm;
+    flex:1;
+    min-height:0;
+  }
+  .product-photo{
+    background:#f3f2ee;
+    overflow:hidden;
+    border:1px solid var(--line);
+    height: 220mm;
+  }
+  .product-photo img{ width:100%; height:100%; object-fit:cover; object-position: top center; }
+
+  .product-info h2{ font-size:26px; margin-bottom:1mm; }
+  .product-info .sub{ font-size:12px; color:var(--fg-dim); margin-bottom:5mm; }
+
+  .stat-rows{ border-bottom:1px solid var(--line); margin-bottom:5mm; }
+  .stat-row{
+    display:grid;
+    grid-template-columns: 34mm 1fr;
+    gap:4mm;
+    padding:3mm 0;
+    border-top:1px solid var(--line);
+    align-items:baseline;
+  }
+  .stat-row .stat-label{
+    font-family:var(--font-body); text-transform:uppercase; letter-spacing:0.1em;
+    font-size:8.5px; font-weight:700; color:var(--fg-faint);
+  }
+  .stat-row .stat-value{ font-size:11.5px; color:var(--fg); }
+
+  .block-title{
+    font-family:var(--font-body); text-transform:uppercase; letter-spacing:0.12em;
+    font-size:9px; font-weight:700; color:var(--fg-faint); margin-bottom:2mm; margin-top:5mm;
+  }
+  .block-title:first-of-type{ margin-top:0; }
+  .desc-list{ list-style:none; padding:0; margin:0 0 2mm; }
+  .desc-list li{ font-size:11px; color:var(--fg-dim); padding-left:3mm; position:relative; margin-bottom:1mm; }
+  .desc-list li::before{ content:'—'; color:var(--red); position:absolute; left:0; }
+
+  .color-groups{ display:flex; flex-wrap:wrap; gap:3mm 6mm; }
+  .color-groups .cg{
+    border:1px solid var(--line);
+    padding:2.5mm 4mm;
+    font-size:10px;
+  }
+  .color-groups .cg b{ color:var(--fg); font-family:var(--font-display); font-weight:400; font-size:13px; }
+  .color-groups .cg span{ display:block; color:var(--fg-faint); font-size:8.5px; text-transform:uppercase; letter-spacing:0.08em; margin-top:0.5mm; }
+  .color-examples{ font-size:10px; color:var(--fg-dim); margin-top:3mm; }
+  .color-examples b{ color:var(--fg-faint); font-weight:700; text-transform:uppercase; font-size:8.5px; letter-spacing:0.08em; }
+
+  /* ---------- Back / contact page ---------- */
+  .back{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding: 20mm;
+  }
+  .back h2{ font-size:32px; margin-bottom:6mm; }
+  .kontakt-address{ margin-top:10mm; border-top:1px solid var(--line); }
+  .addr-row{
+    display:grid;
+    grid-template-columns: 40mm 1fr;
+    gap:4mm;
+    padding:4mm 0;
+    border-bottom:1px solid var(--line);
+  }
+  .addr-row dt{ font-size:9px; text-transform:uppercase; letter-spacing:0.1em; font-weight:700; color:var(--fg-faint); margin:0; }
+  .addr-row dd{ margin:0; color:var(--fg); font-size:12px; }
+  .back .foot-note{ margin-top:10mm; font-size:9.5px; color:var(--fg-faint); }
+</style>
+</head>
+<body>
+
+<!-- ============ SEITE 1 — COVER ============ -->
+<section class="pdf-page cover">
+  <span class="brand-script">Nadel &amp; Zwirn</span>
+  <span class="brand-tagline">Stickerei aus Klagenfurt</span>
+  <h1><span>Textil-</span><span>katalog</span></h1>
+  <p class="cover-sub">Ausgewählte Textilien für individuelle Firmenlogo- und Motiv-Stickerei — T-Shirts, Hoodies und Mützen als Basis für deine Veredelung.</p>
+  <div class="cover-meta">Textilbasis: Stanley/Stella · Stand September 2026</div>
+</section>
+
+<!-- ============ SEITE 2 — INTRO ============ -->
+<section class="pdf-page">
+  <div class="page-inner">
+    <div class="page-head">
+      <span class="eyebrow">Über die Textilien</span>
+      <h2>Basis für deine Stickerei</h2>
+    </div>
+    <p style="font-size:12px; max-width:150mm;">Alle Textilien in diesem Katalog stammen von Stanley/Stella. Sie werden bei Nadel &amp; Zwirn unbedruckt als Rohware bezogen und anschließend mit deinem Logo, Schriftzug oder Motiv bestickt — gefertigt mit Madeira Polyneon NE 40 auf einer Happy V2 Stickmaschine in Klagenfurt.</p>
+
+    <ul class="intro-list">
+      <li>
+        <span class="num">01</span>
+        <div>
+          <h3>Zertifizierte Baumwolle</h3>
+          <p>Die meisten Farben der Baumwoll-Artikel sind GOTS-zertifiziert; Heather-Farbtöne mit recyceltem Materialanteil sind GRS-zertifiziert.</p>
+        </div>
+      </li>
+      <li>
+        <span class="num">02</span>
+        <div>
+          <h3>Große Farbauswahl</h3>
+          <p>Von klassischem Schwarz und Weiß bis zu Heather-Tönen und Saisonfarben — Details zur Farbanzahl je Modell findest du auf der jeweiligen Produktseite.</p>
+        </div>
+      </li>
+      <li>
+        <span class="num">03</span>
+        <div>
+          <h3>Größen für jeden Auftrag</h3>
+          <p>Unisex-Fits von XXS bis 5XL (modellabhängig), Mützen in One Size — geeignet für Teamkleidung, Merchandise und Einzelstücke.</p>
+        </div>
+      </li>
+      <li>
+        <span class="num">04</span>
+        <div>
+          <h3>Gefertigt für die Veredelung</h3>
+          <p>Vorgewaschene Stoffe, saubere Nähte und stabile Flächen — ideale Grundlage für ein hochwertiges, langlebiges Stickbild.</p>
+        </div>
+      </li>
+    </ul>
+
+    <div class="page-foot"><span>Nadel &amp; Zwirn — Textilkatalog</span><span>Seite 02</span></div>
+  </div>
+</section>
+
+<!-- ============ PRODUKTSEITEN ============ -->
+
+<!-- Creator -->
+<section class="pdf-page">
+  <div class="page-inner">
+    <div class="page-head"><span class="eyebrow">T-Shirts</span></div>
+    <div class="product-grid">
+      <div class="product-photo"><img src="produktkatalog-bilder/STTU169 Creator.jpeg" alt="Creator 2.0 T-Shirt"></div>
+      <div class="product-info">
+        <h2>Creator 2.0</h2>
+        <div class="sub">Das Iconic Unisex-T-Shirt · Stanley/Stella STTU169</div>
+
+        <div class="stat-rows">
+          <div class="stat-row"><span class="stat-label">Fit</span><span class="stat-value">Medium Fit</span></div>
+          <div class="stat-row"><span class="stat-label">Größen</span><span class="stat-value">XXS – 5XL (außer Heather Haze)</span></div>
+          <div class="stat-row"><span class="stat-label">Gewicht</span><span class="stat-value">180 g/m²</span></div>
+          <div class="stat-row"><span class="stat-label">Herkunft</span><span class="stat-value">Weben, Färben, Konfektion: Bangladesch</span></div>
+        </div>
+
+        <div class="block-title">Material</div>
+        <p style="font-size:11px;">Singlejersey, 100 % Bio-Baumwolle, gekämmt, ringgesponnen. Heather Haze-Variante: 70 % Bio-Baumwolle, 30 % recycelte Baumwolle. Vorgewaschen.</p>
+
+        <div class="block-title">Verarbeitung</div>
+        <ul class="desc-list">
+          <li>1x1-Rippstrick am Halsausschnitt</li>
+          <li>Nackenband aus Oberstoff</li>
+          <li>Eingesetzte Ärmel</li>
+          <li>Doppelabsteppung an Ärmelenden und unterem Saum</li>
+        </ul>
+
+        <div class="block-title">Farben</div>
+        <div class="color-groups">
+          <div class="cg"><b>4</b><span>Weißtöne</span></div>
+          <div class="cg"><b>47</b><span>Farben</span></div>
+          <div class="cg"><b>6</b><span>Essential Heathers</span></div>
+          <div class="cg"><b>1</b><span>Special Heather</span></div>
+        </div>
+        <p class="color-examples"><b>Auswahl:</b> White, Black, French Navy, Burgundy, Bright Blue, Anthracite, Khaki, Cotton Pink, Deep Teal, Mocha</p>
+      </div>
+    </div>
+    <div class="page-foot"><span>Nadel &amp; Zwirn — Textilkatalog</span><span>Seite 03</span></div>
+  </div>
+</section>
+
+<!-- Crafter -->
+<section class="pdf-page">
+  <div class="page-inner">
+    <div class="page-head"><span class="eyebrow">T-Shirts</span></div>
+    <div class="product-grid">
+      <div class="product-photo"><img src="produktkatalog-bilder/STTU170 Crafter.jpeg" alt="Crafter T-Shirt"></div>
+      <div class="product-info">
+        <h2>Crafter</h2>
+        <div class="sub">Das Unisex-T-Shirt · Stanley/Stella STTU170</div>
+
+        <div class="stat-rows">
+          <div class="stat-row"><span class="stat-label">Fit</span><span class="stat-value">Medium Fit</span></div>
+          <div class="stat-row"><span class="stat-label">Größen</span><span class="stat-value">XXS – 5XL (außer Heather Haze)</span></div>
+          <div class="stat-row"><span class="stat-label">Gewicht</span><span class="stat-value">155 g/m²</span></div>
+          <div class="stat-row"><span class="stat-label">Herkunft</span><span class="stat-value">Weben, Färben, Konfektion: Bangladesch</span></div>
+        </div>
+
+        <div class="block-title">Material</div>
+        <p style="font-size:11px;">Singlejersey, 100 % gekämmte, ringgesponnene Bio-Baumwolle. Vorgewaschen. Leichteste T-Shirt-Qualität im Sortiment.</p>
+
+        <div class="block-title">Verarbeitung</div>
+        <ul class="desc-list">
+          <li>1x1-Rippstrick am Halsausschnitt</li>
+          <li>Nackenband aus Oberstoff</li>
+          <li>Eingesetzte Ärmel</li>
+          <li>Doppelabsteppung an Ärmelenden und unterem Saum</li>
+        </ul>
+
+        <div class="block-title">Farben</div>
+        <div class="color-groups">
+          <div class="cg"><b>3</b><span>Weißtöne</span></div>
+          <div class="cg"><b>35</b><span>Farben</span></div>
+          <div class="cg"><b>2</b><span>Essential Heathers</span></div>
+          <div class="cg"><b>1</b><span>Special Heather</span></div>
+        </div>
+        <p class="color-examples"><b>Auswahl:</b> White, Black, French Navy, Burgundy, Bright Blue, Khaki, Anthracite, Sage, Fiesta, Mocha</p>
+      </div>
+    </div>
+    <div class="page-foot"><span>Nadel &amp; Zwirn — Textilkatalog</span><span>Seite 04</span></div>
+  </div>
+</section>
+
+<!-- Blaster -->
+<section class="pdf-page">
+  <div class="page-inner">
+    <div class="page-head"><span class="eyebrow">T-Shirts</span></div>
+    <div class="product-grid">
+      <div class="product-photo"><img src="produktkatalog-bilder/STTU959 Blaster.jpeg" alt="Blaster 2.0 T-Shirt"></div>
+      <div class="product-info">
+        <h2>Blaster 2.0</h2>
+        <div class="sub">Das Oversized Unisex-T-Shirt mit Stehkragen · Stanley/Stella STTU959</div>
+
+        <div class="stat-rows">
+          <div class="stat-row"><span class="stat-label">Fit</span><span class="stat-value">Oversized</span></div>
+          <div class="stat-row"><span class="stat-label">Größen</span><span class="stat-value">XXS – 3XL</span></div>
+          <div class="stat-row"><span class="stat-label">Gewicht</span><span class="stat-value">200 g/m²</span></div>
+          <div class="stat-row"><span class="stat-label">Herkunft</span><span class="stat-value">Weben, Färben, Konfektion: Bangladesch</span></div>
+        </div>
+
+        <div class="block-title">Material</div>
+        <p style="font-size:11px;">Singlejersey, 100 % gekämmte, ringgesponnene Bio-Baumwolle. Vorgewaschen.</p>
+
+        <div class="block-title">Verarbeitung</div>
+        <ul class="desc-list">
+          <li>1x1-Rippstrick am Stehkragen</li>
+          <li>Nackenband aus Oberstoff</li>
+          <li>Eingesetzte Ärmel mit überschnittenen Schultern</li>
+          <li>Doppelabsteppung an Ärmelenden und unterem Saum</li>
+        </ul>
+
+        <div class="block-title">Farben</div>
+        <div class="color-groups">
+          <div class="cg"><b>2</b><span>Weißtöne</span></div>
+          <div class="cg"><b>9</b><span>Farben</span></div>
+          <div class="cg"><b>1</b><span>Essential Heather</span></div>
+        </div>
+        <p class="color-examples"><b>Auswahl:</b> White, Black, French Navy, Cream, Khaki, Mocha, Stone, Violet</p>
+      </div>
+    </div>
+    <div class="page-foot"><span>Nadel &amp; Zwirn — Textilkatalog</span><span>Seite 05</span></div>
+  </div>
+</section>
+
+<!-- Archer -->
+<section class="pdf-page">
+  <div class="page-inner">
+    <div class="page-head"><span class="eyebrow">Hoodies</span></div>
+    <div class="product-grid">
+      <div class="product-photo"><img src="produktkatalog-bilder/STSU011 Archer.jpeg" alt="Archer Hoodie"></div>
+      <div class="product-info">
+        <h2>Archer</h2>
+        <div class="sub">Der Unisex-Hoodie aus French Terry · Stanley/Stella STSU011</div>
+
+        <div class="stat-rows">
+          <div class="stat-row"><span class="stat-label">Fit</span><span class="stat-value">Medium Fit</span></div>
+          <div class="stat-row"><span class="stat-label">Größen</span><span class="stat-value">XXS – 3XL</span></div>
+          <div class="stat-row"><span class="stat-label">Gewicht</span><span class="stat-value">300 g/m²</span></div>
+          <div class="stat-row"><span class="stat-label">Herkunft</span><span class="stat-value">Weben, Färben, Konfektion: Bangladesch</span></div>
+        </div>
+
+        <div class="block-title">Material</div>
+        <p style="font-size:11px;">Terry, 85 % gekämmte ringgesponnene Bio-Baumwolle, 15 % recyceltes Polyester. Vorgewaschen, weicher Griff.</p>
+
+        <div class="block-title">Verarbeitung</div>
+        <ul class="desc-list">
+          <li>Doppellagige Kapuze aus Oberstoff</li>
+          <li>Nackenband mit Fischgrätmuster, Halbmond im Nacken</li>
+          <li>Runde gleichfarbige Kordel mit Metallenden, Metallösen</li>
+          <li>Känguru-Tasche, 1x1-Rippstrick an Bündchen und Saum</li>
+        </ul>
+
+        <div class="block-title">Farben</div>
+        <div class="color-groups">
+          <div class="cg"><b>2</b><span>Weißtöne</span></div>
+          <div class="cg"><b>12</b><span>Farben</span></div>
+          <div class="cg"><b>1</b><span>Essential Heather</span></div>
+        </div>
+        <p class="color-examples"><b>Auswahl:</b> White, Black, French Navy, Burgundy, Bright Blue, Sage, Caribbean Blue</p>
+      </div>
+    </div>
+    <div class="page-foot"><span>Nadel &amp; Zwirn — Textilkatalog</span><span>Seite 06</span></div>
+  </div>
+</section>
+
+<!-- Cruiser -->
+<section class="pdf-page">
+  <div class="page-inner">
+    <div class="page-head"><span class="eyebrow">Hoodies</span></div>
+    <div class="product-grid">
+      <div class="product-photo"><img src="produktkatalog-bilder/STSU177 Cruiser.jpeg" alt="Cruiser 2.0 Hoodie"></div>
+      <div class="product-info">
+        <h2>Cruiser 2.0</h2>
+        <div class="sub">Der Iconic Unisex-Hoodie · Stanley/Stella STSU177</div>
+
+        <div class="stat-rows">
+          <div class="stat-row"><span class="stat-label">Fit</span><span class="stat-value">Relaxed Medium Fit</span></div>
+          <div class="stat-row"><span class="stat-label">Größen</span><span class="stat-value">XXS – 5XL (außer Heather Haze)</span></div>
+          <div class="stat-row"><span class="stat-label">Gewicht</span><span class="stat-value">350 g/m²</span></div>
+          <div class="stat-row"><span class="stat-label">Herkunft</span><span class="stat-value">Weben, Färben, Konfektion: Bangladesch</span></div>
+        </div>
+
+        <div class="block-title">Material</div>
+        <p style="font-size:11px;">Aufgerautes Sweatshirt, 100 % Bio-Baumwolle, ringgesponnen. Heather Haze: 80 % Bio-Baumwolle, 20 % recycelte Baumwolle. Vorgewaschen.</p>
+
+        <div class="block-title">Verarbeitung</div>
+        <ul class="desc-list">
+          <li>Doppellagige Kapuze aus Oberstoff</li>
+          <li>Runde gleichfarbige Kordel mit Metallenden, Metallösen</li>
+          <li>Nackenband mit Fischgrätmuster, Halbmond im Nacken</li>
+          <li>Känguru-Tasche, 1x1-Rippstrick an Bündchen und Saum</li>
+        </ul>
+
+        <div class="block-title">Farben</div>
+        <div class="color-groups">
+          <div class="cg"><b>3</b><span>Weißtöne</span></div>
+          <div class="cg"><b>42</b><span>Farben</span></div>
+          <div class="cg"><b>5</b><span>Essential Heathers</span></div>
+          <div class="cg"><b>1</b><span>Special Heather</span></div>
+        </div>
+        <p class="color-examples"><b>Auswahl:</b> White, Black, French Navy, Burgundy, Bright Blue, Anthracite, Khaki, Deep Teal, Viva Yellow</p>
+      </div>
+    </div>
+    <div class="page-foot"><span>Nadel &amp; Zwirn — Textilkatalog</span><span>Seite 07</span></div>
+  </div>
+</section>
+
+<!-- Drummer -->
+<section class="pdf-page">
+  <div class="page-inner">
+    <div class="page-head"><span class="eyebrow">Hoodies</span></div>
+    <div class="product-grid">
+      <div class="product-photo"><img src="produktkatalog-bilder/STSU168 Drummer.jpeg" alt="Drummer 2.0 Hoodie"></div>
+      <div class="product-info">
+        <h2>Drummer 2.0</h2>
+        <div class="sub">Der Unisex-Hoodie · Stanley/Stella STSU168</div>
+
+        <div class="stat-rows">
+          <div class="stat-row"><span class="stat-label">Fit</span><span class="stat-value">Medium Fit</span></div>
+          <div class="stat-row"><span class="stat-label">Größen</span><span class="stat-value">XXS – 5XL</span></div>
+          <div class="stat-row"><span class="stat-label">Gewicht</span><span class="stat-value">280 g/m²</span></div>
+          <div class="stat-row"><span class="stat-label">Herkunft</span><span class="stat-value">Weben, Färben, Konfektion: Bangladesch</span></div>
+        </div>
+
+        <div class="block-title">Material</div>
+        <p style="font-size:11px;">Aufgerautes Sweatshirt, 85 % gekämmte ringgesponnene Bio-Baumwolle, 15 % recyceltes Polyester. Vorgewaschen.</p>
+
+        <div class="block-title">Verarbeitung</div>
+        <ul class="desc-list">
+          <li>Doppellagige Kapuze aus Oberstoff</li>
+          <li>Flache gleichfarbige Kordel, gestickte Ösen</li>
+          <li>Nackenband mit Fischgrätmuster, Halbmond im Nacken</li>
+          <li>Känguru-Tasche mit Doppelabsteppung, durchgehend Flatlock-Nähte</li>
+        </ul>
+
+        <div class="block-title">Farben</div>
+        <div class="color-groups">
+          <div class="cg"><b>3</b><span>Weißtöne</span></div>
+          <div class="cg"><b>23</b><span>Farben</span></div>
+          <div class="cg"><b>2</b><span>Essential Heathers</span></div>
+        </div>
+        <p class="color-examples"><b>Auswahl:</b> White, Black, French Navy, Burgundy, Royal Blue, Khaki, Anthracite, Bottle Green</p>
+      </div>
+    </div>
+    <div class="page-foot"><span>Nadel &amp; Zwirn — Textilkatalog</span><span>Seite 08</span></div>
+  </div>
+</section>
+
+<!-- Rib Beanie -->
+<section class="pdf-page">
+  <div class="page-inner">
+    <div class="page-head"><span class="eyebrow">Mützen</span></div>
+    <div class="product-grid">
+      <div class="product-photo"><img src="produktkatalog-bilder/STAU295 Rib Beanie.jpeg" alt="Rib Beanie 2.0"></div>
+      <div class="product-info">
+        <h2>Rib Beanie 2.0</h2>
+        <div class="sub">Die Rippstrick-Mütze · Stanley/Stella STAU295</div>
+
+        <div class="stat-rows">
+          <div class="stat-row"><span class="stat-label">Fit</span><span class="stat-value">Medium Fit</span></div>
+          <div class="stat-row"><span class="stat-label">Größe</span><span class="stat-value">One Size (Breite 24 cm)</span></div>
+          <div class="stat-row"><span class="stat-label">Herkunft</span><span class="stat-value">Weben, Färben, Konfektion: Bangladesch</span></div>
+        </div>
+
+        <div class="block-title">Material</div>
+        <p style="font-size:11px;">1x1-Rippstrick: 90 % Bio-Baumwolle (ringgesponnen, gekämmt), 9 % recyceltes Polyamid, 1 % Elastan. Vorgewaschen.</p>
+
+        <div class="block-title">Verarbeitung</div>
+        <ul class="desc-list">
+          <li>Vollständig formgestrickt</li>
+          <li>1x1-Ripp in einfacher Lage</li>
+          <li>Doppelt umgeschlagene Krempe — ideal für frontale Cap-Stickerei</li>
+        </ul>
+
+        <div class="block-title">Farben</div>
+        <div class="color-groups">
+          <div class="cg"><b>9</b><span>Farben</span></div>
+        </div>
+        <p class="color-examples"><b>Auswahl:</b> Black, French Navy, Bronze, Pebble Blue, Passionate Red, Misty Grey, Stargazer</p>
+      </div>
+    </div>
+    <div class="page-foot"><span>Nadel &amp; Zwirn — Textilkatalog</span><span>Seite 09</span></div>
+  </div>
+</section>
+
+<!-- Fisherman Beanie -->
+<section class="pdf-page">
+  <div class="page-inner">
+    <div class="page-head"><span class="eyebrow">Mützen</span></div>
+    <div class="product-grid">
+      <div class="product-photo"><img src="produktkatalog-bilder/STAU296 Fisherman.jpeg" alt="Fisherman Beanie 2.0"></div>
+      <div class="product-info">
+        <h2>Fisherman Beanie 2.0</h2>
+        <div class="sub">Die Fischer-Mütze · Stanley/Stella STAU296</div>
+
+        <div class="stat-rows">
+          <div class="stat-row"><span class="stat-label">Fit</span><span class="stat-value">Medium Fit</span></div>
+          <div class="stat-row"><span class="stat-label">Größe</span><span class="stat-value">One Size (Breite 26 cm)</span></div>
+          <div class="stat-row"><span class="stat-label">Herkunft</span><span class="stat-value">Weben, Färben, Konfektion: Bangladesch</span></div>
+        </div>
+
+        <div class="block-title">Material</div>
+        <p style="font-size:11px;">2x2-Rippstrick: 93 % Bio-Baumwolle, 6 % recyceltes Polyamid, 1 % Elastan. Vorgewaschen.</p>
+
+        <div class="block-title">Verarbeitung</div>
+        <ul class="desc-list">
+          <li>Vollständig formgestrickt</li>
+          <li>2x2-Ripp in einfacher Lage</li>
+          <li>Doppelt umgeschlagene Krempe mit Faltlinien</li>
+        </ul>
+
+        <div class="block-title">Farben</div>
+        <div class="color-groups">
+          <div class="cg"><b>1</b><span>Weißton</span></div>
+          <div class="cg"><b>7</b><span>Farben</span></div>
+        </div>
+        <p class="color-examples"><b>Auswahl:</b> Natural, Black, French Navy, Deep Teal, Khaki, Mocha, Earthy Red</p>
+      </div>
+    </div>
+    <div class="page-foot"><span>Nadel &amp; Zwirn — Textilkatalog</span><span>Seite 10</span></div>
+  </div>
+</section>
+
+<!-- ============ SEITE 11 — KONTAKT ============ -->
+<section class="pdf-page back">
+  <span class="eyebrow">Kontakt</span>
+  <h2>Jetzt Anfrage stellen</h2>
+  <p style="font-size:12.5px; max-width:130mm;">Textil ausgesucht? Schick uns dein Logo oder Motiv, die gewünschte Menge und Größenverteilung — du bekommst ein unverbindliches Angebot.</p>
+
+  <dl class="kontakt-address">
+    <div class="addr-row"><dt>Firma</dt><dd>Nadel &amp; Zwirn e.U., Raphael Gritsch</dd></div>
+    <div class="addr-row"><dt>Standort</dt><dd>Klagenfurt, Kärnten, Österreich</dd></div>
+    <div class="addr-row"><dt>E-Mail</dt><dd>raphael.gritsch@gmail.com</dd></div>
+    <div class="addr-row"><dt>WhatsApp</dt><dd>+43 677 61817640</dd></div>
+    <div class="addr-row"><dt>Website</dt><dd>nadelundzwirn.at</dd></div>
+  </dl>
+
+  <p class="foot-note">Nadel &amp; Zwirn nimmt den Geschäftsbetrieb am 1. Jänner 2027 auf. Alle Angaben zu Material und Farben laut Datenblättern des Herstellers Stanley/Stella, Stand September 2026. Abgebildete Farben können je nach Bildschirm/Druck leicht abweichen.</p>
+</section>
+
+</body>
+</html>

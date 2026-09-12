@@ -6,21 +6,21 @@
 <link href="fonts/fonts.css" rel="stylesheet">
 <style>
   :root{
-    --bg-0: #0a0a0a;
-    --bg-1: #121212;
-    --bg-2: #1a1a1a;
-    --fg:      #f3f2ee;
-    --fg-dim:  #a7a6a1;
-    --fg-faint:#6c6c67;
-    --line:      #2b2b2b;
-    --line-soft: #202020;
+    --bg-page: #f7f6f2;
+    --bg-card: #ffffff;
+    --bg-dark: #0a0a0a;
+    --fg:      #161616;
+    --fg-dim:  #55534d;
+    --fg-faint:#918f87;
+    --line:      #ddd9d0;
+    --line-strong: #161616;
     --red:      #c9282c;
     --font-script:  'Yellowtail', cursive;
     --font-display: 'Archivo Black', 'Inter', Arial, sans-serif;
     --font-body:    'Inter', Arial, sans-serif;
   }
   *,*::before,*::after{ box-sizing: border-box; }
-  html,body{ margin:0; padding:0; background:var(--bg-0); color:var(--fg); font-family:var(--font-body); }
+  html,body{ margin:0; padding:0; background:var(--bg-page); color:var(--fg); font-family:var(--font-body); }
   body{ font-size:12.5px; line-height:1.5; -webkit-font-smoothing:antialiased; }
   h1,h2,h3{ font-family:var(--font-display); font-weight:400; text-transform:uppercase; letter-spacing:0.005em; line-height:0.98; margin:0; color:var(--fg); }
   p{ margin:0 0 0.8em; color:var(--fg-dim); }
@@ -37,7 +37,7 @@
     height: 297mm;
     position: relative;
     overflow: hidden;
-    background: var(--bg-0);
+    background: var(--bg-page);
     page-break-after: always;
   }
   .pdf-page:last-child{ page-break-after: auto; }
@@ -48,13 +48,13 @@
     letter-spacing: 0.2em;
     font-size: 9px;
     font-weight: 700;
-    color: var(--fg-faint);
+    color: var(--fg-dim);
     display: inline-block;
   }
   .eyebrow::before{
     content:'';
     display:inline-block;
-    width:16px; height:1px;
+    width:16px; height:2px;
     background:var(--red);
     margin-right:8px;
     vertical-align:middle;
@@ -68,19 +68,20 @@
     justify-content:center;
     text-align:center;
     padding: 20mm;
+    background: var(--bg-page);
   }
-  .cover .brand-script{ font-family:var(--font-script); font-size:34px; color:var(--fg); margin-bottom:6mm; }
+  .cover .brand-script{ font-family:var(--font-script); font-size:36px; color:var(--fg); margin-bottom:6mm; }
   .cover .brand-tagline{
     font-family:var(--font-body); text-transform:uppercase; letter-spacing:0.16em;
     font-size:9px; font-weight:600; color:var(--fg-faint); margin-bottom:22mm;
   }
   .cover h1{
-    font-size: 46px;
-    -webkit-text-stroke: 1.5px var(--fg);
-    color: transparent;
-    margin-bottom: 4mm;
+    font-size: 48px;
+    color: var(--fg);
+    margin-bottom: 6mm;
   }
   .cover h1 span{ display:block; }
+  .cover .rule{ width:36mm; height:3px; background:var(--red); margin:0 auto 8mm; }
   .cover .cover-sub{
     font-size: 13px;
     color: var(--fg-dim);
@@ -97,9 +98,9 @@
   }
 
   /* ---------- Content pages ---------- */
-  .page-inner{ padding: 18mm 16mm; height:100%; display:flex; flex-direction:column; }
-  .page-head{ border-top:1px solid var(--line); padding-top:5mm; margin-bottom:8mm; }
-  .page-head h2{ font-size:24px; margin-top:2mm; }
+  .page-inner{ padding: 16mm 16mm; height:100%; display:flex; flex-direction:column; }
+  .page-head{ border-top:2px solid var(--fg); padding-top:5mm; margin-bottom:6mm; display:flex; align-items:baseline; justify-content:space-between; }
+  .page-head h2{ font-size:22px; margin-top:2mm; }
   .page-foot{
     margin-top:auto;
     border-top:1px solid var(--line);
@@ -126,58 +127,75 @@
   .intro-list{ border-bottom:1px solid var(--line); }
 
   /* ---------- Product page ---------- */
-  .product-grid{
+  .photo-row{
     display:grid;
-    grid-template-columns: 78mm 1fr;
-    gap:10mm;
-    flex:1;
-    min-height:0;
-  }
-  .product-photo{
-    background:#f3f2ee;
-    overflow:hidden;
-    border:1px solid var(--line);
-    height: 220mm;
-  }
-  .product-photo img{ width:100%; height:100%; object-fit:cover; object-position: top center; }
-
-  .product-info h2{ font-size:26px; margin-bottom:1mm; }
-  .product-info .sub{ font-size:12px; color:var(--fg-dim); margin-bottom:5mm; }
-
-  .stat-rows{ border-bottom:1px solid var(--line); margin-bottom:5mm; }
-  .stat-row{
-    display:grid;
-    grid-template-columns: 34mm 1fr;
+    grid-template-columns: 1.15fr 1fr;
     gap:4mm;
-    padding:3mm 0;
-    border-top:1px solid var(--line);
-    align-items:baseline;
+    margin-bottom:6mm;
   }
-  .stat-row .stat-label{
-    font-family:var(--font-body); text-transform:uppercase; letter-spacing:0.1em;
-    font-size:8.5px; font-weight:700; color:var(--fg-faint);
+  .photo-tile{
+    border:1px solid var(--line);
+    overflow:hidden;
+    height: 96mm;
   }
-  .stat-row .stat-value{ font-size:11.5px; color:var(--fg); }
+  .photo-tile.light{ background:var(--bg-card); }
+  .photo-tile.dark{ background:var(--bg-dark); display:flex; align-items:center; justify-content:center; }
+  .photo-tile.light img{ width:100%; height:100%; object-fit:cover; object-position: top center; }
+  .photo-tile.dark img{ width:88%; height:88%; object-fit:contain; }
+  .photo-cap{ font-size:8px; text-transform:uppercase; letter-spacing:0.1em; color:var(--fg-faint); margin-top:2mm; }
+  .photo-caps{ display:grid; grid-template-columns: 1.15fr 1fr; gap:4mm; margin-bottom:5mm; margin-top:-4mm; }
+
+  .info-cols{ display:grid; grid-template-columns: 1fr 1fr; gap:8mm; flex:1; min-height:0; }
+
+  .fact-row{
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    gap:3mm;
+    border-top:1px solid var(--line-strong);
+    border-bottom:1px solid var(--line);
+    padding:4mm 0;
+    margin-bottom:5mm;
+  }
+  .fact{ display:flex; flex-direction:column; gap:1.5mm; }
+  .fact svg{ width:16px; height:16px; stroke:var(--red); }
+  .fact .fact-label{ font-size:7.5px; text-transform:uppercase; letter-spacing:0.1em; font-weight:700; color:var(--fg-faint); }
+  .fact .fact-value{ font-size:10.5px; color:var(--fg); font-weight:600; }
 
   .block-title{
     font-family:var(--font-body); text-transform:uppercase; letter-spacing:0.12em;
-    font-size:9px; font-weight:700; color:var(--fg-faint); margin-bottom:2mm; margin-top:5mm;
+    font-size:8.5px; font-weight:700; color:var(--fg-faint); margin-bottom:2mm; margin-top:4mm;
   }
   .block-title:first-of-type{ margin-top:0; }
   .desc-list{ list-style:none; padding:0; margin:0 0 2mm; }
-  .desc-list li{ font-size:11px; color:var(--fg-dim); padding-left:3mm; position:relative; margin-bottom:1mm; }
+  .desc-list li{ font-size:10.5px; color:var(--fg-dim); padding-left:3mm; position:relative; margin-bottom:1mm; }
   .desc-list li::before{ content:'—'; color:var(--red); position:absolute; left:0; }
 
-  .color-groups{ display:flex; flex-wrap:wrap; gap:3mm 6mm; }
+  .color-groups{ display:flex; flex-wrap:wrap; gap:2mm; }
   .color-groups .cg{
     border:1px solid var(--line);
-    padding:2.5mm 4mm;
-    font-size:10px;
+    background:var(--bg-card);
+    padding:2mm 3.5mm;
+    font-size:9.5px;
   }
-  .color-groups .cg b{ color:var(--fg); font-family:var(--font-display); font-weight:400; font-size:13px; }
-  .color-groups .cg span{ display:block; color:var(--fg-faint); font-size:8.5px; text-transform:uppercase; letter-spacing:0.08em; margin-top:0.5mm; }
-  .color-examples{ font-size:10px; color:var(--fg-dim); margin-top:3mm; }
-  .color-examples b{ color:var(--fg-faint); font-weight:700; text-transform:uppercase; font-size:8.5px; letter-spacing:0.08em; }
+  .color-groups .cg b{ color:var(--fg); font-family:var(--font-display); font-weight:400; font-size:12px; }
+  .color-groups .cg span{ display:block; color:var(--fg-faint); font-size:8px; text-transform:uppercase; letter-spacing:0.06em; margin-top:0.5mm; }
+  .color-examples{ font-size:9.5px; color:var(--fg-dim); margin-top:2.5mm; }
+  .color-examples b{ color:var(--fg-faint); font-weight:700; text-transform:uppercase; font-size:8px; letter-spacing:0.08em; }
+
+  /* ---------- Zertifizierung/Pflege Piktogramm-Leiste ---------- */
+  .badge-strip{
+    margin-top:auto;
+    border-top:1px solid var(--line-strong);
+    padding-top:4mm;
+    display:flex;
+    align-items:flex-start;
+    gap: 5mm;
+  }
+  .badge-group{ display:flex; gap:3mm; }
+  .badge{ display:flex; flex-direction:column; align-items:center; width:16mm; }
+  .badge img{ width:12mm; height:12mm; object-fit:contain; }
+  .badge span{ font-size:6.3px; text-align:center; text-transform:uppercase; letter-spacing:0.03em; color:var(--fg-faint); margin-top:1.5mm; line-height:1.2; }
+  .badge-sep{ width:1px; align-self:stretch; background:var(--line); }
 
   /* ---------- Back / contact page ---------- */
   .back{
@@ -186,7 +204,7 @@
     justify-content:center;
     padding: 20mm;
   }
-  .back h2{ font-size:32px; margin-bottom:6mm; }
+  .back h2{ font-size:30px; margin-bottom:6mm; }
   .kontakt-address{ margin-top:10mm; border-top:1px solid var(--line); }
   .addr-row{
     display:grid;
@@ -202,11 +220,22 @@
 </head>
 <body>
 
+<!-- Icon-Sprites (custom, im Stroke-Stil der Website) -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <g id="ic-fit"><path d="M12 3a2 2 0 0 1 2 2c0 .7-.4 1.3-.9 1.7L20 10v2l-8-2v9h-2v-9l-8 2v-2l6.9-3.3C8.4 6.3 8 5.7 8 5a2 2 0 0 1 2-2z" fill="none" stroke-width="1.4" stroke-linejoin="round"/></g>
+    <g id="ic-size"><path d="M4 4h16v16H4z" fill="none" stroke-width="1.4"/><path d="M4 9h3M4 14h5M9 4v3M14 4v5" stroke-width="1.4" stroke-linecap="round"/></g>
+    <g id="ic-weight"><circle cx="12" cy="8" r="3" fill="none" stroke-width="1.4"/><path d="M7 21l2-10h6l2 10z" fill="none" stroke-width="1.4" stroke-linejoin="round"/></g>
+    <g id="ic-origin"><path d="M12 21s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12z" fill="none" stroke-width="1.4" stroke-linejoin="round"/><circle cx="12" cy="9" r="2.3" fill="none" stroke-width="1.4"/></g>
+  </defs>
+</svg>
+
 <!-- ============ SEITE 1 — COVER ============ -->
 <section class="pdf-page cover">
   <span class="brand-script">Nadel &amp; Zwirn</span>
   <span class="brand-tagline">Stickerei aus Klagenfurt</span>
   <h1><span>Textil-</span><span>katalog</span></h1>
+  <div class="rule"></div>
   <p class="cover-sub">Ausgewählte Textilien für individuelle Firmenlogo- und Motiv-Stickerei — T-Shirts, Hoodies und Mützen als Basis für deine Veredelung.</p>
   <div class="cover-meta">Textilbasis: Stanley/Stella · Stand September 2026</div>
 </section>
@@ -215,8 +244,7 @@
 <section class="pdf-page">
   <div class="page-inner">
     <div class="page-head">
-      <span class="eyebrow">Über die Textilien</span>
-      <h2>Basis für deine Stickerei</h2>
+      <div><span class="eyebrow">Über die Textilien</span><h2>Basis für deine Stickerei</h2></div>
     </div>
     <p style="font-size:12px; max-width:150mm;">Alle Textilien in diesem Katalog stammen von Stanley/Stella. Sie werden bei Nadel &amp; Zwirn unbedruckt als Rohware bezogen und anschließend mit deinem Logo, Schriftzug oder Motiv bestickt — gefertigt mit Madeira Polyneon NE 40 auf einer Happy V2 Stickmaschine in Klagenfurt.</p>
 
@@ -225,28 +253,28 @@
         <span class="num">01</span>
         <div>
           <h3>Zertifizierte Baumwolle</h3>
-          <p>Die meisten Farben der Baumwoll-Artikel sind GOTS-zertifiziert; Heather-Farbtöne mit recyceltem Materialanteil sind GRS-zertifiziert.</p>
+          <p>Die Baumwoll-Artikel sind GOTS-zertifiziert (Global Organic Textile Standard); Varianten mit recyceltem Materialanteil zusätzlich GRS-zertifiziert (Global Recycled Standard).</p>
         </div>
       </li>
       <li>
         <span class="num">02</span>
+        <div>
+          <h3>Geprüfte Schadstofffreiheit</h3>
+          <p>Alle Modelle sind nach OEKO-TEX Standard 100 zertifiziert. Stanley/Stella ist zudem Fair Wear Foundation Leader für faire Produktionsbedingungen.</p>
+        </div>
+      </li>
+      <li>
+        <span class="num">03</span>
         <div>
           <h3>Große Farbauswahl</h3>
           <p>Von klassischem Schwarz und Weiß bis zu Heather-Tönen und Saisonfarben — Details zur Farbanzahl je Modell findest du auf der jeweiligen Produktseite.</p>
         </div>
       </li>
       <li>
-        <span class="num">03</span>
+        <span class="num">04</span>
         <div>
           <h3>Größen für jeden Auftrag</h3>
           <p>Unisex-Fits von XXS bis 5XL (modellabhängig), Mützen in One Size — geeignet für Teamkleidung, Merchandise und Einzelstücke.</p>
-        </div>
-      </li>
-      <li>
-        <span class="num">04</span>
-        <div>
-          <h3>Gefertigt für die Veredelung</h3>
-          <p>Vorgewaschene Stoffe, saubere Nähte und stabile Flächen — ideale Grundlage für ein hochwertiges, langlebiges Stickbild.</p>
         </div>
       </li>
     </ul>
@@ -260,23 +288,25 @@
 <!-- Creator -->
 <section class="pdf-page">
   <div class="page-inner">
-    <div class="page-head"><span class="eyebrow">T-Shirts</span></div>
-    <div class="product-grid">
-      <div class="product-photo"><img src="produktkatalog-bilder/STTU169 Creator.jpeg" alt="Creator 2.0 T-Shirt"></div>
-      <div class="product-info">
-        <h2>Creator 2.0</h2>
-        <div class="sub">Das Iconic Unisex-T-Shirt · Stanley/Stella STTU169</div>
+    <div class="page-head"><div><span class="eyebrow">T-Shirts</span><h2>Creator 2.0</h2></div><div style="font-size:9px; color:var(--fg-faint); text-align:right;">Stanley/Stella<br>STTU169</div></div>
 
-        <div class="stat-rows">
-          <div class="stat-row"><span class="stat-label">Fit</span><span class="stat-value">Medium Fit</span></div>
-          <div class="stat-row"><span class="stat-label">Größen</span><span class="stat-value">XXS – 5XL (außer Heather Haze)</span></div>
-          <div class="stat-row"><span class="stat-label">Gewicht</span><span class="stat-value">180 g/m²</span></div>
-          <div class="stat-row"><span class="stat-label">Herkunft</span><span class="stat-value">Weben, Färben, Konfektion: Bangladesch</span></div>
-        </div>
+    <div class="photo-row">
+      <div class="photo-tile light"><img src="produktkatalog-bilder/creator-main.jpeg" alt="Creator 2.0 T-Shirt, Frontansicht am Model"></div>
+      <div class="photo-tile dark"><img src="produktkatalog-bilder/creator-sketch.jpeg" alt="Creator 2.0 technische Skizze"></div>
+    </div>
+    <div class="photo-caps"><span class="photo-cap">Frontansicht</span><span class="photo-cap">Technische Skizze</span></div>
 
+    <div class="fact-row">
+      <div class="fact"><svg><use href="#ic-fit"/></svg><span class="fact-label">Fit</span><span class="fact-value">Medium Fit</span></div>
+      <div class="fact"><svg><use href="#ic-size"/></svg><span class="fact-label">Größen</span><span class="fact-value">XXS – 5XL*</span></div>
+      <div class="fact"><svg><use href="#ic-weight"/></svg><span class="fact-label">Gewicht</span><span class="fact-value">180 g/m²</span></div>
+      <div class="fact"><svg><use href="#ic-origin"/></svg><span class="fact-label">Herkunft</span><span class="fact-value">Bangladesch</span></div>
+    </div>
+
+    <div class="info-cols">
+      <div>
         <div class="block-title">Material</div>
-        <p style="font-size:11px;">Singlejersey, 100 % Bio-Baumwolle, gekämmt, ringgesponnen. Heather Haze-Variante: 70 % Bio-Baumwolle, 30 % recycelte Baumwolle. Vorgewaschen.</p>
-
+        <p style="font-size:10.5px;">Singlejersey, 100 % Bio-Baumwolle, gekämmt, ringgesponnen. Heather Haze-Variante: 70 % Bio-Baumwolle, 30 % recycelte Baumwolle. Vorgewaschen.</p>
         <div class="block-title">Verarbeitung</div>
         <ul class="desc-list">
           <li>1x1-Rippstrick am Halsausschnitt</li>
@@ -284,17 +314,36 @@
           <li>Eingesetzte Ärmel</li>
           <li>Doppelabsteppung an Ärmelenden und unterem Saum</li>
         </ul>
-
+      </div>
+      <div>
         <div class="block-title">Farben</div>
         <div class="color-groups">
-          <div class="cg"><b>4</b><span>Weißtöne</span></div>
+          <div class="cg"><b>4</b><span>Weiß</span></div>
           <div class="cg"><b>47</b><span>Farben</span></div>
-          <div class="cg"><b>6</b><span>Essential Heathers</span></div>
-          <div class="cg"><b>1</b><span>Special Heather</span></div>
+          <div class="cg"><b>6</b><span>Ess. Heathers</span></div>
+          <div class="cg"><b>1</b><span>Spec. Heather</span></div>
         </div>
         <p class="color-examples"><b>Auswahl:</b> White, Black, French Navy, Burgundy, Bright Blue, Anthracite, Khaki, Cotton Pink, Deep Teal, Mocha</p>
       </div>
     </div>
+
+    <div class="badge-strip">
+      <div class="badge-group">
+        <div class="badge"><img src="produktkatalog-bilder/creator-gots.png" alt="GOTS zertifiziert"><span>GOTS zertifiziert</span></div>
+        <div class="badge"><img src="produktkatalog-bilder/creator-grs.png" alt="GRS zertifiziert (Heather Haze)"><span>GRS (Heather&nbsp;Haze)</span></div>
+        <div class="badge"><img src="produktkatalog-bilder/creator-oeko.png" alt="OEKO-TEX Standard 100"><span>OEKO-TEX&nbsp;100</span></div>
+        <div class="badge"><img src="produktkatalog-bilder/creator-fairwear.png" alt="Fair Wear Leader"><span>Fair&nbsp;Wear</span></div>
+      </div>
+      <div class="badge-sep"></div>
+      <div class="badge-group">
+        <div class="badge"><img src="produktkatalog-bilder/creator-wash.jpeg" alt="Waschen bei 30°C"><span>30°C waschen</span></div>
+        <div class="badge"><img src="produktkatalog-bilder/creator-nobleach.jpeg" alt="Nicht bleichen"><span>Nicht bleichen</span></div>
+        <div class="badge"><img src="produktkatalog-bilder/creator-notumble.jpeg" alt="Nicht im Trockner trocknen"><span>Nicht trocknergeeignet</span></div>
+        <div class="badge"><img src="produktkatalog-bilder/creator-iron.jpeg" alt="Bügeln bei niedriger Temperatur"><span>Niedrig bügeln</span></div>
+        <div class="badge"><img src="produktkatalog-bilder/creator-nodryclean.jpeg" alt="Nicht chemisch reinigen"><span>Nicht chem. reinigen</span></div>
+      </div>
+    </div>
+
     <div class="page-foot"><span>Nadel &amp; Zwirn — Textilkatalog</span><span>Seite 03</span></div>
   </div>
 </section>
@@ -302,23 +351,25 @@
 <!-- Crafter -->
 <section class="pdf-page">
   <div class="page-inner">
-    <div class="page-head"><span class="eyebrow">T-Shirts</span></div>
-    <div class="product-grid">
-      <div class="product-photo"><img src="produktkatalog-bilder/STTU170 Crafter.jpeg" alt="Crafter T-Shirt"></div>
-      <div class="product-info">
-        <h2>Crafter</h2>
-        <div class="sub">Das Unisex-T-Shirt · Stanley/Stella STTU170</div>
+    <div class="page-head"><div><span class="eyebrow">T-Shirts</span><h2>Crafter</h2></div><div style="font-size:9px; color:var(--fg-faint); text-align:right;">Stanley/Stella<br>STTU170</div></div>
 
-        <div class="stat-rows">
-          <div class="stat-row"><span class="stat-label">Fit</span><span class="stat-value">Medium Fit</span></div>
-          <div class="stat-row"><span class="stat-label">Größen</span><span class="stat-value">XXS – 5XL (außer Heather Haze)</span></div>
-          <div class="stat-row"><span class="stat-label">Gewicht</span><span class="stat-value">155 g/m²</span></div>
-          <div class="stat-row"><span class="stat-label">Herkunft</span><span class="stat-value">Weben, Färben, Konfektion: Bangladesch</span></div>
-        </div>
+    <div class="photo-row">
+      <div class="photo-tile light"><img src="produktkatalog-bilder/crafter-main.jpeg" alt="Crafter T-Shirt, Frontansicht am Model"></div>
+      <div class="photo-tile dark"><img src="produktkatalog-bilder/crafter-sketch.jpeg" alt="Crafter technische Skizze"></div>
+    </div>
+    <div class="photo-caps"><span class="photo-cap">Frontansicht</span><span class="photo-cap">Technische Skizze</span></div>
 
+    <div class="fact-row">
+      <div class="fact"><svg><use href="#ic-fit"/></svg><span class="fact-label">Fit</span><span class="fact-value">Medium Fit</span></div>
+      <div class="fact"><svg><use href="#ic-size"/></svg><span class="fact-label">Größen</span><span class="fact-value">XXS – 5XL*</span></div>
+      <div class="fact"><svg><use href="#ic-weight"/></svg><span class="fact-label">Gewicht</span><span class="fact-value">155 g/m²</span></div>
+      <div class="fact"><svg><use href="#ic-origin"/></svg><span class="fact-label">Herkunft</span><span class="fact-value">Bangladesch</span></div>
+    </div>
+
+    <div class="info-cols">
+      <div>
         <div class="block-title">Material</div>
-        <p style="font-size:11px;">Singlejersey, 100 % gekämmte, ringgesponnene Bio-Baumwolle. Vorgewaschen. Leichteste T-Shirt-Qualität im Sortiment.</p>
-
+        <p style="font-size:10.5px;">Singlejersey, 100 % gekämmte, ringgesponnene Bio-Baumwolle. Vorgewaschen. Leichteste T-Shirt-Qualität im Sortiment.</p>
         <div class="block-title">Verarbeitung</div>
         <ul class="desc-list">
           <li>1x1-Rippstrick am Halsausschnitt</li>
@@ -326,17 +377,35 @@
           <li>Eingesetzte Ärmel</li>
           <li>Doppelabsteppung an Ärmelenden und unterem Saum</li>
         </ul>
-
+      </div>
+      <div>
         <div class="block-title">Farben</div>
         <div class="color-groups">
-          <div class="cg"><b>3</b><span>Weißtöne</span></div>
+          <div class="cg"><b>3</b><span>Weiß</span></div>
           <div class="cg"><b>35</b><span>Farben</span></div>
-          <div class="cg"><b>2</b><span>Essential Heathers</span></div>
-          <div class="cg"><b>1</b><span>Special Heather</span></div>
+          <div class="cg"><b>2</b><span>Ess. Heathers</span></div>
+          <div class="cg"><b>1</b><span>Spec. Heather</span></div>
         </div>
         <p class="color-examples"><b>Auswahl:</b> White, Black, French Navy, Burgundy, Bright Blue, Khaki, Anthracite, Sage, Fiesta, Mocha</p>
       </div>
     </div>
+
+    <div class="badge-strip">
+      <div class="badge-group">
+        <div class="badge"><img src="produktkatalog-bilder/crafter-gots.png" alt="GOTS zertifiziert"><span>GOTS zertifiziert</span></div>
+        <div class="badge"><img src="produktkatalog-bilder/crafter-oeko.png" alt="OEKO-TEX Standard 100"><span>OEKO-TEX&nbsp;100</span></div>
+        <div class="badge"><img src="produktkatalog-bilder/crafter-fairwear.png" alt="Fair Wear Leader"><span>Fair&nbsp;Wear</span></div>
+      </div>
+      <div class="badge-sep"></div>
+      <div class="badge-group">
+        <div class="badge"><img src="produktkatalog-bilder/crafter-wash.jpeg" alt="Waschen bei 30°C"><span>30°C waschen</span></div>
+        <div class="badge"><img src="produktkatalog-bilder/crafter-nobleach.jpeg" alt="Nicht bleichen"><span>Nicht bleichen</span></div>
+        <div class="badge"><img src="produktkatalog-bilder/crafter-notumble.jpeg" alt="Nicht im Trockner trocknen"><span>Nicht trocknergeeignet</span></div>
+        <div class="badge"><img src="produktkatalog-bilder/crafter-iron.jpeg" alt="Bügeln bei niedriger Temperatur"><span>Niedrig bügeln</span></div>
+        <div class="badge"><img src="produktkatalog-bilder/crafter-nodryclean.jpeg" alt="Nicht chemisch reinigen"><span>Nicht chem. reinigen</span></div>
+      </div>
+    </div>
+
     <div class="page-foot"><span>Nadel &amp; Zwirn — Textilkatalog</span><span>Seite 04</span></div>
   </div>
 </section>
@@ -344,23 +413,25 @@
 <!-- Blaster -->
 <section class="pdf-page">
   <div class="page-inner">
-    <div class="page-head"><span class="eyebrow">T-Shirts</span></div>
-    <div class="product-grid">
-      <div class="product-photo"><img src="produktkatalog-bilder/STTU959 Blaster.jpeg" alt="Blaster 2.0 T-Shirt"></div>
-      <div class="product-info">
-        <h2>Blaster 2.0</h2>
-        <div class="sub">Das Oversized Unisex-T-Shirt mit Stehkragen · Stanley/Stella STTU959</div>
+    <div class="page-head"><div><span class="eyebrow">T-Shirts</span><h2>Blaster 2.0</h2></div><div style="font-size:9px; color:var(--fg-faint); text-align:right;">Stanley/Stella<br>STTU959</div></div>
 
-        <div class="stat-rows">
-          <div class="stat-row"><span class="stat-label">Fit</span><span class="stat-value">Oversized</span></div>
-          <div class="stat-row"><span class="stat-label">Größen</span><span class="stat-value">XXS – 3XL</span></div>
-          <div class="stat-row"><span class="stat-label">Gewicht</span><span class="stat-value">200 g/m²</span></div>
-          <div class="stat-row"><span class="stat-label">Herkunft</span><span class="stat-value">Weben, Färben, Konfektion: Bangladesch</span></div>
-        </div>
+    <div class="photo-row">
+      <div class="photo-tile light"><img src="produktkatalog-bilder/blaster-main.jpeg" alt="Blaster 2.0 T-Shirt, Frontansicht am Model"></div>
+      <div class="photo-tile dark"><img src="produktkatalog-bilder/blaster-sketch.png" alt="Blaster 2.0 technische Skizze"></div>
+    </div>
+    <div class="photo-caps"><span class="photo-cap">Frontansicht</span><span class="photo-cap">Technische Skizze</span></div>
 
+    <div class="fact-row">
+      <div class="fact"><svg><use href="#ic-fit"/></svg><span class="fact-label">Fit</span><span class="fact-value">Oversized</span></div>
+      <div class="fact"><svg><use href="#ic-size"/></svg><span class="fact-label">Größen</span><span class="fact-value">XXS – 3XL</span></div>
+      <div class="fact"><svg><use href="#ic-weight"/></svg><span class="fact-label">Gewicht</span><span class="fact-value">200 g/m²</span></div>
+      <div class="fact"><svg><use href="#ic-origin"/></svg><span class="fact-label">Herkunft</span><span class="fact-value">Bangladesch</span></div>
+    </div>
+
+    <div class="info-cols">
+      <div>
         <div class="block-title">Material</div>
-        <p style="font-size:11px;">Singlejersey, 100 % gekämmte, ringgesponnene Bio-Baumwolle. Vorgewaschen.</p>
-
+        <p style="font-size:10.5px;">Singlejersey, 100 % gekämmte, ringgesponnene Bio-Baumwolle. Vorgewaschen.</p>
         <div class="block-title">Verarbeitung</div>
         <ul class="desc-list">
           <li>1x1-Rippstrick am Stehkragen</li>
@@ -368,16 +439,34 @@
           <li>Eingesetzte Ärmel mit überschnittenen Schultern</li>
           <li>Doppelabsteppung an Ärmelenden und unterem Saum</li>
         </ul>
-
+      </div>
+      <div>
         <div class="block-title">Farben</div>
         <div class="color-groups">
-          <div class="cg"><b>2</b><span>Weißtöne</span></div>
+          <div class="cg"><b>2</b><span>Weiß</span></div>
           <div class="cg"><b>9</b><span>Farben</span></div>
-          <div class="cg"><b>1</b><span>Essential Heather</span></div>
+          <div class="cg"><b>1</b><span>Ess. Heather</span></div>
         </div>
         <p class="color-examples"><b>Auswahl:</b> White, Black, French Navy, Cream, Khaki, Mocha, Stone, Violet</p>
       </div>
     </div>
+
+    <div class="badge-strip">
+      <div class="badge-group">
+        <div class="badge"><img src="produktkatalog-bilder/blaster-gots.png" alt="GOTS zertifiziert"><span>GOTS zertifiziert</span></div>
+        <div class="badge"><img src="produktkatalog-bilder/blaster-oeko.png" alt="OEKO-TEX Standard 100"><span>OEKO-TEX&nbsp;100</span></div>
+        <div class="badge"><img src="produktkatalog-bilder/blaster-fairwear.png" alt="Fair Wear Leader"><span>Fair&nbsp;Wear</span></div>
+      </div>
+      <div class="badge-sep"></div>
+      <div class="badge-group">
+        <div class="badge"><img src="produktkatalog-bilder/blaster-wash.jpeg" alt="Waschen bei 30°C"><span>30°C waschen</span></div>
+        <div class="badge"><img src="produktkatalog-bilder/blaster-nobleach.jpeg" alt="Nicht bleichen"><span>Nicht bleichen</span></div>
+        <div class="badge"><img src="produktkatalog-bilder/blaster-notumble.jpeg" alt="Nicht im Trockner trocknen"><span>Nicht trocknergeeignet</span></div>
+        <div class="badge"><img src="produktkatalog-bilder/blaster-iron.jpeg" alt="Bügeln bei niedriger Temperatur"><span>Niedrig bügeln</span></div>
+        <div class="badge"><img src="produktkatalog-bilder/blaster-nodryclean.jpeg" alt="Nicht chemisch reinigen"><span>Nicht chem. reinigen</span></div>
+      </div>
+    </div>
+
     <div class="page-foot"><span>Nadel &amp; Zwirn — Textilkatalog</span><span>Seite 05</span></div>
   </div>
 </section>
@@ -385,23 +474,25 @@
 <!-- Archer -->
 <section class="pdf-page">
   <div class="page-inner">
-    <div class="page-head"><span class="eyebrow">Hoodies</span></div>
-    <div class="product-grid">
-      <div class="product-photo"><img src="produktkatalog-bilder/STSU011 Archer.jpeg" alt="Archer Hoodie"></div>
-      <div class="product-info">
-        <h2>Archer</h2>
-        <div class="sub">Der Unisex-Hoodie aus French Terry · Stanley/Stella STSU011</div>
+    <div class="page-head"><div><span class="eyebrow">Hoodies</span><h2>Archer</h2></div><div style="font-size:9px; color:var(--fg-faint); text-align:right;">Stanley/Stella<br>STSU011</div></div>
 
-        <div class="stat-rows">
-          <div class="stat-row"><span class="stat-label">Fit</span><span class="stat-value">Medium Fit</span></div>
-          <div class="stat-row"><span class="stat-label">Größen</span><span class="stat-value">XXS – 3XL</span></div>
-          <div class="stat-row"><span class="stat-label">Gewicht</span><span class="stat-value">300 g/m²</span></div>
-          <div class="stat-row"><span class="stat-label">Herkunft</span><span class="stat-value">Weben, Färben, Konfektion: Bangladesch</span></div>
-        </div>
+    <div class="photo-row">
+      <div class="photo-tile light"><img src="produktkatalog-bilder/archer-main.jpeg" alt="Archer Hoodie, Frontansicht am Model"></div>
+      <div class="photo-tile dark"><img src="produktkatalog-bilder/archer-sketch.jpeg" alt="Archer technische Skizze"></div>
+    </div>
+    <div class="photo-caps"><span class="photo-cap">Frontansicht</span><span class="photo-cap">Technische Skizze</span></div>
 
+    <div class="fact-row">
+      <div class="fact"><svg><use href="#ic-fit"/></svg><span class="fact-label">Fit</span><span class="fact-value">Medium Fit</span></div>
+      <div class="fact"><svg><use href="#ic-size"/></svg><span class="fact-label">Größen</span><span class="fact-value">XXS – 3XL</span></div>
+      <div class="fact"><svg><use href="#ic-weight"/></svg><span class="fact-label">Gewicht</span><span class="fact-value">300 g/m²</span></div>
+      <div class="fact"><svg><use href="#ic-origin"/></svg><span class="fact-label">Herkunft</span><span class="fact-value">Bangladesch</span></div>
+    </div>
+
+    <div class="info-cols">
+      <div>
         <div class="block-title">Material</div>
-        <p style="font-size:11px;">Terry, 85 % gekämmte ringgesponnene Bio-Baumwolle, 15 % recyceltes Polyester. Vorgewaschen, weicher Griff.</p>
-
+        <p style="font-size:10.5px;">Terry, 85 % gekämmte ringgesponnene Bio-Baumwolle, 15 % recyceltes Polyester. Vorgewaschen, weicher Griff.</p>
         <div class="block-title">Verarbeitung</div>
         <ul class="desc-list">
           <li>Doppellagige Kapuze aus Oberstoff</li>
@@ -409,16 +500,34 @@
           <li>Runde gleichfarbige Kordel mit Metallenden, Metallösen</li>
           <li>Känguru-Tasche, 1x1-Rippstrick an Bündchen und Saum</li>
         </ul>
-
+      </div>
+      <div>
         <div class="block-title">Farben</div>
         <div class="color-groups">
-          <div class="cg"><b>2</b><span>Weißtöne</span></div>
+          <div class="cg"><b>2</b><span>Weiß</span></div>
           <div class="cg"><b>12</b><span>Farben</span></div>
-          <div class="cg"><b>1</b><span>Essential Heather</span></div>
+          <div class="cg"><b>1</b><span>Ess. Heather</span></div>
         </div>
         <p class="color-examples"><b>Auswahl:</b> White, Black, French Navy, Burgundy, Bright Blue, Sage, Caribbean Blue</p>
       </div>
     </div>
+
+    <div class="badge-strip">
+      <div class="badge-group">
+        <div class="badge"><img src="produktkatalog-bilder/archer-gots.png" alt="GOTS zertifiziert (85% Bio-Baumwolle)"><span>GOTS zertifiziert</span></div>
+        <div class="badge"><img src="produktkatalog-bilder/archer-oeko.png" alt="OEKO-TEX Standard 100"><span>OEKO-TEX&nbsp;100</span></div>
+        <div class="badge"><img src="produktkatalog-bilder/archer-fairwear.png" alt="Fair Wear Leader"><span>Fair&nbsp;Wear</span></div>
+      </div>
+      <div class="badge-sep"></div>
+      <div class="badge-group">
+        <div class="badge"><img src="produktkatalog-bilder/archer-wash.jpeg" alt="Waschen bei 30°C"><span>30°C waschen</span></div>
+        <div class="badge"><img src="produktkatalog-bilder/archer-nobleach.jpeg" alt="Nicht bleichen"><span>Nicht bleichen</span></div>
+        <div class="badge"><img src="produktkatalog-bilder/archer-notumble.jpeg" alt="Nicht im Trockner trocknen"><span>Nicht trocknergeeignet</span></div>
+        <div class="badge"><img src="produktkatalog-bilder/archer-iron.jpeg" alt="Bügeln bei niedriger Temperatur"><span>Niedrig bügeln</span></div>
+        <div class="badge"><img src="produktkatalog-bilder/archer-nodryclean.jpeg" alt="Nicht chemisch reinigen"><span>Nicht chem. reinigen</span></div>
+      </div>
+    </div>
+
     <div class="page-foot"><span>Nadel &amp; Zwirn — Textilkatalog</span><span>Seite 06</span></div>
   </div>
 </section>
@@ -426,23 +535,25 @@
 <!-- Cruiser -->
 <section class="pdf-page">
   <div class="page-inner">
-    <div class="page-head"><span class="eyebrow">Hoodies</span></div>
-    <div class="product-grid">
-      <div class="product-photo"><img src="produktkatalog-bilder/STSU177 Cruiser.jpeg" alt="Cruiser 2.0 Hoodie"></div>
-      <div class="product-info">
-        <h2>Cruiser 2.0</h2>
-        <div class="sub">Der Iconic Unisex-Hoodie · Stanley/Stella STSU177</div>
+    <div class="page-head"><div><span class="eyebrow">Hoodies</span><h2>Cruiser 2.0</h2></div><div style="font-size:9px; color:var(--fg-faint); text-align:right;">Stanley/Stella<br>STSU177</div></div>
 
-        <div class="stat-rows">
-          <div class="stat-row"><span class="stat-label">Fit</span><span class="stat-value">Relaxed Medium Fit</span></div>
-          <div class="stat-row"><span class="stat-label">Größen</span><span class="stat-value">XXS – 5XL (außer Heather Haze)</span></div>
-          <div class="stat-row"><span class="stat-label">Gewicht</span><span class="stat-value">350 g/m²</span></div>
-          <div class="stat-row"><span class="stat-label">Herkunft</span><span class="stat-value">Weben, Färben, Konfektion: Bangladesch</span></div>
-        </div>
+    <div class="photo-row">
+      <div class="photo-tile light"><img src="produktkatalog-bilder/cruiser-main.jpeg" alt="Cruiser 2.0 Hoodie, Frontansicht am Model"></div>
+      <div class="photo-tile dark"><img src="produktkatalog-bilder/cruiser-sketch.png" alt="Cruiser 2.0 technische Skizze"></div>
+    </div>
+    <div class="photo-caps"><span class="photo-cap">Frontansicht</span><span class="photo-cap">Technische Skizze</span></div>
 
+    <div class="fact-row">
+      <div class="fact"><svg><use href="#ic-fit"/></svg><span class="fact-label">Fit</span><span class="fact-value">Relaxed Medium</span></div>
+      <div class="fact"><svg><use href="#ic-size"/></svg><span class="fact-label">Größen</span><span class="fact-value">XXS – 5XL*</span></div>
+      <div class="fact"><svg><use href="#ic-weight"/></svg><span class="fact-label">Gewicht</span><span class="fact-value">350 g/m²</span></div>
+      <div class="fact"><svg><use href="#ic-origin"/></svg><span class="fact-label">Herkunft</span><span class="fact-value">Bangladesch</span></div>
+    </div>
+
+    <div class="info-cols">
+      <div>
         <div class="block-title">Material</div>
-        <p style="font-size:11px;">Aufgerautes Sweatshirt, 100 % Bio-Baumwolle, ringgesponnen. Heather Haze: 80 % Bio-Baumwolle, 20 % recycelte Baumwolle. Vorgewaschen.</p>
-
+        <p style="font-size:10.5px;">Aufgerautes Sweatshirt, 100 % Bio-Baumwolle, ringgesponnen. Heather Haze: 80 % Bio-Baumwolle, 20 % recycelte Baumwolle. Vorgewaschen.</p>
         <div class="block-title">Verarbeitung</div>
         <ul class="desc-list">
           <li>Doppellagige Kapuze aus Oberstoff</li>
@@ -450,17 +561,36 @@
           <li>Nackenband mit Fischgrätmuster, Halbmond im Nacken</li>
           <li>Känguru-Tasche, 1x1-Rippstrick an Bündchen und Saum</li>
         </ul>
-
+      </div>
+      <div>
         <div class="block-title">Farben</div>
         <div class="color-groups">
-          <div class="cg"><b>3</b><span>Weißtöne</span></div>
+          <div class="cg"><b>3</b><span>Weiß</span></div>
           <div class="cg"><b>42</b><span>Farben</span></div>
-          <div class="cg"><b>5</b><span>Essential Heathers</span></div>
-          <div class="cg"><b>1</b><span>Special Heather</span></div>
+          <div class="cg"><b>5</b><span>Ess. Heathers</span></div>
+          <div class="cg"><b>1</b><span>Spec. Heather</span></div>
         </div>
         <p class="color-examples"><b>Auswahl:</b> White, Black, French Navy, Burgundy, Bright Blue, Anthracite, Khaki, Deep Teal, Viva Yellow</p>
       </div>
     </div>
+
+    <div class="badge-strip">
+      <div class="badge-group">
+        <div class="badge"><img src="produktkatalog-bilder/cruiser-gots.png" alt="GOTS zertifiziert"><span>GOTS zertifiziert</span></div>
+        <div class="badge"><img src="produktkatalog-bilder/cruiser-grs.png" alt="GRS zertifiziert (Heather Haze)"><span>GRS (Heather&nbsp;Haze)</span></div>
+        <div class="badge"><img src="produktkatalog-bilder/cruiser-oeko.png" alt="OEKO-TEX Standard 100"><span>OEKO-TEX&nbsp;100</span></div>
+        <div class="badge"><img src="produktkatalog-bilder/cruiser-fairwear.png" alt="Fair Wear Leader"><span>Fair&nbsp;Wear</span></div>
+      </div>
+      <div class="badge-sep"></div>
+      <div class="badge-group">
+        <div class="badge"><img src="produktkatalog-bilder/cruiser-wash.jpeg" alt="Waschen bei 30°C"><span>30°C waschen</span></div>
+        <div class="badge"><img src="produktkatalog-bilder/cruiser-nobleach.jpeg" alt="Nicht bleichen"><span>Nicht bleichen</span></div>
+        <div class="badge"><img src="produktkatalog-bilder/cruiser-notumble.jpeg" alt="Nicht im Trockner trocknen"><span>Nicht trocknergeeignet</span></div>
+        <div class="badge"><img src="produktkatalog-bilder/cruiser-iron.jpeg" alt="Bügeln bei niedriger Temperatur"><span>Niedrig bügeln</span></div>
+        <div class="badge"><img src="produktkatalog-bilder/cruiser-nodryclean.jpeg" alt="Nicht chemisch reinigen"><span>Nicht chem. reinigen</span></div>
+      </div>
+    </div>
+
     <div class="page-foot"><span>Nadel &amp; Zwirn — Textilkatalog</span><span>Seite 07</span></div>
   </div>
 </section>
@@ -468,23 +598,25 @@
 <!-- Drummer -->
 <section class="pdf-page">
   <div class="page-inner">
-    <div class="page-head"><span class="eyebrow">Hoodies</span></div>
-    <div class="product-grid">
-      <div class="product-photo"><img src="produktkatalog-bilder/STSU168 Drummer.jpeg" alt="Drummer 2.0 Hoodie"></div>
-      <div class="product-info">
-        <h2>Drummer 2.0</h2>
-        <div class="sub">Der Unisex-Hoodie · Stanley/Stella STSU168</div>
+    <div class="page-head"><div><span class="eyebrow">Hoodies</span><h2>Drummer 2.0</h2></div><div style="font-size:9px; color:var(--fg-faint); text-align:right;">Stanley/Stella<br>STSU168</div></div>
 
-        <div class="stat-rows">
-          <div class="stat-row"><span class="stat-label">Fit</span><span class="stat-value">Medium Fit</span></div>
-          <div class="stat-row"><span class="stat-label">Größen</span><span class="stat-value">XXS – 5XL</span></div>
-          <div class="stat-row"><span class="stat-label">Gewicht</span><span class="stat-value">280 g/m²</span></div>
-          <div class="stat-row"><span class="stat-label">Herkunft</span><span class="stat-value">Weben, Färben, Konfektion: Bangladesch</span></div>
-        </div>
+    <div class="photo-row">
+      <div class="photo-tile light"><img src="produktkatalog-bilder/drummer-main.jpeg" alt="Drummer 2.0 Hoodie, Frontansicht am Model"></div>
+      <div class="photo-tile dark"><img src="produktkatalog-bilder/drummer-sketch.jpeg" alt="Drummer 2.0 technische Skizze"></div>
+    </div>
+    <div class="photo-caps"><span class="photo-cap">Frontansicht</span><span class="photo-cap">Technische Skizze</span></div>
 
+    <div class="fact-row">
+      <div class="fact"><svg><use href="#ic-fit"/></svg><span class="fact-label">Fit</span><span class="fact-value">Medium Fit</span></div>
+      <div class="fact"><svg><use href="#ic-size"/></svg><span class="fact-label">Größen</span><span class="fact-value">XXS – 5XL</span></div>
+      <div class="fact"><svg><use href="#ic-weight"/></svg><span class="fact-label">Gewicht</span><span class="fact-value">280 g/m²</span></div>
+      <div class="fact"><svg><use href="#ic-origin"/></svg><span class="fact-label">Herkunft</span><span class="fact-value">Bangladesch</span></div>
+    </div>
+
+    <div class="info-cols">
+      <div>
         <div class="block-title">Material</div>
-        <p style="font-size:11px;">Aufgerautes Sweatshirt, 85 % gekämmte ringgesponnene Bio-Baumwolle, 15 % recyceltes Polyester. Vorgewaschen.</p>
-
+        <p style="font-size:10.5px;">Aufgerautes Sweatshirt, 85 % gekämmte ringgesponnene Bio-Baumwolle, 15 % recyceltes Polyester. Vorgewaschen.</p>
         <div class="block-title">Verarbeitung</div>
         <ul class="desc-list">
           <li>Doppellagige Kapuze aus Oberstoff</li>
@@ -492,16 +624,34 @@
           <li>Nackenband mit Fischgrätmuster, Halbmond im Nacken</li>
           <li>Känguru-Tasche mit Doppelabsteppung, durchgehend Flatlock-Nähte</li>
         </ul>
-
+      </div>
+      <div>
         <div class="block-title">Farben</div>
         <div class="color-groups">
-          <div class="cg"><b>3</b><span>Weißtöne</span></div>
+          <div class="cg"><b>3</b><span>Weiß</span></div>
           <div class="cg"><b>23</b><span>Farben</span></div>
-          <div class="cg"><b>2</b><span>Essential Heathers</span></div>
+          <div class="cg"><b>2</b><span>Ess. Heathers</span></div>
         </div>
         <p class="color-examples"><b>Auswahl:</b> White, Black, French Navy, Burgundy, Royal Blue, Khaki, Anthracite, Bottle Green</p>
       </div>
     </div>
+
+    <div class="badge-strip">
+      <div class="badge-group">
+        <div class="badge"><img src="produktkatalog-bilder/drummer-gots.png" alt="GOTS zertifiziert (85% Bio-Baumwolle)"><span>GOTS zertifiziert</span></div>
+        <div class="badge"><img src="produktkatalog-bilder/drummer-oeko.png" alt="OEKO-TEX Standard 100"><span>OEKO-TEX&nbsp;100</span></div>
+        <div class="badge"><img src="produktkatalog-bilder/drummer-fairwear.png" alt="Fair Wear Leader"><span>Fair&nbsp;Wear</span></div>
+      </div>
+      <div class="badge-sep"></div>
+      <div class="badge-group">
+        <div class="badge"><img src="produktkatalog-bilder/drummer-wash.jpeg" alt="Waschen bei 30°C"><span>30°C waschen</span></div>
+        <div class="badge"><img src="produktkatalog-bilder/drummer-nobleach.jpeg" alt="Nicht bleichen"><span>Nicht bleichen</span></div>
+        <div class="badge"><img src="produktkatalog-bilder/drummer-notumble.jpeg" alt="Nicht im Trockner trocknen"><span>Nicht trocknergeeignet</span></div>
+        <div class="badge"><img src="produktkatalog-bilder/drummer-iron.jpeg" alt="Bügeln bei niedriger Temperatur"><span>Niedrig bügeln</span></div>
+        <div class="badge"><img src="produktkatalog-bilder/drummer-nodryclean.jpeg" alt="Nicht chemisch reinigen"><span>Nicht chem. reinigen</span></div>
+      </div>
+    </div>
+
     <div class="page-foot"><span>Nadel &amp; Zwirn — Textilkatalog</span><span>Seite 08</span></div>
   </div>
 </section>
@@ -509,29 +659,33 @@
 <!-- Rib Beanie -->
 <section class="pdf-page">
   <div class="page-inner">
-    <div class="page-head"><span class="eyebrow">Mützen</span></div>
-    <div class="product-grid">
-      <div class="product-photo"><img src="produktkatalog-bilder/STAU295 Rib Beanie.jpeg" alt="Rib Beanie 2.0"></div>
-      <div class="product-info">
-        <h2>Rib Beanie 2.0</h2>
-        <div class="sub">Die Rippstrick-Mütze · Stanley/Stella STAU295</div>
+    <div class="page-head"><div><span class="eyebrow">Mützen</span><h2>Rib Beanie 2.0</h2></div><div style="font-size:9px; color:var(--fg-faint); text-align:right;">Stanley/Stella<br>STAU295</div></div>
 
-        <div class="stat-rows">
-          <div class="stat-row"><span class="stat-label">Fit</span><span class="stat-value">Medium Fit</span></div>
-          <div class="stat-row"><span class="stat-label">Größe</span><span class="stat-value">One Size (Breite 24 cm)</span></div>
-          <div class="stat-row"><span class="stat-label">Herkunft</span><span class="stat-value">Weben, Färben, Konfektion: Bangladesch</span></div>
-        </div>
+    <div class="photo-row">
+      <div class="photo-tile light"><img src="produktkatalog-bilder/ribbeanie-main.jpeg" alt="Rib Beanie 2.0, Frontansicht am Model"></div>
+      <div class="photo-tile dark"><img src="produktkatalog-bilder/ribbeanie-sketch.png" alt="Rib Beanie 2.0 technische Skizze"></div>
+    </div>
+    <div class="photo-caps"><span class="photo-cap">Frontansicht</span><span class="photo-cap">Technische Skizze</span></div>
 
+    <div class="fact-row">
+      <div class="fact"><svg><use href="#ic-fit"/></svg><span class="fact-label">Fit</span><span class="fact-value">Medium Fit</span></div>
+      <div class="fact"><svg><use href="#ic-size"/></svg><span class="fact-label">Größe</span><span class="fact-value">One Size (24 cm)</span></div>
+      <div class="fact"><svg><use href="#ic-weight"/></svg><span class="fact-label">Material</span><span class="fact-value">1x1-Rippstrick</span></div>
+      <div class="fact"><svg><use href="#ic-origin"/></svg><span class="fact-label">Herkunft</span><span class="fact-value">Bangladesch</span></div>
+    </div>
+
+    <div class="info-cols">
+      <div>
         <div class="block-title">Material</div>
-        <p style="font-size:11px;">1x1-Rippstrick: 90 % Bio-Baumwolle (ringgesponnen, gekämmt), 9 % recyceltes Polyamid, 1 % Elastan. Vorgewaschen.</p>
-
+        <p style="font-size:10.5px;">1x1-Rippstrick: 90 % Bio-Baumwolle (ringgesponnen, gekämmt), 9 % recyceltes Polyamid, 1 % Elastan. Vorgewaschen.</p>
         <div class="block-title">Verarbeitung</div>
         <ul class="desc-list">
           <li>Vollständig formgestrickt</li>
           <li>1x1-Ripp in einfacher Lage</li>
           <li>Doppelt umgeschlagene Krempe — ideal für frontale Cap-Stickerei</li>
         </ul>
-
+      </div>
+      <div>
         <div class="block-title">Farben</div>
         <div class="color-groups">
           <div class="cg"><b>9</b><span>Farben</span></div>
@@ -539,6 +693,23 @@
         <p class="color-examples"><b>Auswahl:</b> Black, French Navy, Bronze, Pebble Blue, Passionate Red, Misty Grey, Stargazer</p>
       </div>
     </div>
+
+    <div class="badge-strip">
+      <div class="badge-group">
+        <div class="badge"><img src="produktkatalog-bilder/ribbeanie-gots.png" alt="GOTS zertifiziert (90% Bio-Baumwolle)"><span>GOTS zertifiziert</span></div>
+        <div class="badge"><img src="produktkatalog-bilder/ribbeanie-oeko.png" alt="OEKO-TEX Standard 100"><span>OEKO-TEX&nbsp;100</span></div>
+        <div class="badge"><img src="produktkatalog-bilder/ribbeanie-fairwear.png" alt="Fair Wear Leader"><span>Fair&nbsp;Wear</span></div>
+      </div>
+      <div class="badge-sep"></div>
+      <div class="badge-group">
+        <div class="badge"><img src="produktkatalog-bilder/ribbeanie-wash.jpeg" alt="Waschen bei 30°C"><span>30°C waschen</span></div>
+        <div class="badge"><img src="produktkatalog-bilder/ribbeanie-nobleach.jpeg" alt="Nicht bleichen"><span>Nicht bleichen</span></div>
+        <div class="badge"><img src="produktkatalog-bilder/ribbeanie-notumble.jpeg" alt="Nicht im Trockner trocknen"><span>Nicht trocknergeeignet</span></div>
+        <div class="badge"><img src="produktkatalog-bilder/ribbeanie-iron.jpeg" alt="Bügeln bei niedriger Temperatur"><span>Niedrig bügeln</span></div>
+        <div class="badge"><img src="produktkatalog-bilder/ribbeanie-nodryclean.jpeg" alt="Nicht chemisch reinigen"><span>Nicht chem. reinigen</span></div>
+      </div>
+    </div>
+
     <div class="page-foot"><span>Nadel &amp; Zwirn — Textilkatalog</span><span>Seite 09</span></div>
   </div>
 </section>
@@ -546,37 +717,58 @@
 <!-- Fisherman Beanie -->
 <section class="pdf-page">
   <div class="page-inner">
-    <div class="page-head"><span class="eyebrow">Mützen</span></div>
-    <div class="product-grid">
-      <div class="product-photo"><img src="produktkatalog-bilder/STAU296 Fisherman.jpeg" alt="Fisherman Beanie 2.0"></div>
-      <div class="product-info">
-        <h2>Fisherman Beanie 2.0</h2>
-        <div class="sub">Die Fischer-Mütze · Stanley/Stella STAU296</div>
+    <div class="page-head"><div><span class="eyebrow">Mützen</span><h2>Fisherman Beanie 2.0</h2></div><div style="font-size:9px; color:var(--fg-faint); text-align:right;">Stanley/Stella<br>STAU296</div></div>
 
-        <div class="stat-rows">
-          <div class="stat-row"><span class="stat-label">Fit</span><span class="stat-value">Medium Fit</span></div>
-          <div class="stat-row"><span class="stat-label">Größe</span><span class="stat-value">One Size (Breite 26 cm)</span></div>
-          <div class="stat-row"><span class="stat-label">Herkunft</span><span class="stat-value">Weben, Färben, Konfektion: Bangladesch</span></div>
-        </div>
+    <div class="photo-row">
+      <div class="photo-tile light"><img src="produktkatalog-bilder/fisherman-main.jpeg" alt="Fisherman Beanie 2.0, Frontansicht am Model"></div>
+      <div class="photo-tile dark"><img src="produktkatalog-bilder/fisherman-sketch.jpeg" alt="Fisherman Beanie 2.0 technische Skizze"></div>
+    </div>
+    <div class="photo-caps"><span class="photo-cap">Frontansicht</span><span class="photo-cap">Technische Skizze</span></div>
 
+    <div class="fact-row">
+      <div class="fact"><svg><use href="#ic-fit"/></svg><span class="fact-label">Fit</span><span class="fact-value">Medium Fit</span></div>
+      <div class="fact"><svg><use href="#ic-size"/></svg><span class="fact-label">Größe</span><span class="fact-value">One Size (26 cm)</span></div>
+      <div class="fact"><svg><use href="#ic-weight"/></svg><span class="fact-label">Material</span><span class="fact-value">2x2-Rippstrick</span></div>
+      <div class="fact"><svg><use href="#ic-origin"/></svg><span class="fact-label">Herkunft</span><span class="fact-value">Bangladesch</span></div>
+    </div>
+
+    <div class="info-cols">
+      <div>
         <div class="block-title">Material</div>
-        <p style="font-size:11px;">2x2-Rippstrick: 93 % Bio-Baumwolle, 6 % recyceltes Polyamid, 1 % Elastan. Vorgewaschen.</p>
-
+        <p style="font-size:10.5px;">2x2-Rippstrick: 93 % Bio-Baumwolle, 6 % recyceltes Polyamid, 1 % Elastan. Vorgewaschen.</p>
         <div class="block-title">Verarbeitung</div>
         <ul class="desc-list">
           <li>Vollständig formgestrickt</li>
           <li>2x2-Ripp in einfacher Lage</li>
           <li>Doppelt umgeschlagene Krempe mit Faltlinien</li>
         </ul>
-
+      </div>
+      <div>
         <div class="block-title">Farben</div>
         <div class="color-groups">
-          <div class="cg"><b>1</b><span>Weißton</span></div>
+          <div class="cg"><b>1</b><span>Weiß</span></div>
           <div class="cg"><b>7</b><span>Farben</span></div>
         </div>
         <p class="color-examples"><b>Auswahl:</b> Natural, Black, French Navy, Deep Teal, Khaki, Mocha, Earthy Red</p>
       </div>
     </div>
+
+    <div class="badge-strip">
+      <div class="badge-group">
+        <div class="badge"><img src="produktkatalog-bilder/fisherman-gots.png" alt="GOTS zertifiziert (93% Bio-Baumwolle)"><span>GOTS zertifiziert</span></div>
+        <div class="badge"><img src="produktkatalog-bilder/fisherman-oeko.png" alt="OEKO-TEX Standard 100"><span>OEKO-TEX&nbsp;100</span></div>
+        <div class="badge"><img src="produktkatalog-bilder/fisherman-fairwear.png" alt="Fair Wear Leader"><span>Fair&nbsp;Wear</span></div>
+      </div>
+      <div class="badge-sep"></div>
+      <div class="badge-group">
+        <div class="badge"><img src="produktkatalog-bilder/fisherman-wash.jpeg" alt="Waschen bei 30°C"><span>30°C waschen</span></div>
+        <div class="badge"><img src="produktkatalog-bilder/fisherman-nobleach.jpeg" alt="Nicht bleichen"><span>Nicht bleichen</span></div>
+        <div class="badge"><img src="produktkatalog-bilder/fisherman-notumble.jpeg" alt="Nicht im Trockner trocknen"><span>Nicht trocknergeeignet</span></div>
+        <div class="badge"><img src="produktkatalog-bilder/fisherman-iron.jpeg" alt="Bügeln bei niedriger Temperatur"><span>Niedrig bügeln</span></div>
+        <div class="badge"><img src="produktkatalog-bilder/fisherman-nodryclean.jpeg" alt="Nicht chemisch reinigen"><span>Nicht chem. reinigen</span></div>
+      </div>
+    </div>
+
     <div class="page-foot"><span>Nadel &amp; Zwirn — Textilkatalog</span><span>Seite 10</span></div>
   </div>
 </section>
@@ -595,7 +787,7 @@
     <div class="addr-row"><dt>Website</dt><dd>nadelundzwirn.at</dd></div>
   </dl>
 
-  <p class="foot-note">Nadel &amp; Zwirn nimmt den Geschäftsbetrieb am 1. Jänner 2027 auf. Alle Angaben zu Material und Farben laut Datenblättern des Herstellers Stanley/Stella, Stand September 2026. Abgebildete Farben können je nach Bildschirm/Druck leicht abweichen.</p>
+  <p class="foot-note">Nadel &amp; Zwirn nimmt den Geschäftsbetrieb am 1. Jänner 2027 auf. Alle Angaben zu Material, Zertifizierung und Farben laut Datenblättern des Herstellers Stanley/Stella, Stand September 2026. Abgebildete Farben können je nach Bildschirm/Druck leicht abweichen.</p>
 </section>
 
 </body>

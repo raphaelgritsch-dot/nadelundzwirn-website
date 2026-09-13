@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nadel &amp; Zwirn — Textilkatalog (Online-Blätterkatalog)</title>
+<link href="fonts/fonts.css" rel="stylesheet">
+<style>
+  :root{
+    --bg-0: #0a0a0a;
+    --bg-1: #121212;
+    --bg-2: #1a1a1a;
+    --fg:      #f3f2ee;
+    --fg-dim:  #a7a6a1;
+    --fg-faint:#6c6c67;
+    --line:      #2b2b2b;
+    --red:      #c9282c;
+    --font-script:  'Yellowtail', cursive;
+    --font-display: 'Archivo Black', 'Inter', Arial, sans-serif;
+    --font-body:    'Inter', Arial, sans-serif;
+  }
+  *,*::before,*::after{ box-sizing:border-box; }
+  html,body{ margin:0; height:100%; background:var(--bg-0); color:var(--fg); font-family:var(--font-body); overflow:hidden; }
+
+  .topbar{
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 14px 22px;
+    background:linear-gradient(180deg, rgba(10,10,10,0.92), rgba(10,10,10,0));
+  }
+  .brand{ display:flex; align-items:center; gap:10px; }
+  .brand-script{ font-family:var(--font-script); font-size:1.5rem; color:var(--fg); }
+  .brand-tagline{ font-family:var(--font-body); text-transform:uppercase; letter-spacing:0.14em; font-size:0.6rem; font-weight:600; color:var(--fg-faint); display:none; }
+  @media (min-width:640px){ .brand-tagline{ display:inline; } }
+
+  .topbar-actions{ display:flex; align-items:center; gap:10px; }
+  .icon-btn{
+    display:flex; align-items:center; gap:6px;
+    background:rgba(255,255,255,0.06); border:1px solid var(--line); color:var(--fg);
+    padding:8px 14px; border-radius:8px; font-family:var(--font-body); font-size:0.78rem;
+    font-weight:600; text-decoration:none; cursor:pointer; transition:background 0.2s ease, border-color 0.2s ease;
+  }
+  .icon-btn:hover{ background:var(--red); border-color:var(--red); }
+  .icon-btn svg{ width:15px; height:15px; stroke:currentColor; fill:none; }
+
+  .stage-wrap{
+    position:absolute; inset:0;
+    display:flex; align-items:center; justify-content:center;
+    padding: 80px 16px 96px;
+  }
+
+  .book{
+    position:relative;
+    perspective: 2600px;
+    filter: drop-shadow(0 30px 60px rgba(0,0,0,0.65));
+  }
+  .page-stack{
+    position:relative;
+    width: min(72vw, 560px);
+    aspect-ratio: 1 / 1.4142;
+    background:#111;
+  }
+  .page-img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; border-radius:2px; }
+  .page-under{ z-index:1; }
+
+  .page-flip{
+    position:absolute; inset:0; z-index:2;
+    transform-style: preserve-3d;
+    transform-origin: right center;
+    transform: rotateY(0deg);
+    will-change: transform;
+  }
+  .page-flip .page-img{
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  .page-flip .shade{
+    position:absolute; inset:0;
+    background: linear-gradient(90deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0) 12%, rgba(0,0,0,0) 88%, rgba(0,0,0,0.28) 100%);
+    pointer-events:none;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  .click-zone{ position:absolute; top:0; bottom:0; width:36%; z-index:5; cursor:pointer; }
+  .click-zone.left{ left:0; }
+  .click-zone.right{ right:0; }
+
+  .nav-btn{
+    position:absolute; top:50%; transform:translateY(-50%);
+    width:46px; height:46px; border-radius:50%;
+    background:rgba(20,20,20,0.7); border:1px solid var(--line); color:var(--fg);
+    display:flex; align-items:center; justify-content:center; cursor:pointer;
+    z-index:10; transition:background 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+  }
+  .nav-btn:hover{ background:var(--red); border-color:var(--red); }
+  .nav-btn.disabled{ opacity:0.25; pointer-events:none; }
+  .nav-btn.prev{ left: max(8px, calc(50% - min(36vw,280px) - 66px)); }
+  .nav-btn.next{ right: max(8px, calc(50% - min(36vw,280px) - 66px)); }
+  .nav-btn svg{ width:20px; height:20px; stroke:currentColor; fill:none; }
+
+  .bottombar{
+    position:fixed; bottom:0; left:0; right:0; z-index:50;
+    display:flex; align-items:center; justify-content:center; gap:18px;
+    padding: 16px 20px 20px;
+    background:linear-gradient(0deg, rgba(10,10,10,0.92), rgba(10,10,10,0));
+  }
+  .page-indicator{
+    font-family:var(--font-body); font-size:0.82rem; letter-spacing:0.04em; color:var(--fg-dim);
+    min-width:110px; text-align:center;
+  }
+  .page-indicator b{ color:var(--fg); font-weight:700; }
+
+  .progress{
+    width:min(50vw, 320px); height:3px; background:var(--line); border-radius:2px; overflow:hidden;
+  }
+  .progress-bar{ height:100%; background:var(--red); width:0%; transition:width 0.35s ease; }
+
+  .hint{
+    position:fixed; left:50%; bottom:70px; transform:translateX(-50%);
+    font-size:0.72rem; color:var(--fg-faint); letter-spacing:0.06em; text-transform:uppercase;
+    opacity:1; transition:opacity 0.6s ease; pointer-events:none; z-index:40;
+  }
+  .hint.hide{ opacity:0; }
+
+  @media (max-width:640px){
+    .nav-btn{ width:38px; height:38px; }
+    .icon-btn span.label{ display:none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">
+    <span class="brand-script">Nadel &amp; Zwirn</span>
+    <span class="brand-tagline">Textilkatalog</span>
+  </div>
+  <div class="topbar-actions">
+    <a class="icon-btn" href="../../02 Projekte/Nebengewerbe Stickerei/Produktkatalog Textilien.pdf" download>
+      <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg>
+      <span class="label">PDF herunterladen</span>
+    </a>
+  </div>
+</div>
+
+<div class="stage-wrap">
+  <div class="book">
+    <button class="nav-btn prev" id="btnPrev" aria-label="Vorherige Seite">
+      <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <div class="page-stack" id="pageStack">
+      <img class="page-img page-under" id="pageUnder" alt="">
+      <div class="page-flip" id="pageFlip">
+        <img class="page-img" id="pageFlipImg" alt="">
+        <div class="shade"></div>
+      </div>
+      <div class="click-zone left" id="zoneLeft"></div>
+      <div class="click-zone right" id="zoneRight"></div>
+    </div>
+    <button class="nav-btn next" id="btnNext" aria-label="Nächste Seite">
+      <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+  </div>
+</div>
+
+<div class="hint" id="hint">Klicken, tippen oder Pfeiltasten zum Blättern</div>
+
+<div class="bottombar">
+  <div class="page-indicator"><b id="pageNum">1</b> / <span id="pageTotal">31</span></div>
+  <div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+</div>
+
+<script>
+(function(){
+  var TOTAL = 31;
+  var images = [];
+  for (var i = 1; i <= TOTAL; i++){
+    images.push('flipbook-pages/page-' + String(i).padStart(2,'0') + '.jpg');
+  }
+
+  var current = 0; // 0-based index of the currently fully-visible page
+  var animating = false;
+
+  var pageUnder = document.getElementById('pageUnder');
+  var pageFlip = document.getElementById('pageFlip');
+  var pageFlipImg = document.getElementById('pageFlipImg');
+  var btnPrev = document.getElementById('btnPrev');
+  var btnNext = document.getElementById('btnNext');
+  var pageNum = document.getElementById('pageNum');
+  var progressBar = document.getElementById('progressBar');
+  var hint = document.getElementById('hint');
+
+  function preload(idx){
+    if (idx >= 0 && idx < TOTAL){
+      var img = new Image();
+      img.src = images[idx];
+    }
+  }
+
+  function updateUI(){
+    pageNum.textContent = (current + 1);
+    progressBar.style.width = (((current + 1) / TOTAL) * 100) + '%';
+    btnPrev.classList.toggle('disabled', current <= 0);
+    btnNext.classList.toggle('disabled', current >= TOTAL - 1);
+    preload(current + 1);
+    preload(current - 1);
+  }
+
+  function settle(){
+    pageFlip.style.transition = 'none';
+    pageFlip.style.transform = 'rotateY(0deg)';
+    pageFlip.style.transformOrigin = 'right center';
+    pageFlipImg.src = images[current];
+    pageUnder.src = images[current];
+    updateUI();
+    animating = false;
+  }
+
+  function goNext(){
+    if (animating || current >= TOTAL - 1) return;
+    animating = true;
+    hideHint();
+    var nextIdx = current + 1;
+    pageUnder.src = images[nextIdx];
+    pageFlip.style.transition = 'none';
+    pageFlip.style.transformOrigin = 'right center';
+    pageFlip.style.transform = 'rotateY(0deg)';
+    pageFlipImg.src = images[current];
+    void pageFlip.offsetWidth;
+    pageFlip.style.transition = 'transform 0.75s cubic-bezier(.4,.1,.2,1)';
+    requestAnimationFrame(function(){
+      pageFlip.style.transform = 'rotateY(-180deg)';
+    });
+    pageFlip.addEventListener('transitionend', function onEnd(){
+      pageFlip.removeEventListener('transitionend', onEnd);
+      current = nextIdx;
+      settle();
+    });
+  }
+
+  function goPrev(){
+    if (animating || current <= 0) return;
+    animating = true;
+    hideHint();
+    var prevIdx = current - 1;
+    pageUnder.src = images[current];
+    pageFlip.style.transition = 'none';
+    pageFlip.style.transformOrigin = 'left center';
+    pageFlip.style.transform = 'rotateY(180deg)';
+    pageFlipImg.src = images[prevIdx];
+    void pageFlip.offsetWidth;
+    pageFlip.style.transition = 'transform 0.75s cubic-bezier(.4,.1,.2,1)';
+    requestAnimationFrame(function(){
+      pageFlip.style.transform = 'rotateY(0deg)';
+    });
+    pageFlip.addEventListener('transitionend', function onEnd(){
+      pageFlip.removeEventListener('transitionend', onEnd);
+      current = prevIdx;
+      settle();
+    });
+  }
+
+  function hideHint(){
+    if (hint) { hint.classList.add('hide'); }
+  }
+
+  btnNext.addEventListener('click', goNext);
+  btnPrev.addEventListener('click', goPrev);
+  document.getElementById('zoneRight').addEventListener('click', goNext);
+  document.getElementById('zoneLeft').addEventListener('click', goPrev);
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'ArrowRight' || e.key === ' ') { goNext(); }
+    else if (e.key === 'ArrowLeft') { goPrev(); }
+  });
+
+  // basic touch swipe support
+  var touchStartX = null;
+  document.getElementById('pageStack').addEventListener('touchstart', function(e){
+    touchStartX = e.changedTouches[0].clientX;
+  }, {passive:true});
+  document.getElementById('pageStack').addEventListener('touchend', function(e){
+    if (touchStartX === null) return;
+    var dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 40){
+      if (dx < 0) goNext(); else goPrev();
+    }
+    touchStartX = null;
+  }, {passive:true});
+
+  // init
+  pageUnder.src = images[0];
+  pageFlipImg.src = images[0];
+  updateUI();
+  setTimeout(hideHint, 4000);
+})();
+</script>
+
+</body>
+</html>

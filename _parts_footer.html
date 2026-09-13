@@ -1,0 +1,172 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="foot-brand">Nadel &amp; Zwirn</div>
+      <p>Klagenfurt, Kärnten, Österreich</p>
+      <p>© <span id="foot-year"></span> Raphael Gritsch, Nadel &amp; Zwirn</p>
+    </div>
+    <p class="legal-note">Nadel &amp; Zwirn hat den Geschäftsbetrieb noch nicht aufgenommen (Start: 1. Jänner 2027). <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutzerklärung</a> · <a href="agb.html">AGB</a>. GALVI Promotion Products ist ein eigenständiges Unternehmen; diese Seite beschreibt eine berufliche Verbindung, kein gemeinsames Unternehmen.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- Zugangssperre (Coming-Soon-Gate) ----------
+     WICHTIG: Das ist KEIN echter Sicherheitsstandard. Der Vergleichscode
+     liegt im öffentlich einsehbaren Quelltext dieser Seite - nur gehasht,
+     nicht im Klartext -, aber wer "Seitenquelltext anzeigen" oder die
+     Entwicklertools nutzt, kann sich den Hash ansehen und ihn mit
+     vertretbarem Aufwand knacken (djb2 ist keine kryptografische
+     Hashfunktion). Der Zweck ist ausschließlich, zufällige Besucher und
+     Suchmaschinen-Crawler vor dem offiziellen Geschäftsstart am
+     1. Jänner 2027 von der Seite fernzuhalten - siehe dazu ergänzend die
+     robots.txt im selben Ordner und das <meta name="robots"> im <head>.
+     Gleiches djb2-Hashverfahren wie im bestehenden PW_GATE-Muster im
+     privaten Dashboard-Projekt: hash = 5381; je Zeichen:
+     hash = ((hash*33) + charCode) >>> 0. Identischer localStorage-Key
+     ('nzAccessUnlocked_v1') wie auf index.html. */
+  var ACCESS_STORAGE_KEY = 'nzAccessUnlocked_v1';
+
+  function djb2Hash(str){
+    var hash = 5381;
+    for(var i = 0; i < str.length; i++){
+      hash = ((hash * 33) + str.charCodeAt(i)) >>> 0;
+    }
+    return hash;
+  }
+
+  var ACCESS_CODE_HASH = djb2Hash('Raphael'); // Hash von "Raphael", nicht der Klartext-Code selbst
+
+  var accessGate = document.getElementById('accessGate');
+  var accessCode = document.getElementById('accessCode');
+  var accessSubmit = document.getElementById('accessSubmit');
+  var accessError = document.getElementById('accessError');
+
+  function unlockAccess(){
+    try{ localStorage.setItem(ACCESS_STORAGE_KEY, '1'); }catch(e){ /* localStorage evtl. blockiert */ }
+    document.documentElement.classList.add('nz-unlocked');
+    if(accessGate){ accessGate.style.display = 'none'; }
+  }
+
+  function checkAccessCode(){
+    if(!accessCode) return;
+    var value = accessCode.value;
+    if(value.length > 0 && djb2Hash(value) === ACCESS_CODE_HASH){
+      if(accessError){ accessError.textContent = ''; }
+      unlockAccess();
+    } else {
+      if(accessError){ accessError.textContent = 'Falscher Zugangscode. Bitte erneut versuchen.'; }
+      accessCode.value = '';
+      accessCode.focus();
+    }
+  }
+
+  if(accessGate){
+    var alreadyUnlocked = false;
+    try{ alreadyUnlocked = window.localStorage && localStorage.getItem(ACCESS_STORAGE_KEY) === '1'; }catch(e){}
+
+    if(alreadyUnlocked){
+      unlockAccess();
+    } else {
+      if(accessCode){ accessCode.focus(); }
+      if(accessSubmit){ accessSubmit.addEventListener('click', checkAccessCode); }
+      if(accessCode){
+        accessCode.addEventListener('keydown', function(e){
+          if(e.key === 'Enter'){ e.preventDefault(); checkAccessCode(); }
+        });
+      }
+    }
+
+    /* ---------- Live-Countdown bis zum Geschäftsstart (1. Jänner 2027, 00:00) ----------
+       Läuft unabhängig davon, ob der Code schon eingegeben wurde, damit auch
+       Besucher ohne Zugangscode sofort sehen, wann die Seite offiziell startet. */
+    var accessTarget = new Date(2027, 0, 1, 0, 0, 0).getTime();
+    var acDays = document.getElementById('acDays');
+    var acHours = document.getElementById('acHours');
+    var acMinutes = document.getElementById('acMinutes');
+    var acSeconds = document.getElementById('acSeconds');
+    var accessCountdownEl = document.getElementById('accessCountdown');
+    var accessMsgEl = document.getElementById('accessGateMsg');
+    var accessCountdownTimer = null;
+
+    function pad(n){ n = String(n); return n.length < 2 ? '0' + n : n; }
+
+    function updateAccessCountdown(){
+      var diff = accessTarget - Date.now();
+      if(diff <= 0){
+        if(accessMsgEl){ accessMsgEl.textContent = 'Nadel & Zwirn ist gestartet.'; }
+        if(accessCountdownEl){ accessCountdownEl.style.display = 'none'; }
+        if(accessCountdownTimer){ clearInterval(accessCountdownTimer); }
+        return;
+      }
+      var totalSeconds = Math.floor(diff / 1000);
+      var days = Math.floor(totalSeconds / 86400);
+      var hours = Math.floor((totalSeconds % 86400) / 3600);
+      var minutes = Math.floor((totalSeconds % 3600) / 60);
+      var seconds = totalSeconds % 60;
+      if(acDays){ acDays.textContent = pad(days); }
+      if(acHours){ acHours.textContent = pad(hours); }
+      if(acMinutes){ acMinutes.textContent = pad(minutes); }
+      if(acSeconds){ acSeconds.textContent = pad(seconds); }
+    }
+    updateAccessCountdown();
+    accessCountdownTimer = setInterval(updateAccessCountdown, 1000);
+  }
+
+  /* ---------- Mobiles Menü ---------- */
+  var navToggle = document.getElementById('navToggle');
+  var mainNav = document.getElementById('mainNav');
+  var navScrim = document.getElementById('navScrim');
+
+  function closeNav(){
+    navToggle.setAttribute('aria-expanded', 'false');
+    mainNav.classList.remove('is-open');
+    navScrim.classList.remove('is-open');
+  }
+  function openNav(){
+    navToggle.setAttribute('aria-expanded', 'true');
+    mainNav.classList.add('is-open');
+    navScrim.classList.add('is-open');
+  }
+  navToggle.addEventListener('click', function(){
+    var expanded = navToggle.getAttribute('aria-expanded') === 'true';
+    if(expanded){ closeNav(); } else { openNav(); }
+  });
+  navScrim.addEventListener('click', closeNav);
+  mainNav.querySelectorAll('a').forEach(function(link){
+    link.addEventListener('click', closeNav);
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){ closeNav(); }
+  });
+
+  /* ---------- Footer-Jahr ---------- */
+  document.getElementById('foot-year').textContent = new Date().getFullYear();
+
+  /* ---------- Scroll-Reveal ---------- */
+  var revealEls = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('is-visible'); });
+  }
+
+
+})();
+</script>
+
+<!-- Cloudflare Web Analytics -->
+<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "d2bb370d2871487e9fd8d55ac31a9ff3"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</body>
+</html>

@@ -137,7 +137,7 @@
     <span class="brand-tagline">Textilkatalog</span>
   </div>
   <div class="topbar-actions">
-    <a class="icon-btn" href="../../02 Projekte/Nebengewerbe Stickerei/Produktkatalog Textilien.pdf" download>
+    <a class="icon-btn" href="Produktkatalog Textilien.pdf" download>
       <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg>
       <span class="label">PDF herunterladen</span>
     </a>
@@ -167,13 +167,13 @@
 <div class="hint" id="hint">Klicken, tippen oder Pfeiltasten zum Blättern</div>
 
 <div class="bottombar">
-  <div class="page-indicator"><b id="pageNum">1</b> / <span id="pageTotal">31</span></div>
+  <div class="page-indicator"><b id="pageNum">1</b> / <span id="pageTotal">30</span></div>
   <div class="progress"><div class="progress-bar" id="progressBar"></div></div>
 </div>
 
 <script>
 (function(){
-  var TOTAL = 31;
+  var TOTAL = 30;
   var images = [];
   for (var i = 1; i <= TOTAL; i++){
     images.push('flipbook-pages/page-' + String(i).padStart(2,'0') + '.jpg');
@@ -216,9 +216,11 @@
   // "lifts" the page starting at the bottom-right corner and peeling toward
   // the top-left corner.
   function clipForT(t){
-    var v = 100 - t; // can go from 100 down to -100
-    var vv = Math.max(-20, Math.min(120, v)); // small overshoot tolerance, clamp for safety
-    return 'polygon(0% 0%, 100% 0%, 100% ' + vv + '%, ' + vv + '% 100%, 0% 100%)';
+    var v = 100 - t; // ranges from 100 (t=0) down to -100 (t=200)
+    // Percentages outside 0-100% are valid in clip-path polygons and are
+    // needed here so the diagonal cut line sweeps smoothly all the way
+    // through the box without ever freezing.
+    return 'polygon(0% 0%, 100% 0%, 100% ' + v + '%, ' + v + '% 100%, 0% 100%)';
   }
 
   function easeInOutCubic(x){
@@ -279,11 +281,13 @@
     animating = true;
     hideHint();
     var prevIdx = current - 1;
-    // Destination (previous) page sits underneath, fully visible.
-    pageUnder.src = images[prevIdx];
-    // Top layer shows the previous page too, starting fully peeled away
-    // (t=200) and settling back down (t: 200 -> 0) as if laid back over
-    // the book from top-left toward bottom-right.
+    // Background layer keeps showing the page we are navigating AWAY from
+    // (the one still on screen right now) so that the top layer has
+    // something different to reveal/cover as it animates.
+    pageUnder.src = images[current];
+    // Top layer shows the previous (target) page, starting fully peeled
+    // away / collapsed (t=200) and growing back in from the top-left
+    // corner to fully cover (t=0), i.e. the exact reverse of goNext.
     pageFlipImg.src = images[prevIdx];
     pageFlip.style.clipPath = clipForT(200);
     pageFlip.style.webkitClipPath = clipForT(200);

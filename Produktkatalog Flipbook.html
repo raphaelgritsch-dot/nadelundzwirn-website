@@ -51,36 +51,36 @@
 
   .book{
     position:relative;
-    perspective: 2600px;
-    filter: drop-shadow(0 30px 60px rgba(0,0,0,0.65));
   }
   .page-stack{
     position:relative;
     width: min(72vw, 560px);
     aspect-ratio: 1 / 1.4142;
     background:#111;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.65);
   }
   .page-img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; border-radius:2px; }
   .page-under{ z-index:1; }
 
+  /* Diagonal peel layer: clipped from bottom-right toward top-left */
   .page-flip{
     position:absolute; inset:0; z-index:2;
-    transform-style: preserve-3d;
-    transform-origin: right center;
-    transform: rotateY(0deg);
-    will-change: transform;
+    will-change: clip-path, filter;
   }
-  .page-flip .page-img{
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
+  .page-flip .page-img{ border-radius:2px; }
+  .page-flip.peeling{
+    filter: drop-shadow(-9px 9px 14px rgba(0,0,0,0.55));
   }
-  .page-flip .shade{
-    position:absolute; inset:0;
-    background: linear-gradient(90deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0) 12%, rgba(0,0,0,0) 88%, rgba(0,0,0,0.28) 100%);
+
+  .corner-hint{
+    position:absolute; right:0; bottom:0; width:46px; height:46px; z-index:3;
     pointer-events:none;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
+    background: linear-gradient(135deg, transparent 50%, rgba(0,0,0,0.10) 50.5%, rgba(0,0,0,0.16) 62%, rgba(255,255,255,0.5) 78%, rgba(255,255,255,0.15) 100%);
+    clip-path: polygon(100% 0, 100% 100%, 0 100%);
+    opacity:0.85;
+    transition: width 0.25s ease, height 0.25s ease, opacity 0.25s ease;
   }
+  .page-stack:hover .corner-hint{ width:64px; height:64px; opacity:1; }
 
   .click-zone{ position:absolute; top:0; bottom:0; width:36%; z-index:5; cursor:pointer; }
   .click-zone.left{ left:0; }
@@ -153,8 +153,8 @@
       <img class="page-img page-under" id="pageUnder" alt="">
       <div class="page-flip" id="pageFlip">
         <img class="page-img" id="pageFlipImg" alt="">
-        <div class="shade"></div>
       </div>
+      <div class="corner-hint" id="cornerHint"></div>
       <div class="click-zone left" id="zoneLeft"></div>
       <div class="click-zone right" id="zoneRight"></div>
     </div>
@@ -181,6 +181,7 @@
 
   var current = 0; // 0-based index of the currently fully-visible page
   var animating = false;
+  var DURATION = 620; // ms
 
   var pageUnder = document.getElementById('pageUnder');
   var pageFlip = document.getElementById('pageFlip');
@@ -207,10 +208,47 @@
     preload(current - 1);
   }
 
+  // Diagonal peel: t sweeps 0 -> 200.
+  // The cut line is x + y = (200 - t) in percent-space, going from a line
+  // through the bottom-right corner (t=0, fully covering) through the exact
+  // corner-to-corner diagonal (t=100) to fully collapsed at the top-left
+  // corner (t=200, fully cleared). This produces a clean wipe that visually
+  // "lifts" the page starting at the bottom-right corner and peeling toward
+  // the top-left corner.
+  function clipForT(t){
+    var v = 100 - t; // can go from 100 down to -100
+    var vv = Math.max(-20, Math.min(120, v)); // small overshoot tolerance, clamp for safety
+    return 'polygon(0% 0%, 100% 0%, 100% ' + vv + '%, ' + vv + '% 100%, 0% 100%)';
+  }
+
+  function easeInOutCubic(x){
+    return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
+  }
+
+  function animateClip(fromT, toT, onDone){
+    var start = null;
+    pageFlip.classList.add('peeling');
+    function step(ts){
+      if (start === null) start = ts;
+      var elapsed = ts - start;
+      var progress = Math.min(1, elapsed / DURATION);
+      var eased = easeInOutCubic(progress);
+      var t = fromT + (toT - fromT) * eased;
+      pageFlip.style.clipPath = clipForT(t);
+      pageFlip.style.webkitClipPath = clipForT(t);
+      if (progress < 1){
+        requestAnimationFrame(step);
+      } else {
+        pageFlip.classList.remove('peeling');
+        onDone();
+      }
+    }
+    requestAnimationFrame(step);
+  }
+
   function settle(){
-    pageFlip.style.transition = 'none';
-    pageFlip.style.transform = 'rotateY(0deg)';
-    pageFlip.style.transformOrigin = 'right center';
+    pageFlip.style.clipPath = clipForT(0);
+    pageFlip.style.webkitClipPath = clipForT(0);
     pageFlipImg.src = images[current];
     pageUnder.src = images[current];
     updateUI();
@@ -222,18 +260,15 @@
     animating = true;
     hideHint();
     var nextIdx = current + 1;
+    // Destination page sits underneath, fully visible from the start.
     pageUnder.src = images[nextIdx];
-    pageFlip.style.transition = 'none';
-    pageFlip.style.transformOrigin = 'right center';
-    pageFlip.style.transform = 'rotateY(0deg)';
+    // Top layer shows the current page, fully covering (t=0), and peels
+    // away from bottom-right to top-left (t: 0 -> 200) to reveal it.
     pageFlipImg.src = images[current];
+    pageFlip.style.clipPath = clipForT(0);
+    pageFlip.style.webkitClipPath = clipForT(0);
     void pageFlip.offsetWidth;
-    pageFlip.style.transition = 'transform 0.75s cubic-bezier(.4,.1,.2,1)';
-    requestAnimationFrame(function(){
-      pageFlip.style.transform = 'rotateY(-180deg)';
-    });
-    pageFlip.addEventListener('transitionend', function onEnd(){
-      pageFlip.removeEventListener('transitionend', onEnd);
+    animateClip(0, 200, function(){
       current = nextIdx;
       settle();
     });
@@ -244,18 +279,16 @@
     animating = true;
     hideHint();
     var prevIdx = current - 1;
-    pageUnder.src = images[current];
-    pageFlip.style.transition = 'none';
-    pageFlip.style.transformOrigin = 'left center';
-    pageFlip.style.transform = 'rotateY(180deg)';
+    // Destination (previous) page sits underneath, fully visible.
+    pageUnder.src = images[prevIdx];
+    // Top layer shows the previous page too, starting fully peeled away
+    // (t=200) and settling back down (t: 200 -> 0) as if laid back over
+    // the book from top-left toward bottom-right.
     pageFlipImg.src = images[prevIdx];
+    pageFlip.style.clipPath = clipForT(200);
+    pageFlip.style.webkitClipPath = clipForT(200);
     void pageFlip.offsetWidth;
-    pageFlip.style.transition = 'transform 0.75s cubic-bezier(.4,.1,.2,1)';
-    requestAnimationFrame(function(){
-      pageFlip.style.transform = 'rotateY(0deg)';
-    });
-    pageFlip.addEventListener('transitionend', function onEnd(){
-      pageFlip.removeEventListener('transitionend', onEnd);
+    animateClip(200, 0, function(){
       current = prevIdx;
       settle();
     });
@@ -292,6 +325,8 @@
   // init
   pageUnder.src = images[0];
   pageFlipImg.src = images[0];
+  pageFlip.style.clipPath = clipForT(0);
+  pageFlip.style.webkitClipPath = clipForT(0);
   updateUI();
   setTimeout(hideHint, 4000);
 })();

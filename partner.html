@@ -555,6 +555,13 @@
     margin-bottom: 56px;
   }
   .stst-photo{ aspect-ratio: 4 / 3; overflow: hidden; background: var(--bg-0); }
+  /* Flache Variante: volle Fensterbreite, aber gedeckelte Hoehe. Bewusst kein
+     aspect-ratio, sonst wuerde die Hoehe auf breiten Monitoren mitwachsen. */
+  .stst-photo-row.is-slim{ margin-bottom: 0; }
+  .stst-photo-row.is-slim .stst-photo{
+    aspect-ratio: auto;
+    height: clamp(150px, 16vw, 260px);
+  }
   .stst-photo img{ width: 100%; height: 100%; object-fit: cover; transition: transform 700ms ease; }
   .stst-photo:hover img{ transform: scale(1.06); }
   @media (max-width: 640px){
@@ -1093,7 +1100,6 @@
   <div class="header-inner">
     <a class="brand-link" href="index.html">
       <span class="brand-script">Nadel &amp; Zwirn</span>
-      <span class="brand-tagline">Stickerei aus Klagenfurt</span>
     </a>
     <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Menü öffnen">
       <span></span>
@@ -1103,6 +1109,7 @@
         <li><a href="index.html#leistungen">Leistungen</a></li>
         <li><a href="index.html#warum">Warum wir</a></li>
         <li><a href="index.html#galerie">Galerie</a></li>
+        <li><a href="stanley-stella.html">Stanley/Stella</a></li>
         <li><a href="partner.html" aria-current="page">Unser Partner</a></li>
         <li><a href="index.html#kontakt">Kontakt</a></li>
       </ul>
@@ -1178,48 +1185,31 @@
   </section>
 
   <!-- ============ STANLEY/STELLA & NACHHALTIGKEIT ============ -->
+  <!-- Hinweis fuer Wartung (kein sichtbarer Kundenhinweis): Dieser Block ist
+       bewusst kurz. Alles Ausfuehrliche zu Stanley/Stella (Zertifizierungen im
+       Detail, Anatomie der wichtigsten Modelle, kompletter Blaetterkatalog)
+       steht auf der eigenen Seite stanley-stella.html. Hier bleibt nur der
+       Partnerschaftsbezug zu GALVI plus Verweis dorthin, damit sich die beiden
+       Seiten inhaltlich nicht doppeln. Die frueher hier stehende dreiteilige
+       Liste (zertifizierte Materialien / breite Auswahl / Hakro-Arbeitskleidung)
+       wurde in den Absatz zusammengezogen, es ging keine Information verloren. -->
   <section class="section" id="nachhaltigkeit">
     <div class="container">
       <div class="section-head reveal">
         <span class="eyebrow">Nachhaltige Textilien</span>
         <h2>Offizieller Partner von Stanley/Stella</h2>
-        <p>GALVI ist offizieller Partner von Stanley/Stella, einer nachhaltigen Fashion-Marke. Für dich als Kunde bedeutet das: eine Basis an Premium-Textilien, die über austauschbare Standard-Blankware hinausgeht.</p>
+        <p>GALVI ist offizieller Partner von Stanley/Stella — der Textilbasis, auf der Nadel &amp; Zwirn überwiegend stickt: zertifizierte Bio-Baumwolle, je nach Modell mit recyceltem Anteil, dazu Shirts, Hoodies, Sweatshirts, Taschen und Accessoires, auch im Showroom in Villach. Ergänzend ist GALVI Partner von Hakro für strapazierfähige Arbeitskleidung, laut Hersteller bis 90&nbsp;°C waschbeständig.</p>
+        <p style="margin-top: 24px;"><a class="btn btn-primary" href="stanley-stella.html">Alles über Stanley/Stella <span class="arrow">↗</span></a></p>
       </div>
     </div>
 
-    <div class="stst-photo-row reveal">
+    <div class="stst-photo-row is-slim reveal">
       <div class="stst-photo">
         <img src="StanleyStella_AW22_Dry_06-scaled.jpg" alt="Offizielles Stanley/Stella-Kampagnenfoto der AW22 Dry-Kollektion: drei Models in gedeckten Pastelltönen (mint, blau, beige) sitzen auf einer Bank">
       </div>
       <div class="stst-photo">
         <img src="stanley.png" alt="Offizielles Stanley/Stella-Lifestyle-Foto: eine Person am Strand in mintfarbenem T-Shirt mit einem Beachvolleyball">
       </div>
-    </div>
-
-    <div class="container">
-      <ul class="why-list">
-        <li class="reveal">
-          <span class="wl-num">01</span>
-          <div>
-            <h3>Zertifizierte Materialien</h3>
-            <p>Textilien zu 100 % aus zertifizierter Bio-Baumwolle oder recycelten Materialien, GOTS-zertifiziert und Fair Trade.</p>
-          </div>
-        </li>
-        <li class="reveal">
-          <span class="wl-num">02</span>
-          <div>
-            <h3>Breite Auswahl</h3>
-            <p>Shirts, Hoodies, Sweatshirts, Taschen und Accessoires, online und im Showroom in Villach zur Veredelung erhältlich.</p>
-          </div>
-        </li>
-        <li class="reveal">
-          <span class="wl-num">03</span>
-          <div>
-            <h3>Auch Arbeitskleidung</h3>
-            <p>Zusätzlich Partner von Hakro: strapazierfähige Arbeitskleidung, laut Hersteller bis 90 °C waschbeständig.</p>
-          </div>
-        </li>
-      </ul>
     </div>
   </section>
 

@@ -1,0 +1,1774 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stanley/Stella — unsere Textilbasis — Nadel & Zwirn</title>
+<meta name="description" content="Warum Nadel & Zwirn vor allem auf Stanley/Stella setzt: zertifizierte Bio-Baumwolle, faire Produktion, Anatomie der wichtigsten Modelle und der komplette Online-Blätterkatalog zum direkten Durchblättern.">
+<!-- Suchmaschinen-Indexierung ab 09.08.2026 bewusst wieder freigegeben (robots.txt
+     erlaubt jetzt Crawling), damit Google die Seite rechtzeitig vor dem
+     Geschäftsstart (1. Jänner 2027) findet und indexieren kann. Der
+     Zugangscode-Schutz bleibt weiterhin aktiv (siehe Zugangssperre weiter
+     unten) — Crawler sehen dadurch vorerst hauptsächlich die
+     Zugangscode-Eingabemaske, nicht die vollen Inhalte, bis der Code-Schutz
+     zum echten Start entfernt wird. -->
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#0a0a0a">
+
+<!-- Open Graph / Social-Vorschau (WhatsApp, Mail, LinkedIn etc.) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Nadel & Zwirn">
+<meta property="og:title" content="Stanley/Stella — unsere Textilbasis — Nadel & Zwirn">
+<meta property="og:description" content="Warum Nadel & Zwirn vor allem auf Stanley/Stella setzt: zertifizierte Bio-Baumwolle, faire Produktion, Anatomie der wichtigsten Modelle und der komplette Online-Blätterkatalog zum direkten Durchblättern.">
+<meta property="og:image" content="https://nadelundzwirn.at/og-image.png">
+<meta property="og:url" content="https://nadelundzwirn.at/stanley-stella.html">
+<meta property="og:locale" content="de_AT">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Stanley/Stella — unsere Textilbasis — Nadel & Zwirn">
+<meta name="twitter:description" content="Warum Nadel & Zwirn vor allem auf Stanley/Stella setzt: zertifizierte Bio-Baumwolle, faire Produktion, Anatomie der wichtigsten Modelle und der komplette Online-Blätterkatalog zum direkten Durchblättern.">
+<meta name="twitter:image" content="https://nadelundzwirn.at/og-image.png">
+
+<!-- Google Fonts mit lokalem Fallback-Stack, falls keine Verbindung besteht -->
+<!-- Schriften jetzt lokal gehostet statt von Google-Servern geladen
+     (siehe fonts/fonts.css) — vermeidet IP-Übertragung an Google beim
+     Seitenaufruf, siehe Datenschutzerklärung. -->
+<link href="fonts/fonts.css" rel="stylesheet">
+
+<style>
+  /* ============================================================
+     NADEL & ZWIRN — Marketing-Website
+     NEUES DESIGNSYSTEM (kompletter Neubau, kein Karten-/Boxen-Stil
+     mehr): monochromes Editorial-Layout in Schwarz/Anthrazit/Weiß,
+     orientiert an großformatigen Foto-Grids ohne Abstände, riesiger
+     Lauftext-Typografie als Sektionstrenner und flachen Zeilen-
+     Layouts statt Boxen. Rot ist nur noch ein minimaler Akzent.
+     Dieser <style>-Block ist bewusst identisch mit dem aus
+     index.html, damit beide Seiten optisch ein System bilden.
+     ============================================================ */
+
+  :root{
+    /* Monochrome Basis: mehrere Dunkeltöne für Layering */
+    --bg-0: #0a0a0a;
+    --bg-1: #121212;
+    --bg-2: #1a1a1a;
+    --bg-3: #242424;
+
+    /* Text: Creme-Weiß auf Schwarz, Grautöne für sekundären Text */
+    --fg:      #f3f2ee;
+    --fg-dim:  #a7a6a1;
+    --fg-faint:#6c6c67;
+
+    /* Trennlinien: gedeckte Grautöne, keine Farbflächen */
+    --line:      #2b2b2b;
+    --line-soft: #202020;
+
+    /* Rot: ausschließlich minimaler Akzent (Links, CTA-Rahmen, Marquee-Trenner, Nummerierung) */
+    --red:      #c9282c;
+    --red-dim:  rgba(201,40,44,0.55);
+
+    --font-script:  'Yellowtail', cursive;
+    --font-display: 'Archivo Black', 'Inter', Arial, sans-serif;
+    --font-body:    'Inter', Arial, sans-serif;
+
+    --container: 1360px;
+    --header-h: 84px;
+    --transition: 240ms ease;
+  }
+
+  *, *::before, *::after{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    *, *::before, *::after{ animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  }
+
+  body{
+    margin: 0;
+    background-color: var(--bg-0);
+    color: var(--fg);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4{
+    font-family: var(--font-display);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.005em;
+    line-height: 0.98;
+    margin: 0 0 0.4em;
+    color: var(--fg);
+    overflow-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+  }
+
+  p{ margin: 0 0 1em; color: var(--fg-dim); }
+  ul{ margin: 0; padding: 0; list-style: none; }
+  img{ max-width: 100%; display: block; }
+  a{ color: inherit; }
+
+  .container{
+    width: 100%;
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  .eyebrow{
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--fg-faint);
+    margin-bottom: 1.1em;
+    display: inline-block;
+  }
+  .eyebrow::before{
+    content: '';
+    display: inline-block;
+    width: 18px;
+    height: 1px;
+    background: var(--red);
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+
+  .section{
+    padding: 108px 0;
+    position: relative;
+    background: var(--bg-0);
+  }
+  .section.alt{ background: var(--bg-1); }
+
+  .section-head{
+    max-width: 760px;
+    margin: 0 0 64px;
+    border-top: 1px solid var(--line);
+    padding-top: 28px;
+  }
+  .section-head h2{ font-size: clamp(2.1rem, 4.6vw, 3.6rem); }
+  .section-head p{ font-size: 1.05rem; max-width: 62ch; }
+
+  .btn{
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55em;
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: color var(--transition), background var(--transition), border-color var(--transition);
+  }
+  .btn-primary{
+    background: var(--fg);
+    color: var(--bg-0);
+    border-color: var(--fg);
+    padding: 1em 1.9em;
+  }
+  .btn-primary:hover, .btn-primary:focus-visible{
+    background: var(--red);
+    border-color: var(--red);
+    color: var(--fg);
+  }
+  .btn-outline{
+    background: transparent;
+    color: var(--fg);
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--fg);
+  }
+  .btn-outline:hover, .btn-outline:focus-visible{
+    color: var(--red);
+    border-color: var(--red);
+  }
+  .btn-outline .arrow{ transition: transform var(--transition); }
+  .btn-outline:hover .arrow{ transform: translate(2px, -2px); }
+
+  :focus-visible{
+    outline: 2px solid var(--red);
+    outline-offset: 3px;
+  }
+
+  .skip-link{
+    position: absolute;
+    left: -999px;
+    top: 0;
+    background: var(--fg);
+    color: var(--bg-0);
+    padding: 12px 20px;
+    font-family: var(--font-body);
+    font-weight: 700;
+    z-index: 999;
+  }
+  .skip-link:focus{ left: 0; }
+
+  /* ---------- Header: fixiert, dunkel/transparent, Cursiv-Logo links,
+     schlichte Text-Navigation rechts, Hamburger ganz rechts ---------- */
+  .site-header{
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 500;
+    height: var(--header-h);
+    display: flex;
+    align-items: center;
+    background-color: rgba(10,10,10,0.72);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .header-inner{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+  .brand-link{
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--fg);
+  }
+  .brand-script{
+    font-family: var(--font-script);
+    font-size: 2rem;
+    line-height: 1;
+    color: var(--fg);
+  }
+  .brand-tagline{
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 0.6rem;
+    font-weight: 600;
+    color: var(--fg-faint);
+    display: none;
+  }
+  @media (min-width: 560px){ .brand-tagline{ display: inline; } }
+
+  .main-nav ul{
+    display: flex;
+    gap: 34px;
+  }
+  .main-nav a{
+    position: relative;
+    display: inline-block;
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--fg-dim);
+    padding: 6px 0;
+    transition: color var(--transition);
+  }
+  .main-nav a::after{
+    content: '';
+    position: absolute;
+    left: 0; bottom: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--red);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition);
+  }
+  .main-nav a:hover, .main-nav a:focus-visible{ color: var(--fg); }
+  .main-nav a:hover::after, .main-nav a:focus-visible::after{ transform: scaleX(1); }
+  .main-nav a[aria-current="page"]{ color: var(--fg); }
+  .main-nav a[aria-current="page"]::after{ transform: scaleX(1); }
+
+  .nav-toggle{
+    display: none;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    position: relative;
+    margin-left: 20px;
+  }
+  .nav-toggle span, .nav-toggle span::before, .nav-toggle span::after{
+    content: '';
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    height: 1px;
+    background: var(--fg);
+    transition: transform var(--transition), opacity var(--transition), top var(--transition);
+  }
+  .nav-toggle span{ top: 19px; }
+  .nav-toggle span::before{ top: -7px; }
+  .nav-toggle span::after{ top: 7px; }
+  .nav-toggle[aria-expanded="true"] span{ background: transparent; }
+  .nav-toggle[aria-expanded="true"] span::before{ top: 0; transform: rotate(45deg); background: var(--red); }
+  .nav-toggle[aria-expanded="true"] span::after{ top: 0; transform: rotate(-45deg); background: var(--red); }
+
+  @media (max-width: 860px){
+    .main-nav{
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 100vh;
+      width: min(340px, 84vw);
+      background: var(--bg-1);
+      border-left: 1px solid var(--line);
+      transform: translateX(100%);
+      transition: transform 360ms ease;
+      padding: 120px 32px 32px;
+      z-index: 400;
+    }
+    .main-nav.is-open{ transform: translateX(0); }
+    .main-nav ul{ flex-direction: column; gap: 6px; }
+    .main-nav a{ display: block; padding: 14px 0; font-size: 1rem; border-bottom: 1px solid var(--line-soft); }
+    .main-nav a::after{ display: none; }
+    .nav-toggle{ display: block; }
+    .nav-scrim{
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 360ms ease;
+      z-index: 350;
+    }
+    .nav-scrim.is-open{ opacity: 1; pointer-events: auto; }
+  }
+
+  /* ---------- Hero: volle Viewport-Höhe, dunkel, riesige Ghost-
+     Typografie im Hintergrund, EIN zentrales hochkant-Foto ---------- */
+  .hero{
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--bg-0);
+    padding: calc(var(--header-h) + 48px) 24px 64px;
+    text-align: center;
+  }
+  .hero-ghost{
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    z-index: 0;
+    pointer-events: none;
+  }
+  .ghost-row{ overflow: hidden; width: 100%; }
+  .ghost-row .ghost-track{
+    display: inline-flex;
+    width: max-content;
+    white-space: nowrap;
+    animation: ghost-scroll 80s linear infinite;
+    will-change: transform;
+  }
+  .ghost-row.reverse .ghost-track{ animation-direction: reverse; animation-duration: 100s; }
+  .ghost-row span{
+    font-family: var(--font-display);
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: clamp(3.4rem, 9vw, 7.6rem);
+    line-height: 1;
+    letter-spacing: 0.01em;
+    padding-right: 0.5em;
+    color: transparent;
+    -webkit-text-stroke: 1.5px rgba(243,242,238,0.07);
+  }
+  @keyframes ghost-scroll{
+    from{ transform: translateX(0); }
+    to{ transform: translateX(-50%); }
+  }
+
+  .hero-content{ position: relative; z-index: 1; max-width: 720px; }
+  .hero-photo{
+    width: min(380px, 62vw);
+    aspect-ratio: 3 / 4;
+    margin: 0 auto 32px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+  }
+  .hero-photo img{ width: 100%; height: 100%; object-fit: cover; object-position: center 40%; }
+  .hero h1{
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    margin-bottom: 0.4em;
+  }
+  .hero-claim{
+    font-size: 1.08rem;
+    max-width: 56ch;
+    margin: 0 auto;
+  }
+  .hero-actions{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 1.8em;
+  }
+
+  /* ---------- Scroll reveal ---------- */
+  .reveal{
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 750ms ease, transform 750ms ease;
+  }
+  .reveal.is-visible{
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ---------- Vollbild-Bildergrid ohne Abstände: dünne Trennlinien
+     zwischen den Spalten statt Karten/Boxen ---------- */
+  .grid-editorial{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .grid-col{ background: var(--bg-0); display: flex; flex-direction: column; }
+  .g-photo{ aspect-ratio: 4 / 5; overflow: hidden; }
+  .g-photo img{ width: 100%; height: 100%; object-fit: cover; transition: transform 700ms ease; }
+  .grid-col:hover .g-photo img{ transform: scale(1.06); }
+  .g-body{ padding: 32px 30px 40px; flex: 1; }
+  .g-num{
+    font-family: var(--font-display);
+    font-size: 1rem;
+    color: var(--red);
+    margin-bottom: 0.6em;
+  }
+  .g-body h3{ font-size: clamp(1.25rem, 2vw, 1.6rem); margin-bottom: 0.4em; }
+  .g-body p{ font-size: 0.95rem; max-width: 40ch; margin-bottom: 0; }
+
+  @media (max-width: 900px){
+    .grid-editorial{ grid-template-columns: 1fr; }
+  }
+
+  /* ---------- Riesige Lauftext-Zeile (Marquee) als Sektionstrenner ---------- */
+  .marquee-big{
+    overflow: hidden;
+    background: var(--bg-0);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 26px 0;
+  }
+  .marquee-big .marquee-track{
+    display: inline-flex;
+    align-items: center;
+    width: max-content;
+    white-space: nowrap;
+    animation: marquee-scroll 34s linear infinite;
+    will-change: transform;
+  }
+  .marquee-big span{
+    font-family: var(--font-display);
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: clamp(1.8rem, 5.4vw, 3.6rem);
+    line-height: 1;
+    color: var(--bg-3);
+    padding: 0 0.4em;
+  }
+  .marquee-big span.sep{ color: var(--red); font-size: clamp(1rem, 2vw, 1.6rem); }
+  @keyframes marquee-scroll{
+    from{ transform: translateX(0); }
+    to{ transform: translateX(-50%); }
+  }
+
+  /* ---------- Zweispaltige Text-Grid-Zeilen: dünne Trennlinie, links
+     Eyebrow, rechts großer fetter Wert ---------- */
+  .stat-rows{ border-bottom: 1px solid var(--line); }
+  .stat-row{
+    display: grid;
+    grid-template-columns: minmax(160px, 300px) 1fr;
+    gap: 24px;
+    align-items: baseline;
+    padding: 26px 0;
+    border-top: 1px solid var(--line);
+  }
+  .stat-row .stat-label{
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--fg-faint);
+  }
+  .stat-row .stat-value{
+    font-family: var(--font-display);
+    font-size: clamp(1.2rem, 2.6vw, 2rem);
+    text-transform: uppercase;
+    color: var(--fg);
+  }
+  .stat-row .stat-value small{
+    display: block;
+    font-family: var(--font-body);
+    text-transform: none;
+    font-size: 0.95rem;
+    color: var(--fg-dim);
+    letter-spacing: normal;
+    margin-top: 6px;
+  }
+  @media (max-width: 640px){
+    .stat-row{ grid-template-columns: 1fr; gap: 6px; }
+  }
+
+  /* ---------- Warum-Liste als nummerierte flache Zeilen ---------- */
+  .why-photo{
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    margin-bottom: 56px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .why-photo img{ width: 100%; height: 100%; object-fit: cover; }
+
+  /* ---------- Stanley/Stella Markenfoto-Reihe: randlose 2er-Bildreihe,
+     gleiches Vollbild-Grid-Prinzip wie .grid-editorial/.gallery-grid,
+     als Aufmacher zwischen Einleitung und 3-Punkte-Liste ---------- */
+  .stst-photo-row{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 56px;
+  }
+  .stst-photo{ aspect-ratio: 4 / 3; overflow: hidden; background: var(--bg-0); }
+  .stst-photo img{ width: 100%; height: 100%; object-fit: cover; transition: transform 700ms ease; }
+  .stst-photo:hover img{ transform: scale(1.06); }
+  @media (max-width: 640px){
+    .stst-photo-row{ grid-template-columns: 1fr; }
+  }
+
+  .warum-intro-grid{
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 56px;
+    align-items: center;
+    margin-bottom: 56px;
+  }
+  .warum-photo{
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border: 1px solid var(--line);
+  }
+  .warum-photo img{ width: 100%; height: 100%; object-fit: cover; display: block; }
+  @media (max-width: 880px){
+    .warum-intro-grid{ grid-template-columns: 1fr; gap: 32px; }
+  }
+
+  .why-list{ border-bottom: 1px solid var(--line); }
+  .why-list li{
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    gap: 20px;
+    padding: 30px 0;
+    border-top: 1px solid var(--line);
+  }
+  .why-list .wl-num{
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    color: var(--red);
+  }
+  .why-list h3{ font-size: clamp(1.1rem, 1.8vw, 1.4rem); margin-bottom: 0.3em; }
+  .why-list p{ font-size: 0.96rem; margin-bottom: 0; max-width: 62ch; }
+  @media (max-width: 600px){
+    .why-list li{ grid-template-columns: 1fr; gap: 8px; }
+  }
+
+  /* ---------- CTA-Zeile: großer Text links, quadratischer Pfeil-
+     Rahmen rechts, ganze Zeile klickbar ---------- */
+  .cta-row{
+    display: block;
+    text-decoration: none;
+    color: var(--fg);
+    border-top: 1px solid var(--line);
+  }
+  .cta-row-inner{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 44px 0;
+    transition: padding var(--transition);
+  }
+  .cta-row-text{
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    font-size: clamp(1.6rem, 4.4vw, 3.1rem);
+    line-height: 1;
+    transition: color var(--transition);
+  }
+  .cta-arrow{
+    flex: none;
+    width: 64px;
+    height: 64px;
+    border: 1px solid var(--fg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: background var(--transition), border-color var(--transition), color var(--transition), transform var(--transition);
+  }
+  .cta-row:hover .cta-row-text, .cta-row:focus-visible .cta-row-text{ color: var(--red); }
+  .cta-row:hover .cta-arrow, .cta-row:focus-visible .cta-arrow{
+    background: var(--red);
+    border-color: var(--red);
+    color: var(--fg);
+    transform: rotate(45deg);
+  }
+
+  /* ---------- Galerie: Vollbild-Grid ohne Abstände ---------- */
+  .gallery-grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 220px;
+    gap: 1px;
+    background: var(--line);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .gallery-item{
+    position: relative;
+    grid-column: span 1;
+    grid-row: span 1;
+    overflow: hidden;
+    padding: 0;
+    cursor: pointer;
+    background: var(--bg-0);
+    border: none;
+  }
+  .gallery-item.large{ grid-column: span 2; grid-row: span 2; }
+  .gallery-item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 600ms ease;
+  }
+  .gallery-item:hover img, .gallery-item:focus-visible img{ transform: scale(1.08); }
+  .gallery-item .cap{
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    padding: 14px 16px;
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    color: var(--fg);
+    background: linear-gradient(0deg, rgba(0,0,0,0.85), transparent);
+    text-align: left;
+    opacity: 0;
+    transition: opacity var(--transition);
+  }
+  .gallery-item:hover .cap, .gallery-item:focus-visible .cap{ opacity: 1; }
+
+  @media (max-width: 760px){
+    .gallery-grid{ grid-template-columns: repeat(2, 1fr); grid-auto-rows: 200px; }
+    .gallery-item.large{ grid-column: span 2; grid-row: span 1; }
+  }
+
+  /* ---------- Lightbox ---------- */
+  .lightbox{
+    position: fixed;
+    inset: 0;
+    background: rgba(6,6,6,0.96);
+    color: var(--fg);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 900;
+    padding: 32px;
+  }
+  .lightbox.is-open{ display: flex; }
+  .lightbox figure{
+    max-width: min(92vw, 1100px);
+    max-height: 90vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  .lightbox img{
+    max-width: 100%;
+    max-height: 78vh;
+    border: 1px solid var(--line);
+  }
+  .lightbox figcaption{
+    font-family: var(--font-body);
+    color: var(--fg-dim);
+    font-size: 0.88rem;
+    text-align: center;
+  }
+  .lightbox-close{
+    position: absolute;
+    top: 24px;
+    right: 28px;
+    width: 46px;
+    height: 46px;
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--fg);
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: border-color var(--transition), color var(--transition);
+  }
+  .lightbox-close:hover, .lightbox-close:focus-visible{ border-color: var(--red); color: var(--red); }
+
+  /* ---------- Kontakt ---------- */
+  .kontakt-grid{
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 64px;
+  }
+  @media (max-width: 880px){ .kontakt-grid{ grid-template-columns: 1fr; gap: 48px; } }
+
+  .kontakt-address{ margin-top: 32px; border-top: 1px solid var(--line); }
+  .kontakt-address .addr-row{
+    display: grid;
+    grid-template-columns: minmax(100px,160px) 1fr;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .kontakt-address dt{ font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 700; color: var(--fg-faint); margin: 0; }
+  .kontakt-address dd{ margin: 0; color: var(--fg); }
+
+  .form-row{ margin-bottom: 24px; }
+  .form-row label{
+    display: block;
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--fg-faint);
+    margin-bottom: 10px;
+  }
+  .form-row input, .form-row select, .form-row textarea{
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    border-bottom: 1px solid var(--line);
+    background: transparent;
+    color: var(--fg);
+    font-family: var(--font-body);
+    font-size: 1rem;
+  }
+  .form-row select option{ background: var(--bg-1); color: var(--fg); }
+  .form-row textarea{ min-height: 120px; resize: vertical; }
+  .form-row input:focus, .form-row select:focus, .form-row textarea:focus{ outline: none; border-color: var(--red); }
+  .form-row input::placeholder, .form-row textarea::placeholder{ color: var(--fg-faint); }
+  .form-note{ font-size: 0.85rem; color: var(--fg-faint); margin-top: 12px; }
+  .form-status{
+    margin-top: 16px;
+    font-size: 0.9rem;
+    color: var(--red);
+    min-height: 1.2em;
+  }
+
+  /* ---------- Seitenkopf "Unser Partner" (nur partner.html): echtes
+     GALVI-Geschäftsgebäude als Hintergrund, analog zum Hero-Muster,
+     dunkler Verlauf für Lesbarkeit ---------- */
+  .page-hero{
+    position: relative;
+    color: var(--fg);
+    background-color: var(--bg-0);
+    background-image:
+      linear-gradient(180deg, rgba(6,6,6,0.82) 0%, rgba(6,6,6,0.90) 55%, rgba(6,6,6,0.97) 100%),
+      url('https://media.galvi.at/about-us/galvi-promotions-geschaeft-cutted.jpg');
+    background-size: cover;
+    background-position: center 65%;
+    padding: calc(var(--header-h) + 96px) 0 88px;
+    border-bottom: 1px solid var(--line);
+    text-align: center;
+  }
+  .page-hero-inner{ max-width: 780px; margin: 0 auto; }
+  .page-hero h1{
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    color: var(--fg);
+    margin-bottom: 0.4em;
+  }
+  .page-hero p{
+    max-width: 62ch;
+    margin: 0 auto;
+    color: var(--fg-dim);
+    font-size: 1.05rem;
+  }
+  .page-hero-actions{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 1.8em;
+  }
+
+  /* ---------- Video-Feld (Digitaldruck bei GALVI): großformatiges
+     Vollbild-Feld wie ein großes Bildfeld im Editorial-Grid, statt
+     schmalem Banner ---------- */
+  .partner-video-field{
+    position: relative;
+    width: 100%;
+    aspect-ratio: 21 / 7;
+    max-height: 42vh;
+    overflow: hidden;
+    background: #000;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  @media (max-width: 640px){
+    .partner-video-field{ aspect-ratio: 4 / 5; max-height: 56vh; }
+  }
+  .partner-video-field video{
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+  .partner-video-caption{
+    text-align: left;
+    margin-top: 20px;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--fg-faint);
+  }
+
+  /* ---------- Verfahren-Liste (Digitaldruck / Siebdruck / Flex- und
+     Flockdruck): jeder Prozess ist ein eigener, klar abgegrenzter
+     Block mit Nummer, Überschrift und ausführlichem Beschreibungstext
+     im Container, gefolgt von einem eigenen großformatigen Video-
+     oder Bild-Feld in voller Breite (bricht bewusst aus dem Container
+     aus, wie das ursprüngliche einzelne Video-Feld). Durch Trennlinien
+     sauber voneinander getrennt, statt Inhalte ohne Kontext
+     untereinander zu stapeln. Kopfbereich angelehnt an .why-list. ---------- */
+  .process-item{ border-bottom: 1px solid var(--line); }
+  .process-item:first-child{ border-top: 1px solid var(--line); }
+  .process-head{
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    gap: 20px;
+    padding: 48px 0 32px;
+  }
+  .process-num{
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    color: var(--red);
+  }
+  .process-head h3{ font-size: clamp(1.2rem, 2.2vw, 1.6rem); margin-bottom: 0.4em; }
+  .process-head p{ font-size: 0.98rem; max-width: 62ch; color: var(--fg-dim); }
+  @media (max-width: 600px){
+    .process-head{ grid-template-columns: 1fr; gap: 8px; }
+  }
+
+  /* ---------- Zitat-Block (Kundenstimme von der GALVI-Website) ---------- */
+  .partner-quote{
+    border-left: 2px solid var(--red);
+    padding: 4px 0 4px 26px;
+    max-width: 640px;
+    margin: 48px 0 0;
+  }
+  .partner-quote p{
+    font-family: var(--font-display);
+    text-transform: none;
+    font-style: italic;
+    font-size: 1.25rem;
+    color: var(--fg);
+    line-height: 1.35;
+  }
+  .partner-quote cite{
+    display: block;
+    font-style: normal;
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.75rem;
+    color: var(--fg-faint);
+  }
+
+  .external-note{ font-size: 0.85rem; color: var(--fg-faint); }
+
+  /* ---------- Footer: minimal, dünne Trennlinie, reiner Text ---------- */
+  .site-footer{
+    background: var(--bg-0);
+    color: var(--fg-dim);
+    border-top: 1px solid var(--line);
+    padding: 56px 0 32px;
+  }
+  .footer-grid{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 24px;
+    padding-bottom: 32px;
+  }
+  .site-footer .foot-brand{
+    font-family: var(--font-script);
+    font-size: 1.8rem;
+    color: var(--fg);
+  }
+  .site-footer p{ font-size: 0.86rem; margin: 4px 0; color: var(--fg-dim); }
+  .site-footer .legal-note{
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    font-size: 0.8rem;
+    color: var(--fg-faint);
+  }
+
+  /* ============================================================
+     ZUGANGSSPERRE ("Coming Soon"-Gate) mit Countdown
+     Deckt die komplette Seite ab, bis der richtige Zugangscode
+     eingegeben wurde oder localStorage das bereits von einem
+     früheren Besuch bestätigt. Siehe ausführlicher Kommentar im
+     Script-Block: das ist KEIN echter Sicherheitsstandard, nur ein
+     Deterrent gegen zufällige Besucher/Suchmaschinen vor dem
+     offiziellen Start am 1. Jänner 2027. Dieser Block ist bewusst
+     identisch mit dem aus index.html.
+     ============================================================ */
+  html:not(.nz-unlocked) .site-header,
+  html:not(.nz-unlocked) .nav-scrim,
+  html:not(.nz-unlocked) main,
+  html:not(.nz-unlocked) .site-footer{
+    display: none !important;
+  }
+  .access-gate{
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-0);
+    padding: 32px;
+    text-align: center;
+    overflow-y: auto;
+  }
+  html.nz-unlocked .access-gate{ display: none; }
+  .access-gate-inner{ max-width: 460px; width: 100%; margin: auto; }
+  .access-gate-brand{
+    display: block;
+    font-family: var(--font-script);
+    font-size: 2.4rem;
+    color: var(--fg);
+    margin-bottom: 0.6em;
+  }
+  .access-gate-msg{
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    font-size: clamp(1.1rem, 3vw, 1.5rem);
+    color: var(--fg);
+    margin-bottom: 1em;
+  }
+  .access-countdown{
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-bottom: 2em;
+  }
+  .ac-unit{ display: flex; flex-direction: column; align-items: center; min-width: 60px; }
+  .ac-num{
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 5vw, 2.6rem);
+    color: var(--red);
+    line-height: 1;
+  }
+  .ac-label{
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--fg-faint);
+    margin-top: 6px;
+  }
+  .access-gate-question{
+    font-size: 0.95rem;
+    color: var(--fg-dim);
+    margin-bottom: 1em;
+    border-top: 1px solid var(--line);
+    padding-top: 1.4em;
+  }
+  .access-gate-form{
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .access-gate-input{
+    flex: 1;
+    min-width: 180px;
+    padding: 12px 14px;
+    border: 1px solid var(--line);
+    background: var(--bg-1);
+    color: var(--fg);
+    font-family: var(--font-body);
+    font-size: 1rem;
+  }
+  .access-gate-input:focus{ outline: none; border-color: var(--red); }
+  .access-gate-error{
+    margin-top: 1em;
+    font-size: 0.85rem;
+    color: var(--red);
+    min-height: 1.2em;
+  }
+
+  /* ============================================================
+     STANLEY/STELLA-SEITE: zusaetzliche Bausteine, die auf partner.html
+     nicht vorkommen (Anatomie-Fotos mit Pins, Zertifikats-Grid,
+     Blätterkatalog-Einbettung). Nutzt dieselben CSS-Variablen und
+     denselben Baukasten (section/container/eyebrow/why-list/stat-rows)
+     wie index.html und partner.html, damit alle drei Seiten optisch
+     ein System bilden.
+     ============================================================ */
+
+  /* Kleine Marken-Videoreihe: nutzt das bestehende randlose 2er-Grid
+     (.stst-photo-row) aus dem gemeinsamen Designsystem, nur mit <video>
+     statt <img> als Inhalt. */
+  .stst-photo video{ width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  /* Flacher Vollbreiten-Streifen: laeuft randlos ueber die ganze Fenster-
+     breite, bleibt aber niedrig. Bewusst KEIN aspect-ratio, weil die Hoehe
+     sonst auf breiten Monitoren mitwachsen wuerde; stattdessen eine per
+     clamp() gedeckelte Hoehe (min 170 px, ideal 18 vw, max 300 px). */
+  .stst-photo-row.is-slim{ margin-bottom: 0; }
+  .stst-photo-row.is-slim .stst-photo{
+    aspect-ratio: auto;
+    height: clamp(170px, 18vw, 300px);
+  }
+
+  .stst-caption-row{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    margin-top: 14px;
+  }
+  .stst-caption-row span{
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--fg-faint);
+  }
+  @media (max-width: 640px){
+    .stst-caption-row{ grid-template-columns: 1fr; gap: 6px; }
+  }
+
+  /* Markenvideo im Fotorahmen: verhaelt sich wie ein <img>, aber im
+     Originalformat 16:9, damit nichts vom Bild abgeschnitten wird. */
+  .warum-photo video{ width: 100%; height: 100%; object-fit: cover; display: block; }
+  .warum-photo.is-video{ aspect-ratio: 16 / 9; }
+
+  .anatomy-block{ margin-bottom: 88px; }
+  .anatomy-block:last-child{ margin-bottom: 0; }
+  .anatomy-grid{
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: 56px;
+    align-items: start;
+  }
+  .anatomy-photo-wrap{
+    position: relative;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    background: var(--bg-1);
+  }
+  .anatomy-photo-wrap img{ width: 100%; height: 100%; object-fit: cover; display: block; }
+  .anatomy-pin{
+    position: absolute;
+    width: 26px; height: 26px;
+    margin: -13px 0 0 -13px;
+    border-radius: 50%;
+    background: var(--red);
+    color: var(--fg);
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 0 4px rgba(10,10,10,0.55), 0 0 0 1px rgba(255,255,255,0.35);
+  }
+  .anatomy-meta{
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--fg-faint);
+    margin-bottom: 0.6em;
+  }
+  .anatomy-info h3{ font-size: clamp(1.35rem, 2.4vw, 1.9rem); margin-bottom: 0.5em; }
+  .anatomy-list{ border-top: 1px solid var(--line); }
+  .anatomy-list li{
+    display: grid;
+    grid-template-columns: 34px 1fr;
+    gap: 16px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .anatomy-list .al-num{
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    background: var(--red);
+    color: var(--fg);
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .anatomy-list h4{
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.96rem;
+    color: var(--fg);
+    text-transform: none;
+    letter-spacing: normal;
+    margin: 0 0 0.3em;
+  }
+  .anatomy-list p{ font-size: 0.9rem; margin: 0; max-width: 52ch; }
+  @media (max-width: 880px){
+    .anatomy-grid{ grid-template-columns: 1fr; gap: 28px; }
+  }
+
+  .cert-grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .cert-item{ background: var(--bg-0); padding: 40px 26px; text-align: center; }
+  .cert-badge{
+    background: var(--fg);
+    width: 92px; height: 92px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 22px;
+    padding: 12px;
+  }
+  .cert-badge img{ max-width: 100%; max-height: 100%; }
+  .cert-item h4{
+    font-family: var(--font-display);
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: var(--fg);
+    margin: 0 0 0.6em;
+  }
+  .cert-item p{ font-size: 0.86rem; margin: 0; }
+  @media (max-width: 860px){
+    .cert-grid{ grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .flip-embed-frame{
+    position: relative;
+    width: 100%;
+    height: min(82vh, 900px);
+    border: 1px solid var(--line);
+    background: #0a0a0a;
+    overflow: hidden;
+  }
+  .flip-embed-frame iframe{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+  .btn-lg{
+    padding: 1.15em 2.3em;
+    font-size: 0.88rem;
+    letter-spacing: 0.12em;
+  }
+  .btn-lg svg{ width: 17px; height: 17px; flex: none; }
+
+  .flip-embed-actions{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 24px;
+    margin-top: 32px;
+  }
+</style>
+
+</head>
+<body>
+
+<!-- Läuft synchron als erstes im <body>, noch bevor Header/Main geparst werden,
+     damit bei bereits entsperrtem Besucher (localStorage gesetzt) kein kurzes
+     Aufblitzen der Zugangssperre passiert. Die CSS-Regel oben blendet Header/
+     Main/Footer standardmäßig aus (html:not(.nz-unlocked)); dieses Skript setzt
+     die Klasse nz-unlocked sofort, falls der Zugangscode bereits bestätigt wurde.
+     Derselbe localStorage-Key wie auf index.html, damit ein einmal auf einer
+     Seite entsperrter Besucher auch auf der anderen nicht erneut gefragt wird. -->
+<script>
+(function(){
+  try{
+    if(window.localStorage && localStorage.getItem('nzAccessUnlocked_v1') === '1'){
+      document.documentElement.classList.add('nz-unlocked');
+    }
+  }catch(e){ /* localStorage evtl. blockiert (privater Modus o.ä.) - Sperre bleibt aktiv */ }
+})();
+</script>
+
+<!-- ============ ZUGANGSSPERRE ============
+     Kein echter Sicherheitsstandard: der Vergleichscode liegt (nur gehasht,
+     nicht im Klartext) im öffentlich einsehbaren Quelltext dieser Seite. Wer
+     "Seitenquelltext anzeigen" nutzt, kann den Hash sehen und mit vertretbarem
+     Aufwand knacken. Das ist ausschließlich ein Deterrent gegen zufällige
+     Besucher und Suchmaschinen, bis der offizielle Geschäftsstart am
+     1. Jänner 2027 erfolgt ist - siehe auch robots.txt und
+     <meta name="robots"> im <head>. Zusätzlich zeigt diese Seite jedem
+     Besucher, auch ohne Code, einen sekundengenauen Countdown als
+     "Coming Soon"-Botschaft. -->
+<div class="access-gate" id="accessGate" role="dialog" aria-modal="true" aria-label="Zugang zu Nadel &amp; Zwirn">
+  <div class="access-gate-inner">
+    <span class="access-gate-brand">Nadel &amp; Zwirn</span>
+    <p class="access-gate-msg" id="accessGateMsg">Nadel &amp; Zwirn startet am 1. Jänner 2027.</p>
+    <div class="access-countdown" id="accessCountdown">
+      <div class="ac-unit"><span class="ac-num" id="acDays">00</span><span class="ac-label">Tage</span></div>
+      <div class="ac-unit"><span class="ac-num" id="acHours">00</span><span class="ac-label">Std</span></div>
+      <div class="ac-unit"><span class="ac-num" id="acMinutes">00</span><span class="ac-label">Min</span></div>
+      <div class="ac-unit"><span class="ac-num" id="acSeconds">00</span><span class="ac-label">Sek</span></div>
+    </div>
+    <p class="access-gate-question">Hast du einen Zugangscode von uns erhalten?</p>
+    <div class="access-gate-form">
+      <label for="accessCode" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Zugangscode</label>
+      <input type="password" id="accessCode" class="access-gate-input" autocomplete="off" placeholder="Zugangscode eingeben" aria-label="Zugangscode">
+      <button type="button" class="btn btn-primary" id="accessSubmit">Bestätigen</button>
+    </div>
+    <p class="access-gate-error" id="accessError" role="alert" aria-live="assertive"></p>
+  </div>
+</div>
+
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand-link" href="index.html">
+      <span class="brand-script">Nadel &amp; Zwirn</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Menü öffnen">
+      <span></span>
+    </button>
+    <nav class="main-nav" id="mainNav" aria-label="Hauptnavigation">
+      <ul>
+        <li><a href="index.html#leistungen">Leistungen</a></li>
+        <li><a href="index.html#warum">Warum wir</a></li>
+        <li><a href="index.html#galerie">Galerie</a></li>
+        <li><a href="stanley-stella.html" aria-current="page">Stanley/Stella</a></li>
+        <li><a href="partner.html">Unser Partner</a></li>
+        <li><a href="index.html#kontakt">Kontakt</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<div class="nav-scrim" id="navScrim"></div>
+
+<main id="main">
+  <!-- ============ SEITENKOPF ============ -->
+  <section class="page-hero" id="top" style="background-image: linear-gradient(180deg, rgba(6,6,6,0.82) 0%, rgba(6,6,6,0.90) 55%, rgba(6,6,6,0.97) 100%), url('StanleyStella_AW22_Dry_06-scaled.jpg');">
+    <div class="container page-hero-inner">
+      <span class="eyebrow">Unsere Textilbasis</span>
+      <h1>Stanley/Stella: die Marke hinter jedem Stich</h1>
+      <p>Stanley/Stella ist der Schwerpunkt unserer Textilauswahl. Diese Seite zeigt, was die Marke auszeichnet, woraus ihre wichtigsten Modelle bestehen — und lässt dich den kompletten Textilkatalog direkt hier durchblättern.</p>
+      <div class="page-hero-actions">
+        <a class="btn btn-primary" href="#katalog">Katalog durchblättern</a>
+        <a class="btn btn-outline" href="index.html#kontakt">Jetzt anfragen</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MARQUEE ============ -->
+  <div class="marquee-big" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Stanley/Stella</span><span class="sep">✕</span>
+      <span>Stanley/Stella</span><span class="sep">✕</span>
+      <span>Stanley/Stella</span><span class="sep">✕</span>
+      <span>Stanley/Stella</span><span class="sep">✕</span>
+      <span>Stanley/Stella</span><span class="sep">✕</span>
+      <span>Stanley/Stella</span><span class="sep">✕</span>
+      <span>Stanley/Stella</span><span class="sep">✕</span>
+      <span>Stanley/Stella</span><span class="sep">✕</span>
+    </div>
+  </div>
+
+  <!-- ============ ANATOMIE: PRODUKTE IN IHRE BESTANDTEILE ZERLEGT ============ -->
+  <section class="section alt" id="anatomie">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Anatomie</span>
+        <h2>Zwei Icons, einmal auseinandergenommen</h2>
+        <p>Statt nur ein fertiges Kleidungsstück zu zeigen: hier sind die Konstruktionsdetails der beiden meistgefragten Stanley/Stella-Modelle einzeln aufgeschlüsselt — jede Angabe laut Verarbeitungshinweisen im offiziellen Datenblatt.</p>
+      </div>
+
+      <div class="anatomy-block">
+        <div class="anatomy-grid">
+          <div class="anatomy-photo-wrap reveal">
+            <img src="produktkatalog-bilder/creator-main.jpeg" alt="Stanley/Stella Creator 2.0, Frontansicht am Model">
+            <span class="anatomy-pin" style="top:18.5%; left:55%;">1</span>
+            <span class="anatomy-pin" style="top:20.5%; left:46%;">2</span>
+            <span class="anatomy-pin" style="top:29.5%; left:70%;">3</span>
+            <span class="anatomy-pin" style="top:48.5%; left:55%;">4</span>
+          </div>
+          <div class="anatomy-info">
+            <div class="anatomy-meta">T-Shirts · Stanley/Stella STTU169</div>
+            <h3>Creator 2.0</h3>
+            <ul class="anatomy-list">
+              <li class="reveal"><span class="al-num">1</span><div><h4>Rundhalsausschnitt mit 1x1-Rippstrick</h4><p>Halsausschnitt aus dehnbarem Rippstrick, damit die Form auch nach vielen Wäschen erhalten bleibt.</p></div></li>
+              <li class="reveal"><span class="al-num">2</span><div><h4>Nackenband aus Oberstoff</h4><p>Zusätzliches Band am Nacken verstärkt den Ausschnitt — die klassische Stelle, an der günstigere T-Shirts zuerst ausleiern.</p></div></li>
+              <li class="reveal"><span class="al-num">3</span><div><h4>Eingesetzte Ärmel, doppelt abgesteppt</h4><p>Ärmel werden eingesetzt statt nur angenäht; die doppelte Absteppung an den Ärmelenden sorgt für sauberen Sitz und Haltbarkeit.</p></div></li>
+              <li class="reveal"><span class="al-num">4</span><div><h4>Doppelabsteppung am unteren Saum</h4><p>Singlejersey aus 100 % gekämmter, ringgesponnener Bio-Baumwolle, vorgewaschen — der Saum ist wie die Ärmel doppelt abgesteppt.</p></div></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="anatomy-block">
+        <div class="anatomy-grid">
+          <div class="anatomy-info reveal" style="order: 2;">
+            <div class="anatomy-meta">Hoodies · Stanley/Stella STSU177</div>
+            <h3>Cruiser 2.0</h3>
+            <ul class="anatomy-list">
+              <li class="reveal"><span class="al-num">1</span><div><h4>Doppellagige Kapuze</h4><p>Zwei Stofflagen in der Kapuze für mehr Stand und Wärme statt einer einfachen, dünnen Lage.</p></div></li>
+              <li class="reveal"><span class="al-num">2</span><div><h4>Runde Kordel mit Metallenden</h4><p>Farblich abgestimmte Kordel mit Metall-Enden statt einfacher Kunststoff-Stopper — sichtbares Detail direkt am Ausschnitt.</p></div></li>
+              <li class="reveal"><span class="al-num">3</span><div><h4>Känguru-Tasche</h4><p>Durchgehende Fronttasche, aufgerautes Sweatshirt-Material aus 100 % ringgesponnener Bio-Baumwolle.</p></div></li>
+              <li class="reveal"><span class="al-num">4</span><div><h4>1x1-Rippstrick an Bündchen und Saum</h4><p>Ärmelbündchen und unterer Saum in Rippstrick für festen Sitz, dazu ein Nackenband mit Fischgrätmuster im Nacken.</p></div></li>
+            </ul>
+          </div>
+          <div class="anatomy-photo-wrap reveal" style="order: 1;">
+            <img src="produktkatalog-bilder/cruiser-main.jpeg" alt="Stanley/Stella Cruiser 2.0, Frontansicht am Model">
+            <span class="anatomy-pin" style="top:17.5%; left:45.5%;">1</span>
+            <span class="anatomy-pin" style="top:23%; left:47.5%;">2</span>
+            <span class="anatomy-pin" style="top:42%; left:45%;">3</span>
+            <span class="anatomy-pin" style="top:48.5%; left:40%;">4</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BLÄTTERKATALOG EINGEBETTET ============ -->
+  <section class="section" id="katalog">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Kompletter Katalog</span>
+        <h2>Direkt hier durchblättern</h2>
+        <p>Der gesamte Nadel &amp; Zwirn-Textilkatalog als Online-Blätterkatalog — alle Stanley/Stella-Modelle mit Material, Größen, Farben und Pflegehinweisen, Seite für Seite wie ein gedrucktes Heft.</p>
+      </div>
+      <div class="flip-embed-frame reveal">
+        <iframe src="Produktkatalog Flipbook.html" title="Nadel &amp; Zwirn Textilkatalog, Online-Blätterkatalog" loading="lazy"></iframe>
+      </div>
+      <div class="flip-embed-actions reveal">
+        <a class="btn btn-primary btn-lg" href="Produktkatalog Flipbook.html" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3M3 16v3a2 2 0 0 0 2 2h3m8 0h3a2 2 0 0 0 2-2v-3"/></svg>
+          Katalog im Vollbild öffnen
+        </a>
+        <a class="btn btn-outline" href="Produktkatalog Textilien.pdf" download>PDF herunterladen <span class="arrow">↓</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DIE MARKE ============ -->
+  <section class="section alt" id="marke">
+    <div class="container">
+      <div class="warum-intro-grid">
+        <div class="section-head reveal" style="margin-bottom: 0;">
+          <span class="eyebrow">Die Marke</span>
+          <h2>Wenige Modelle, dafür konsequent durchdacht</h2>
+          <p>Stanley/Stella baut sein Sortiment nicht auf schnell wechselnden Saisonkollektionen auf, sondern auf einer überschaubaren Zahl fest etablierter "Icon"-Modelle — erkennbar an Namen wie Creator, Cruiser oder Navigator, die über Jahre hinweg als "2.0"-Version weiterentwickelt statt ersetzt werden. Für Nadel &amp; Zwirn heißt das: eine stabile, langfristig nachbestellbare textile Basis für Stickerei, statt einer Blankware, die nächste Saison schon wieder anders ausfällt.</p>
+        </div>
+        <!-- Hinweis fuer Wartung (kein sichtbarer Kundenhinweis): Quelle ist das
+             offizielle Stanley/Stella-Video von deren Cloudinary-CDN
+             (media/wysiwyg/about-lno-decoration.webm, geprueft 13.09.2026,
+             HTTP 200, 1920x1080, 9,8 s). Die Datei liegt hier bewusst LOKAL im
+             Website-Ordner statt als Hotlink: dadurch wird beim Seitenaufruf
+             keine Besucher-IP an ein fremdes CDN uebertragen (gleiche Linie wie
+             bei den lokal gehosteten Schriften, siehe fonts/fonts.css und
+             Datenschutzerklaerung) und die Seite bleibt funktionsfaehig, falls
+             die Quelldatei dort verschoben oder geloescht wird. WebM (VP9,
+             1,3 MB) zuerst, MP4 (H.264, 5,8 MB) als Fallback fuer aeltere
+             Safari-Versionen. Bewusst KEIN autoplay-Attribut: die Wiedergabe
+             startet per IntersectionObserver erst beim Sichtbarwerden bei 0:00
+             - dieselbe Loesung wie bei den Videos auf partner.html. -->
+        <div class="warum-photo is-video reveal">
+          <video id="ststDecoVideo" muted loop playsinline preload="metadata"
+                 aria-label="Stanley/Stella-Qualitaetskontrolle: Farbmessung eines bedruckten T-Shirts mit einem Spektralfotometer">
+            <source src="stanleystella-decoration.webm" type="video/webm">
+            <source src="stanleystella-decoration.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <p>Über das reine Produkt hinaus positioniert sich Stanley/Stella als nachhaltige Fashion-Marke: der Materialfokus liegt durchgängig auf zertifizierter Bio-Baumwolle und, bei vielen Modellen, einem zusätzlichen Anteil recycelter Fasern. Alle Angaben dazu auf dieser Seite stammen aus denselben offiziellen Datenblättern, die auch dem gedruckten Nadel &amp; Zwirn-Textilkatalog zugrunde liegen.</p>
+
+      <div class="stat-rows reveal">
+        <div class="stat-row">
+          <span class="stat-label">Größenspektrum</span>
+          <span class="stat-value">XXS – 5XL* <small>Modellabhängig, siehe jeweiliges Datenblatt</small></span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Farbpalette</span>
+          <span class="stat-value">Bis zu 58 Farben <small>Pro Modell, z. B. Creator 2.0 laut Datenblatt</small></span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Zertifizierungen</span>
+          <span class="stat-value">GOTS · GRS · OEKO-TEX 100 <small>Plus Fair Wear Foundation Leader für die Produktion</small></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DREI GRÜNDE ============ -->
+  <section class="section" id="gruende">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Warum ausgerechnet Stanley/Stella</span>
+        <h2>Drei Gründe für diese Textilbasis</h2>
+        <p>Wenn es um die Textilbasis geht, ist Stanley/Stella bei Nadel &amp; Zwirn die erste Wahl. Diese drei Punkte sind der Grund dafür.</p>
+      </div>
+      <ul class="why-list">
+        <li class="reveal">
+          <span class="wl-num">01</span>
+          <div>
+            <h3>Zertifizierte, nachhaltige Materialien</h3>
+            <p>Bio-Baumwoll-Artikel sind GOTS-zertifiziert (Global Organic Textile Standard). Varianten mit recyceltem Materialanteil zusätzlich GRS-zertifiziert (Global Recycled Standard) — nachprüfbar im jeweiligen Datenblatt, nicht nur als Werbeaussage.</p>
+          </div>
+        </li>
+        <li class="reveal">
+          <span class="wl-num">02</span>
+          <div>
+            <h3>Faire, geprüfte Produktion</h3>
+            <p>Alle Modelle sind nach OEKO-TEX Standard 100 zertifiziert, also auf Schadstofffreiheit geprüft. Stanley/Stella ist zudem Fair Wear Foundation Leader — die höchste Bewertungsstufe dieser Organisation für faire Produktionsbedingungen.</p>
+          </div>
+        </li>
+        <li class="reveal">
+          <span class="wl-num">03</span>
+          <div>
+            <h3>Verlässlich dokumentiertes Sortiment</h3>
+            <p>Jedes Modell hat ein festes, öffentlich einsehbares Datenblatt: Material, Gewicht, Größen und tatsächlich verfügbare Farben. Genau diese Angaben stehen im Nadel &amp; Zwirn-Textilkatalog — ohne geschätzte oder erfundene Werte.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Hinweis fuer Wartung (kein sichtbarer Kundenhinweis): beide Clips sind
+         offizielle Stanley/Stella-Videos von deren Cloudinary-CDN
+         (media/wysiwyg/hp-2026/2510-businesswear-hp und .../2510-lifestyle-hp,
+         geprueft 13.09.2026, HTTP 200, je ca. 3 s, 1920x1080). Wie das
+         Markenvideo weiter oben liegen sie bewusst LOKAL im Website-Ordner
+         statt als Hotlink (keine Besucher-IP an ein fremdes CDN, kein toter
+         Einbau falls die Quelle verschoben wird). WebM zuerst (0,6 bzw.
+         0,5 MB), MP4 als Fallback. Wiedergabe startet per
+         IntersectionObserver beim Sichtbarwerden, siehe Script unten. -->
+    <div class="stst-photo-row is-slim reveal">
+      <div class="stst-photo">
+        <video id="ststVideoBusiness" muted loop playsinline preload="metadata"
+               aria-label="Stanley/Stella-Video: Baecker in heller Arbeitskleidung knetet Teig">
+          <source src="stanleystella-businesswear.webm" type="video/webm">
+          <source src="stanleystella-businesswear.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="stst-photo">
+        <video id="ststVideoLifestyle" muted loop playsinline preload="metadata"
+               aria-label="Stanley/Stella-Video: Person im hellen Sweatshirt ueberquert von oben gefilmt einen Zebrastreifen">
+          <source src="stanleystella-lifestyle.webm" type="video/webm">
+          <source src="stanleystella-lifestyle.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="stst-caption-row">
+        <span>Arbeitskleidung — Businesswear-Linie</span>
+        <span>Alltag — Lifestyle-Linie</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ZERTIFIZIERUNGEN IM ÜBERBLICK ============ -->
+  <section class="section alt" id="zertifizierungen">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Schwarz auf Weiß</span>
+        <h2>Vier Zertifizierungen im Überblick</h2>
+        <p>Diese Prüfzeichen finden sich, modellabhängig, auf den Datenblättern und Etiketten der Stanley/Stella-Textilien, die Nadel &amp; Zwirn bestickt.</p>
+      </div>
+    </div>
+    <div class="cert-grid reveal">
+      <div class="cert-item">
+        <div class="cert-badge"><img src="produktkatalog-bilder/creator-gots.png" alt="GOTS-Logo"></div>
+        <h4>GOTS</h4>
+        <p>Global Organic Textile Standard: kontrolliert Bio-Baumwolle von der Faser bis zum fertigen Kleidungsstück.</p>
+      </div>
+      <div class="cert-item">
+        <div class="cert-badge"><img src="produktkatalog-bilder/creator-grs.png" alt="GRS-Logo"></div>
+        <h4>GRS</h4>
+        <p>Global Recycled Standard: bestätigt den nachgewiesenen Anteil recycelter Fasern in bestimmten Modellvarianten.</p>
+      </div>
+      <div class="cert-item">
+        <div class="cert-badge"><img src="produktkatalog-bilder/creator-oeko.png" alt="OEKO-TEX Standard 100-Logo"></div>
+        <h4>OEKO-TEX 100</h4>
+        <p>Prüft das fertige Textil auf Schadstofffreiheit — Voraussetzung für alle Stanley/Stella-Modelle in diesem Katalog.</p>
+      </div>
+      <div class="cert-item">
+        <div class="cert-badge"><img src="produktkatalog-bilder/creator-fairwear.png" alt="Fair Wear Foundation-Logo"></div>
+        <h4>Fair Wear</h4>
+        <p>Fair Wear Foundation Leader: höchste Bewertungsstufe der Organisation für faire Produktionsbedingungen.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="section" id="cta-stanley">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Nicht nur Stanley/Stella</span>
+        <h2>Bestickt wird auch anderes</h2>
+        <p>Stanley/Stella ist der Schwerpunkt, aber keine Bedingung: Kappen, Mützen, Handtücher,
+           Bademäntel und Textilien, die du selbst mitbringst, werden genauso bestickt. Ob dein Teil
+           dafür geeignet ist, hängt vor allem vom Material und von der Verarbeitung ab —
+           frag im Zweifel einfach kurz an.</p>
+      </div>
+    </div>
+
+    <a class="cta-row reveal" href="index.html#kontakt">
+      <div class="container cta-row-inner">
+        <span class="cta-row-text">Jetzt Wunschtextil bei Nadel &amp; Zwirn anfragen</span>
+        <span class="cta-arrow">↗</span>
+      </div>
+    </a>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="foot-brand">Nadel &amp; Zwirn</div>
+      <p>Klagenfurt, Kärnten, Österreich</p>
+      <p>© <span id="foot-year"></span> Raphael Gritsch, Nadel &amp; Zwirn</p>
+    </div>
+    <p class="legal-note">Nadel &amp; Zwirn hat den Geschäftsbetrieb noch nicht aufgenommen (Start: 1. Jänner 2027). <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutzerklärung</a> · <a href="agb.html">AGB</a>. GALVI Promotion Products ist ein eigenständiges Unternehmen; diese Seite beschreibt eine berufliche Verbindung, kein gemeinsames Unternehmen.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- Zugangssperre (Coming-Soon-Gate) ----------
+     WICHTIG: Das ist KEIN echter Sicherheitsstandard. Der Vergleichscode
+     liegt im öffentlich einsehbaren Quelltext dieser Seite - nur gehasht,
+     nicht im Klartext -, aber wer "Seitenquelltext anzeigen" oder die
+     Entwicklertools nutzt, kann sich den Hash ansehen und ihn mit
+     vertretbarem Aufwand knacken (djb2 ist keine kryptografische
+     Hashfunktion). Der Zweck ist ausschließlich, zufällige Besucher und
+     Suchmaschinen-Crawler vor dem offiziellen Geschäftsstart am
+     1. Jänner 2027 von der Seite fernzuhalten - siehe dazu ergänzend die
+     robots.txt im selben Ordner und das <meta name="robots"> im <head>.
+     Gleiches djb2-Hashverfahren wie im bestehenden PW_GATE-Muster im
+     privaten Dashboard-Projekt: hash = 5381; je Zeichen:
+     hash = ((hash*33) + charCode) >>> 0. Identischer localStorage-Key
+     ('nzAccessUnlocked_v1') wie auf index.html. */
+  var ACCESS_STORAGE_KEY = 'nzAccessUnlocked_v1';
+
+  function djb2Hash(str){
+    var hash = 5381;
+    for(var i = 0; i < str.length; i++){
+      hash = ((hash * 33) + str.charCodeAt(i)) >>> 0;
+    }
+    return hash;
+  }
+
+  var ACCESS_CODE_HASH = djb2Hash('Raphael'); // Hash von "Raphael", nicht der Klartext-Code selbst
+
+  var accessGate = document.getElementById('accessGate');
+  var accessCode = document.getElementById('accessCode');
+  var accessSubmit = document.getElementById('accessSubmit');
+  var accessError = document.getElementById('accessError');
+
+  function unlockAccess(){
+    try{ localStorage.setItem(ACCESS_STORAGE_KEY, '1'); }catch(e){ /* localStorage evtl. blockiert */ }
+    document.documentElement.classList.add('nz-unlocked');
+    if(accessGate){ accessGate.style.display = 'none'; }
+  }
+
+  function checkAccessCode(){
+    if(!accessCode) return;
+    var value = accessCode.value;
+    if(value.length > 0 && djb2Hash(value) === ACCESS_CODE_HASH){
+      if(accessError){ accessError.textContent = ''; }
+      unlockAccess();
+    } else {
+      if(accessError){ accessError.textContent = 'Falscher Zugangscode. Bitte erneut versuchen.'; }
+      accessCode.value = '';
+      accessCode.focus();
+    }
+  }
+
+  if(accessGate){
+    var alreadyUnlocked = false;
+    try{ alreadyUnlocked = window.localStorage && localStorage.getItem(ACCESS_STORAGE_KEY) === '1'; }catch(e){}
+
+    if(alreadyUnlocked){
+      unlockAccess();
+    } else {
+      if(accessCode){ accessCode.focus(); }
+      if(accessSubmit){ accessSubmit.addEventListener('click', checkAccessCode); }
+      if(accessCode){
+        accessCode.addEventListener('keydown', function(e){
+          if(e.key === 'Enter'){ e.preventDefault(); checkAccessCode(); }
+        });
+      }
+    }
+
+    /* ---------- Live-Countdown bis zum Geschäftsstart (1. Jänner 2027, 00:00) ----------
+       Läuft unabhängig davon, ob der Code schon eingegeben wurde, damit auch
+       Besucher ohne Zugangscode sofort sehen, wann die Seite offiziell startet. */
+    var accessTarget = new Date(2027, 0, 1, 0, 0, 0).getTime();
+    var acDays = document.getElementById('acDays');
+    var acHours = document.getElementById('acHours');
+    var acMinutes = document.getElementById('acMinutes');
+    var acSeconds = document.getElementById('acSeconds');
+    var accessCountdownEl = document.getElementById('accessCountdown');
+    var accessMsgEl = document.getElementById('accessGateMsg');
+    var accessCountdownTimer = null;
+
+    function pad(n){ n = String(n); return n.length < 2 ? '0' + n : n; }
+
+    function updateAccessCountdown(){
+      var diff = accessTarget - Date.now();
+      if(diff <= 0){
+        if(accessMsgEl){ accessMsgEl.textContent = 'Nadel & Zwirn ist gestartet.'; }
+        if(accessCountdownEl){ accessCountdownEl.style.display = 'none'; }
+        if(accessCountdownTimer){ clearInterval(accessCountdownTimer); }
+        return;
+      }
+      var totalSeconds = Math.floor(diff / 1000);
+      var days = Math.floor(totalSeconds / 86400);
+      var hours = Math.floor((totalSeconds % 86400) / 3600);
+      var minutes = Math.floor((totalSeconds % 3600) / 60);
+      var seconds = totalSeconds % 60;
+      if(acDays){ acDays.textContent = pad(days); }
+      if(acHours){ acHours.textContent = pad(hours); }
+      if(acMinutes){ acMinutes.textContent = pad(minutes); }
+      if(acSeconds){ acSeconds.textContent = pad(seconds); }
+    }
+    updateAccessCountdown();
+    accessCountdownTimer = setInterval(updateAccessCountdown, 1000);
+  }
+
+  /* ---------- Mobiles Menü ---------- */
+  var navToggle = document.getElementById('navToggle');
+  var mainNav = document.getElementById('mainNav');
+  var navScrim = document.getElementById('navScrim');
+
+  function closeNav(){
+    navToggle.setAttribute('aria-expanded', 'false');
+    mainNav.classList.remove('is-open');
+    navScrim.classList.remove('is-open');
+  }
+  function openNav(){
+    navToggle.setAttribute('aria-expanded', 'true');
+    mainNav.classList.add('is-open');
+    navScrim.classList.add('is-open');
+  }
+  navToggle.addEventListener('click', function(){
+    var expanded = navToggle.getAttribute('aria-expanded') === 'true';
+    if(expanded){ closeNav(); } else { openNav(); }
+  });
+  navScrim.addEventListener('click', closeNav);
+  mainNav.querySelectorAll('a').forEach(function(link){
+    link.addEventListener('click', closeNav);
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){ closeNav(); }
+  });
+
+  /* ---------- Footer-Jahr ---------- */
+  document.getElementById('foot-year').textContent = new Date().getFullYear();
+
+  /* ---------- Scroll-Reveal ---------- */
+  var revealEls = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('is-visible'); });
+  }
+
+  /* ---------- Markenvideo: startet garantiert bei 0:00, sobald es zum ersten
+     Mal sichtbar wird (eigener Observer mit Einmal-Trigger, gleiche Loesung
+     wie auf partner.html). Ohne autoplay-Attribut, damit das Video nicht
+     unsichtbar vorlaeuft, waehrend der Besucher noch weiter oben liest.
+     Bei aktivierter Systemeinstellung "Bewegung reduzieren" bleibt es
+     stehen. ---------- */
+  var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var brandVideoIds = ['ststDecoVideo', 'ststVideoBusiness', 'ststVideoLifestyle'];
+  if(!prefersReducedMotion && 'IntersectionObserver' in window){
+    brandVideoIds.forEach(function(id){
+      var video = document.getElementById(id);
+      if(!video) return;
+      var videoIO = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            video.currentTime = 0;
+            var playPromise = video.play();
+            if(playPromise && typeof playPromise.catch === 'function'){
+              playPromise.catch(function(){ /* Autoplay ggf. blockiert - Video bleibt als Standbild stehen */ });
+            }
+            videoIO.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.4 });
+      videoIO.observe(video);
+    });
+  }
+
+
+})();
+</script>
+
+<!-- Cloudflare Web Analytics -->
+<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "d2bb370d2871487e9fd8d55ac31a9ff3"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</body>
+</html>

@@ -194,6 +194,42 @@
   }
   .btn-outline .arrow{ transition: transform var(--transition); }
   .btn-outline:hover .arrow{ transform: translate(2px, -2px); }
+  /* Akzent-Button: Pillenform mit heller Kontur, Pfeil in einem
+     gefüllten Kreis rechts. Hover füllt den Button hell und dreht
+     die Farben im Kreis um. Für einzelne Links, die aus dem Text
+     herausstechen sollen (z. B. Print on Demand bei GALVI). */
+  .btn-accent{
+    gap: 1em;
+    padding: 0.55em 0.55em 0.55em 1.8em;
+    border: 1px solid rgba(242,241,236,0.55);
+    border-radius: 999px;
+    background: rgba(242,241,236,0.04);
+    color: var(--fg);
+    transition: background var(--transition), color var(--transition), border-color var(--transition);
+  }
+  .btn-accent .arrow{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.1em;
+    height: 2.1em;
+    border-radius: 50%;
+    background: var(--fg);
+    color: var(--bg-0);
+    font-size: 1.35em;
+    font-weight: 400;
+    transition: transform var(--transition), background var(--transition), color var(--transition);
+  }
+  .btn-accent:hover, .btn-accent:focus-visible{
+    background: var(--fg);
+    border-color: var(--fg);
+    color: var(--bg-0);
+  }
+  .btn-accent:hover .arrow, .btn-accent:focus-visible .arrow{
+    background: var(--bg-0);
+    color: var(--fg);
+    transform: rotate(45deg);
+  }
 
   :focus-visible{
     outline: 2px solid var(--red);
@@ -562,6 +598,10 @@
     aspect-ratio: auto;
     height: clamp(150px, 16vw, 260px);
   }
+  /* Ausschnitt je Foto: Etikett mittig, beim Kampagnenfoto nach oben
+     verschoben, damit die Gesichter in der flachen Leiste sichtbar sind. */
+  .stst-photo-row.is-slim .stst-photo:nth-child(1) img{ object-position: center 50%; }
+  .stst-photo-row.is-slim .stst-photo:nth-child(2) img{ object-position: center 25%; }
   .stst-photo img{ width: 100%; height: 100%; object-fit: cover; transition: transform 700ms ease; }
   .stst-photo:hover img{ transform: scale(1.06); }
   @media (max-width: 640px){
@@ -805,7 +845,7 @@
     color: var(--fg);
     background-color: var(--bg-0);
     background-image:
-      linear-gradient(180deg, rgba(6,6,6,0.82) 0%, rgba(6,6,6,0.90) 55%, rgba(6,6,6,0.97) 100%),
+      linear-gradient(180deg, rgba(6,6,6,0.62) 0%, rgba(6,6,6,0.80) 55%, rgba(6,6,6,0.97) 100%),
       url('https://media.galvi.at/about-us/galvi-promotions-geschaeft-cutted.jpg');
     background-size: cover;
     background-position: center 65%;
@@ -813,9 +853,12 @@
     border-bottom: 1px solid var(--line);
     text-align: center;
   }
-  .page-hero-inner{ max-width: 780px; margin: 0 auto; }
+  .page-hero-inner{ max-width: 860px; margin: 0 auto; }
+  .page-hero .eyebrow{ color: var(--fg-dim); }
   .page-hero h1{
-    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-size: clamp(1.9rem, 4.4vw, 3.3rem);
+    hyphens: manual;
+    text-wrap: balance;
     color: var(--fg);
     margin-bottom: 0.4em;
   }
@@ -831,6 +874,52 @@
     justify-content: center;
     gap: 24px;
     margin-top: 1.8em;
+  }
+  /* Kennzahlen-Leiste unter den Buttons: drei Fakten zu GALVI,
+     alle weiter unten auf der Seite belegt (Standort, seit 1994,
+     Stanley/Stella-Partnerschaft). */
+  .page-hero-facts{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 48px auto 0;
+    max-width: 760px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .page-hero-facts div{
+    padding: 22px 16px;
+    border-left: 1px solid var(--line);
+  }
+  .page-hero-facts div:first-child{ border-left: 0; }
+  .page-hero-facts strong{
+    display: block;
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(1.15rem, 2.2vw, 1.5rem);
+    text-transform: uppercase;
+    color: var(--fg);
+    line-height: 1.1;
+  }
+  .page-hero-facts strong::after{
+    content: '';
+    display: block;
+    width: 24px;
+    height: 2px;
+    margin: 12px auto 0;
+    background: var(--red);
+  }
+  .page-hero-facts span{
+    display: block;
+    margin-top: 10px;
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--fg-dim);
+  }
+  @media (max-width: 600px){
+    .page-hero-facts{ grid-template-columns: 1fr; }
+    .page-hero-facts div{ border-left: 0; border-top: 1px solid var(--line); }
+    .page-hero-facts div:first-child{ border-top: 0; }
   }
 
   /* ---------- Video-Feld (Digitaldruck bei GALVI): großformatiges
@@ -1129,12 +1218,17 @@
   <!-- ============ SEITENKOPF ============ -->
   <section class="page-hero" id="top">
     <div class="container page-hero-inner">
-      <span class="eyebrow">Nadel &amp; Zwirn · Starker Partner im Rücken</span>
-      <h1>Stickerei mit Zugang zu professioneller Textilveredelung</h1>
-      <p>Nadel &amp; Zwirn stickt Firmenlogos, Caps und Textilien in Klagenfurt — mit einem einzigen Garn-Standard und echter Maßanfertigung statt Massenware. Gründer Raphael Gritsch arbeitet zusätzlich hauptberuflich als Firmenkundenbetreuer bei GALVI Promotion Products in Villach. Was das für dich als Kunden konkret bedeutet, steht auf dieser Seite.</p>
+      <span class="eyebrow">Partnerschaft mit GALVI Promotion Products</span>
+      <h1>Unser Partner stärkt uns den Rücken!</h1>
+      <p>Wir sind stolz, einen Partner mit über 30 Jahren Erfahrung im Textilbereich zu haben. Und was das für dich bedeutet, findest du weiter unten!</p>
       <div class="page-hero-actions">
         <a class="btn btn-primary" href="index.html#kontakt">Jetzt anfragen</a>
         <a class="btn btn-outline" href="https://www.galvi.at" target="_blank" rel="noopener">Zur Website von GALVI <span class="arrow">↗</span></a>
+      </div>
+      <div class="page-hero-facts">
+        <div><strong>30+ Jahre</strong><span>Erfahrung seit 1994</span></div>
+        <div><strong>Villach</strong><span>Standort in Kärnten</span></div>
+        <div><strong>Stanley/Stella</strong><span>Offizieller Partner</span></div>
       </div>
     </div>
   </section>
@@ -1159,15 +1253,16 @@
       <div class="warum-intro-grid">
         <div class="section-head reveal" style="margin-bottom: 0;">
           <span class="eyebrow">Über GALVI</span>
-          <h2>Der Textildruck-Partner hinter den Kulissen</h2>
-          <p>GALVI Promotion Products ist ein Textildruck-Betrieb mit Sitz in Villach, Kärnten, seit 1994 aktiv (Eigenwerbung: "30 Jahre" Erfahrung). Kerngeschäft: individueller Textildruck, Firmen- und Arbeitskleidung, Werbeartikel sowie Grafik- und Design-Beratung — die Basis, auf der Nadel &amp; Zwirn bei Bedarf aufbauen kann.</p>
+          <h2>Der starke Partner hinter den Kulissen</h2>
+          <p>GALVI Promotion Products ist ein Textildruck-Betrieb mit Sitz in Villach und seit 1994 aktiv. Das Kerngeschäft liegt hier bei individuellem Textildruck, Firmen- und Arbeitskleidung, Werbeartikeln sowie Grafik- und Design-Beratung. Ein kompletter Allrounder!</p>
         </div>
         <div class="warum-photo reveal">
           <img src="hero-section-image.jpg" alt="GOTS-Zertifizierungs-Anhänger an einem bedruckten T-Shirt von GALVI">
         </div>
       </div>
 
-      <p>Zum Leistungsspektrum gehört auch Merchandising-Druck on Demand, inklusive einer Myze-Integration für automatisierte On-Demand-Produktion für Online-Shops. Eines der eingesetzten Druckveredelungsverfahren ist Digitaldruck (DTG) — laut GALVI selbst "flexibel für Einzelstücke und kleine Mengen", also auch für kleinere Auflagen geeignet statt nur für Großaufträge.</p>
+      <p>Neuerdings ist GALVI auch Print-on-Demand-Anbieter für deine Marke! Über eine Myze-Integration werden Bestellungen aus Online-Shops automatisch produziert, mithilfe des Digitaldrucks auch Einzelstücke und kleine Mengen.</p>
+      <div style="margin: 12px 0 56px;"><a class="btn btn-accent" href="https://www.galvi.at/print-on-demand" target="_blank" rel="noopener">Print on Demand bei GALVI <span class="arrow">↗</span></a></div>
 
       <div class="stat-rows reveal">
         <div class="stat-row">
@@ -1180,7 +1275,7 @@
         </div>
       </div>
 
-      <p style="margin-top: 32px;">Beratung gibt es persönlich im Showroom in Villach, telefonisch oder online. Weitere Details direkt bei GALVI: <a href="https://www.galvi.at" target="_blank" rel="noopener">galvi.at</a> <span class="external-note">(externe Website des Partners)</span>.</p>
+      <p style="margin-top: 32px;">Beratung gibt es persönlich im Showroom in Villach, telefonisch oder online. Weitere Details direkt bei GALVI: <a href="https://www.galvi.at" target="_blank" rel="noopener">galvi.at</a>.</p>
     </div>
   </section>
 
@@ -1198,17 +1293,17 @@
       <div class="section-head reveal">
         <span class="eyebrow">Nachhaltige Textilien</span>
         <h2>Offizieller Partner von Stanley/Stella</h2>
-        <p>GALVI ist offizieller Partner von Stanley/Stella — der Textilbasis, auf der Nadel &amp; Zwirn überwiegend stickt: zertifizierte Bio-Baumwolle, je nach Modell mit recyceltem Anteil, dazu Shirts, Hoodies, Sweatshirts, Taschen und Accessoires, auch im Showroom in Villach. Ergänzend ist GALVI Partner von Hakro für strapazierfähige Arbeitskleidung, laut Hersteller bis 90&nbsp;°C waschbeständig.</p>
+        <p>GALVI ist offizieller Partner von Stanley/Stella, unserer ausgewählten Textilbasis! Die Produkte zeichnen sich durch zertifizierte Bio-Baumwolle aus, je nach Modell mit recyceltem Anteil. Im Sortiment sind Shirts, Hoodies, Sweatshirts, Taschen und Accessoires. Ergänzend ist GALVI Partner von Hakro für strapazierfähige Arbeitskleidung, laut Hersteller bis 60 °C waschbeständig.</p>
         <p style="margin-top: 24px;"><a class="btn btn-primary" href="stanley-stella.html">Alles über Stanley/Stella <span class="arrow">↗</span></a></p>
       </div>
     </div>
 
     <div class="stst-photo-row is-slim reveal">
       <div class="stst-photo">
-        <img src="StanleyStella_AW22_Dry_06-scaled.jpg" alt="Offizielles Stanley/Stella-Kampagnenfoto der AW22 Dry-Kollektion: drei Models in gedeckten Pastelltönen (mint, blau, beige) sitzen auf einer Bank">
+        <img src="stanleystella-etikett.jpg" alt="Gewebtes Stanley/Stella-Etikett mit Baumwollzweig auf einem naturfarbenen Textil">
       </div>
       <div class="stst-photo">
-        <img src="stanley.png" alt="Offizielles Stanley/Stella-Lifestyle-Foto: eine Person am Strand in mintfarbenem T-Shirt mit einem Beachvolleyball">
+        <img src="stanleystella-kampagne-urban.jpg" alt="Stanley/Stella-Kampagnenfoto: vier Personen in Hoodie, Sweatshirt, Hemd und T-Shirt vor urbaner Architektur">
       </div>
     </div>
   </section>
@@ -1218,8 +1313,8 @@
     <div class="container">
       <div class="section-head reveal">
         <span class="eyebrow">Verfahren im Bild</span>
-        <h2>Druckveredelung bei GALVI</h2>
-        <p>Ein kurzer Einblick in die Textilveredelung bei GALVI: Digitaldruck für flexible, auch kleinere Stückzahlen, Siebdruck für hohe Stückzahlen mit gleichbleibender Qualität, sowie die Falt- und Verpackungsmaschine, die fertig veredelte Textilien für den Versand vorbereitet. Die Videos starten automatisch, sobald sie in den sichtbaren Bereich scrollen, damit sie immer bei null beginnen.</p>
+        <h2>Textildruck bei GALVI</h2>
+        <p>Ein kurzer Einblick in die Textilveredelung bei GALVI. Der Digitaldruck ist flexibel und auch für kleine Stückzahlen geeignet. Der Siebdruck eignet sich für mittlere und hohe Stückzahlen und liefert gleichbleibende Qualität. Die Farben werden dabei nach Pantone-Code umgesetzt.</p>
       </div>
     </div>
 
@@ -1312,7 +1407,7 @@
         <span class="eyebrow">Warum diese Partnerschaft</span>
         <h2>Was das für dich als Kunde bedeutet</h2>
       </div>
-      <p>Nadel &amp; Zwirn ist ein Ein-Personen-Betrieb. Durch die berufliche Tätigkeit des Gründers bei GALVI besteht direkter Zugang zu hochwertigen, nachhaltigen Stanley/Stella-Textilien und zu professionellen Druckveredelungsverfahren, darunter Digitaldruck. Das heißt konkret: Nadel &amp; Zwirn kann Stickerei nicht nur auf unbedruckter Premium-Ware anbieten, sondern auch auf Textilien, die bei GALVI bereits professionell veredelt wurden, statt nur auf austauschbarer Standard-Blankware zu arbeiten. Für dich als Kunde bedeutet das mehr Auswahl bei Stoffqualität und Vorveredelung, wenn ein Auftrag das erfordert.</p>
+      <p>Durch unseren Partner entstehen für dich neue Möglichkeiten. Alle Textilien aus dem GALVI-Katalog können wir problemlos beziehen und besticken. Wenn wir etwas nicht besticken können, hilft uns GALVI weiter, oder wir finden gemeinsam eine Lösung. Und wenn du dich für Druck interessierst, beraten wir dich gerne und vermitteln dich weiter.</p>
     </div>
 
     <a class="cta-row reveal" href="index.html#kontakt">
@@ -1332,7 +1427,7 @@
       <p>Klagenfurt, Kärnten, Österreich</p>
       <p>© <span id="foot-year"></span> Raphael Gritsch, Nadel &amp; Zwirn</p>
     </div>
-    <p class="legal-note">Nadel &amp; Zwirn hat den Geschäftsbetrieb noch nicht aufgenommen (Start: 1. Jänner 2027). <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutzerklärung</a> · <a href="agb.html">AGB</a>. GALVI Promotion Products ist ein eigenständiges Unternehmen; diese Seite beschreibt eine berufliche Verbindung, kein gemeinsames Unternehmen.</p>
+    <p class="legal-note"><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutzerklärung</a> · <a href="agb.html">AGB</a>. GALVI Promotion Products ist ein eigenständiges Unternehmen; diese Seite beschreibt eine berufliche Verbindung, kein gemeinsames Unternehmen.</p>
   </div>
 </footer>
 

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nadel &amp; Zwirn — Stickerei aus Klagenfurt</title>
-<meta name="description" content="Nadel & Zwirn: Individuelle Stickerei für Firmen und Privatkunden in Klagenfurt und Kärnten. Firmenlogos, Caps und Textilien, gestickt mit Madeira Polyneon NE 40. Start des Geschäftsbetriebs: 1. Jänner 2027.">
+<meta name="description" content="Nadel & Zwirn: Individuelle Stickerei für Firmen und Privatkunden in Klagenfurt und Kärnten. Firmenlogos, Caps und Textilien, bestickt mit Garn aus recyceltem Polyester. Start des Geschäftsbetriebs: 1. Jänner 2027.">
 <!-- Suchmaschinen-Indexierung ab 09.08.2026 bewusst wieder freigegeben (robots.txt
      erlaubt jetzt Crawling), damit Google die Seite rechtzeitig vor dem
      Geschäftsstart (1. Jänner 2027) findet und indexieren kann. Der
@@ -23,7 +23,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Nadel & Zwirn">
 <meta property="og:title" content="Nadel & Zwirn — Stickerei aus Klagenfurt">
-<meta property="og:description" content="Individuelle Stickerei für Firmen und Privatkunden in Klagenfurt und Kärnten. Firmenlogos, Caps und Textilien, gestickt statt aufgedruckt.">
+<meta property="og:description" content="Individuelle Stickerei für Firmen und Privatkunden in Klagenfurt und Kärnten. Firmenlogos, Caps und Textilien, individuell bestickt.">
 <meta property="og:image" content="https://nadelundzwirn.at/og-image.png">
 <meta property="og:url" content="https://nadelundzwirn.at/">
 <meta property="og:locale" content="de_AT">
@@ -683,6 +683,26 @@
   @media (max-width: 600px){
     .faq-item summary{ font-size: 0.92rem; }
   }
+  /* FAQ zweispaltig: Fragen links, Hochformat-Foto rechts. Unter 880px
+     einspaltig, Foto dann unter den Fragen mit begrenzter Höhe. */
+  .faq-grid{
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 64px;
+    align-items: end;
+  }
+  .faq-grid .faq-list{ max-width: none; }
+  .faq-photo{
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    border: 1px solid var(--line);
+  }
+  .faq-photo img{ width: 100%; height: 100%; object-fit: cover; display: block; }
+  @media (max-width: 880px){
+    .faq-grid{ grid-template-columns: 1fr; gap: 40px; }
+    .faq-photo{ aspect-ratio: 4 / 3; }
+    .faq-photo img{ object-position: center 40%; }
+  }
 
   /* ---------- CTA-Zeile: großer Text links, quadratischer Pfeil-
      Rahmen rechts, ganze Zeile klickbar ---------- */
@@ -1246,23 +1266,23 @@
     <div class="hero-ghost" aria-hidden="true">
       <div class="ghost-row">
         <div class="ghost-track">
-          <span>Stick der auffällt</span><span>Stick der auffällt</span><span>Stick der auffällt</span><span>Stick der auffällt</span>
+          <span>Stick, der auffällt</span><span>Stick, der auffällt</span><span>Stick, der auffällt</span><span>Stick, der auffällt</span>
         </div>
       </div>
       <div class="ghost-row reverse">
         <div class="ghost-track">
-          <span>Qualität die bleibt</span><span>Qualität die bleibt</span><span>Qualität die bleibt</span><span>Qualität die bleibt</span>
+          <span>Qualität, die bleibt</span><span>Qualität, die bleibt</span><span>Qualität, die bleibt</span><span>Qualität, die bleibt</span>
         </div>
       </div>
       <div class="ghost-row">
         <div class="ghost-track">
-          <span>Stick der auffällt</span><span>Stick der auffällt</span><span>Stick der auffällt</span><span>Stick der auffällt</span>
+          <span>Stick, der auffällt</span><span>Stick, der auffällt</span><span>Stick, der auffällt</span><span>Stick, der auffällt</span>
         </div>
       </div>
     </div>
     <div class="hero-content">
-      <h1>Stickerei, die hält was sie sticht.</h1>
-      <p class="hero-claim">Dein Logo auf Shirts, Caps und Teamkleidung – bestickt statt aufgedruckt, für einen Auftritt, der im Kopf bleibt. Keine Massenware von der Stange, sondern eine Anfertigung genau für dich: gefertigt in Klagenfurt, geliefert in ganz Kärnten.</p>
+      <h1>Stickerei, die hält was sie bestickt.</h1>
+      <p class="hero-claim">Wir sticken deine Ideen und Wünsche auf hochqualitative Textilien, Kappen und vieles mehr! Egal, ob seriöse Businessbekleidung oder Corporate Fashion, wir finden das Passende für deine Marke. Keine Massenware, sondern nachhaltige Bekleidung mit hohem Qualitätsanspruch.</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="#kontakt">Jetzt anfragen <span class="arrow">↗</span></a>
       </div>
@@ -1274,8 +1294,8 @@
     <div class="container">
       <div class="section-head reveal">
         <span class="eyebrow">Leistungen</span>
-        <h2>Was können wir für dich tun?</h2>
-        <p>Firmenlogos, Caps und Textilien — mit demselben Garn-Standard und derselben Sorgfalt gefertigt, egal ob ein einzelnes Stück oder eine größere Stückzahl bestellt wird. Vom Digitalisieren bis zum fertigen Stück alles aus einer Hand.</p>
+        <h2>Wo liegt unser Schwerpunkt?</h2>
+        <p>Wir unterstützen dich bei der Ideenfindung, digitalisieren dein Logo und sticken es nach deinem Wunsch. Du bekommst also alles aus einer Hand!</p>
       </div>
     </div>
     <div class="grid-editorial">
@@ -1284,7 +1304,7 @@
         <div class="g-body">
           <div class="g-num">01</div>
           <h3>Stick auf Arbeits-/Alltagstextilien</h3>
-          <p>Dein Firmenlogo, gestickt auf Arbeitskleidung, Poloshirts, Jacken oder Taschen. Sauber digitalisiert und über die gesamte Bestellung einheitlich umgesetzt.</p>
+          <p>Dein Logo, gestickt auf Poloshirts, Jacken, Taschen und vielem mehr! Unser Stickgarn besteht zudem auch aus 100 % recyceltem Polyester.</p>
         </div>
       </article>
       <article class="grid-col reveal">
@@ -1292,7 +1312,7 @@
         <div class="g-body">
           <div class="g-num">02</div>
           <h3>Cap- und Mützen-Stickerei</h3>
-          <p>Individuelle Stickerei auf Caps und Mützen, vom Einzelstück bis zur größeren Stückzahl fürs Team, den Verein oder die Veranstaltung.</p>
+          <p>Individuelle Veredelung auf Caps und Mützen, vom Einzelstück bis zur größeren Stückzahl fürs Team, den Verein oder die Veranstaltung.</p>
         </div>
       </article>
       <article class="grid-col reveal">
@@ -1300,7 +1320,7 @@
         <div class="g-body">
           <div class="g-num">03</div>
           <h3>Wellness- und Hotelbekleidung</h3>
-          <p>Handtücher, Bademäntel und weitere Wellness-Textilien nach Wunsch bestickt, für Hotels, Wellness- und Beauty-Betriebe sowie private Anlässe wie Hochzeiten und Jubiläen.</p>
+          <p>Handtücher, Bademäntel und weitere Wellness-Textilien nach Wunsch bestickt. Genau das gewisse Etwas für dein Hotel, deinen Wellness- und Beauty-Betrieb sowie private Anlässe wie Hochzeiten und Jubiläen.</p>
         </div>
       </article>
       <article class="grid-col reveal">
@@ -1308,7 +1328,7 @@
         <div class="g-body">
           <div class="g-num">04</div>
           <h3>Punchen (Digitalisieren)</h3>
-          <p>Dein Logo oder deine Datei wird für die Stickmaschine aufbereitet: Stichrichtung, Dichte und Reihenfolge werden sauber digitalisiert, damit jedes Motiv später exakt und gleichmäßig gestickt wird.</p>
+          <p>Dein Logo oder deine Datei wird für die Stickmaschine aufbereitet. So weiß die Maschine genau, wo und wie jeder Stich gesetzt wird und wann die Farbe wechselt.</p>
         </div>
       </article>
     </div>
@@ -1317,14 +1337,10 @@
   <!-- ============ MARQUEE ALS SEKTIONSTRENNER ============ -->
   <div class="marquee-big" aria-hidden="true">
     <div class="marquee-track">
-      <span>Firmenlogos</span><span class="sep">✕</span>
-      <span>Caps &amp; Mützen</span><span class="sep">✕</span>
-      <span>Textilien</span><span class="sep">✕</span>
-      <span>Madeira Polyneon NE 40</span><span class="sep">✕</span>
-      <span>Firmenlogos</span><span class="sep">✕</span>
-      <span>Caps &amp; Mützen</span><span class="sep">✕</span>
-      <span>Textilien</span><span class="sep">✕</span>
-      <span>Madeira Polyneon NE 40</span><span class="sep">✕</span>
+      <span>Wenn du das lesen kannst, überlegst du zu lange</span><span class="sep">✕</span>
+      <span>Wenn du das lesen kannst, überlegst du zu lange</span><span class="sep">✕</span>
+      <span>Wenn du das lesen kannst, überlegst du zu lange</span><span class="sep">✕</span>
+      <span>Wenn du das lesen kannst, überlegst du zu lange</span><span class="sep">✕</span>
     </div>
   </div>
 
@@ -1335,10 +1351,10 @@
         <div class="section-head reveal" style="margin-bottom: 0;">
           <span class="eyebrow">Warum Nadel &amp; Zwirn</span>
           <h2>Handwerk statt Massenware</h2>
-          <p>Vier Grundsätze, an denen sich jeder Auftrag orientiert, unabhängig von Größe oder Stückzahl. Nadel &amp; Zwirn ist ein Ein-Personen-Betrieb von Raphael Gritsch: kein Team, keine Zwischenhändler, sondern direkter Kontakt zwischen Gründer und Kunde.</p>
+          <p>Vier Grundsätze, an denen sich jeder Auftrag orientiert, unabhängig von Größe oder Stückzahl. Nadel &amp; Zwirn ist ein junger Ein-Personen-Betrieb, bei dem Qualität und Nachhaltigkeit an erster Stelle stehen.</p>
         </div>
         <div class="warum-photo reveal">
-          <img src="images stickamschine(1).jfif" alt="Happy Mehrkopf-Stickmaschine bestickt einen bunten Ahornblatt-Anhänger auf hellem Stoff">
+          <img src="stickmaschine-nadelkopf.jpg" alt="Nahaufnahme eines Stickkopfs mit 18 Nadeln und eingefädelten Garnen" width="1024" height="768" loading="lazy">
         </div>
       </div>
 
@@ -1347,28 +1363,28 @@
           <span class="wl-num">01</span>
           <div>
             <h3>Einzelanfertigung</h3>
-            <p>Jeder Auftrag wird individuell digitalisiert und auf Größe, Stoff und Design abgestimmt. Keine Stangenware.</p>
+            <p>Jeder Auftrag wird persönlich bearbeitet und betreut. Du hast einen festen Ansprechpartner, der dein Projekt von der ersten Idee bis zum fertigen Stück begleitet.</p>
           </div>
         </li>
         <li class="reveal">
           <span class="wl-num">02</span>
           <div>
             <h3>Ein Garn-Standard</h3>
-            <p>Gestickt wird ausschließlich mit Madeira Polyneon NE 40. Ein einziger Qualitätsstandard, für jeden Auftrag gleich, keine Billig-Alternativen.</p>
+            <p>Gestickt wird ausschließlich mit hochwertigem Garn aus recyceltem Polyester. Ein einheitlicher Standard für jeden Auftrag, der Qualität und Nachhaltigkeit verbindet.</p>
           </div>
         </li>
         <li class="reveal">
           <span class="wl-num">03</span>
           <div>
-            <h3>Regional gefertigt</h3>
-            <p>Produziert in Klagenfurt, mit kurzen Wegen zu Kunden in ganz Kärnten. Made in Austria statt Massenware von weit her.</p>
+            <h3>Regionale Produktion</h3>
+            <p>Produziert in Klagenfurt, mit kurzen Wegen zu Kunden in ganz Kärnten. Bestickt in Österreich statt Massenware!</p>
           </div>
         </li>
         <li class="reveal">
           <span class="wl-num">04</span>
           <div>
             <h3>Qualität und Zuverlässigkeit</h3>
-            <p>Persönliche Betreuung durch den Gründer selbst, von der ersten Anfrage bis zur Auslieferung.</p>
+            <p>Persönliche Betreuung durch den Gründer selbst, von der ersten Anfrage bis zur Lieferung.</p>
           </div>
         </li>
       </ul>
@@ -1433,14 +1449,14 @@
   <!-- ============ MARQUEE ALS SEKTIONSTRENNER ============ -->
   <div class="marquee-big" aria-hidden="true">
     <div class="marquee-track">
-      <span>Stick der auffällt</span><span class="sep">✕</span>
-      <span>Qualität die bleibt</span><span class="sep">✕</span>
-      <span>Stick der auffällt</span><span class="sep">✕</span>
-      <span>Qualität die bleibt</span><span class="sep">✕</span>
-      <span>Stick der auffällt</span><span class="sep">✕</span>
-      <span>Qualität die bleibt</span><span class="sep">✕</span>
-      <span>Stick der auffällt</span><span class="sep">✕</span>
-      <span>Qualität die bleibt</span><span class="sep">✕</span>
+      <span>Stick, der auffällt</span><span class="sep">✕</span>
+      <span>Qualität, die bleibt</span><span class="sep">✕</span>
+      <span>Stick, der auffällt</span><span class="sep">✕</span>
+      <span>Qualität, die bleibt</span><span class="sep">✕</span>
+      <span>Stick, der auffällt</span><span class="sep">✕</span>
+      <span>Qualität, die bleibt</span><span class="sep">✕</span>
+      <span>Stick, der auffällt</span><span class="sep">✕</span>
+      <span>Qualität, die bleibt</span><span class="sep">✕</span>
     </div>
   </div>
 
@@ -1449,7 +1465,7 @@
     <div class="container">
       <div class="section-head reveal">
         <span class="eyebrow">Stanley/Stella</span>
-        <h2>Textilien aus bester Qualität</h2>
+        <h2 style="hyphens: manual;">Textilien mit bester Qualität</h2>
         <p>Schwerpunkt unserer Textilauswahl ist Stanley/Stella: GOTS-zertifizierte Bio-Baumwolle, je nach Modell mit recyceltem Anteil, nach OEKO-TEX Standard 100 auf Schadstofffreiheit geprüft und fair produziert (Fair Wear Foundation Leader), bezogen über unseren Partner GALVI Promotion Products. Bestickt wird aber auch anderes — Kappen, Mützen, Handtücher, Bademäntel oder deine eigenen Textilien.</p>
         <p style="margin-top: 24px;"><a class="btn btn-outline" href="stanley-stella.html">Mehr über Stanley/Stella <span class="arrow">↗</span></a></p>
       </div>
@@ -1484,7 +1500,6 @@
       <div class="section-head reveal">
         <span class="eyebrow">Galerie</span>
         <h2>Stickerei im Detail</h2>
-        <p>Ausschnitte aus Werkstatt und Fertigung, läuft automatisch durch. Klick auf ein Bild für die Vollbildansicht.</p>
       </div>
     </div>
 
@@ -1571,6 +1586,8 @@
   <!-- ============ FAQ ============ -->
   <section class="section alt" id="faq">
     <div class="container">
+      <div class="faq-grid">
+      <div class="faq-main">
       <div class="section-head reveal">
         <span class="eyebrow">Häufige Fragen</span>
         <h2>Häufig gestellte Fragen</h2>
@@ -1589,7 +1606,7 @@
 
         <details class="faq-item reveal">
           <summary>Wie lange dauert die Lieferung?<span class="faq-toggle" aria-hidden="true"></span></summary>
-          <p>Der Versand erfolgt mit DPD, die Dauer hängt von der Distanz ab. In Klagenfurt und Villach liefern wir kostenlos frei Haus.</p>
+          <p>Der Versand erfolgt mit DPD, die Dauer hängt von der Distanz ab. In Klagenfurt und Villach liefern wir kostenlos frei Haus. Die gängige Lieferzeit von Bestellung bis Auslieferung beträgt ca. 3 Wochen.</p>
         </details>
 
         <details class="faq-item reveal">
@@ -1606,6 +1623,11 @@
           <summary>Kann ich mein eigenes Design mitbringen?<span class="faq-toggle" aria-hidden="true"></span></summary>
           <p>Ja. Logo, Schriftzug oder eigenes Motiv einfach bei der Anfrage mitschicken, es wird für die Stickerei digitalisiert.</p>
         </details>
+      </div>
+      </div>
+      <div class="faq-photo reveal">
+        <img src="stickmaschine-greifer.jpg" alt="Nahaufnahme von Nadelstangen und Greifer einer Mehrnadel-Stickmaschine" width="768" height="1024" loading="lazy">
+      </div>
       </div>
     </div>
   </section>

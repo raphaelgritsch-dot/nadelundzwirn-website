@@ -1083,6 +1083,19 @@
      Originalformat 16:9, damit nichts vom Bild abgeschnitten wird. */
   .warum-photo video{ width: 100%; height: 100%; object-fit: cover; display: block; }
   .warum-photo.is-video{ aspect-ratio: 16 / 9; }
+  /* Die-Marke-Abschnitt: Überschrift volle Breite, darunter Text links und
+     Video rechts, vertikal mittig zueinander. Unter 880px einspaltig. */
+  .marke-grid{
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 56px;
+    align-items: center;
+    margin-bottom: 56px;
+  }
+  .marke-text p:last-child{ margin-bottom: 0; }
+  @media (max-width: 880px){
+    .marke-grid{ grid-template-columns: 1fr; gap: 32px; }
+  }
 
   .anatomy-block{ margin-bottom: 88px; }
   .anatomy-block:last-child{ margin-bottom: 0; }
@@ -1300,8 +1313,8 @@
   <section class="page-hero" id="top" style="background-image: linear-gradient(180deg, rgba(6,6,6,0.82) 0%, rgba(6,6,6,0.90) 55%, rgba(6,6,6,0.97) 100%), url('StanleyStella_AW22_Dry_06-scaled.jpg');">
     <div class="container page-hero-inner">
       <span class="eyebrow">Unsere Textilbasis</span>
-      <h1>Stanley/Stella: die Marke hinter jedem Stich</h1>
-      <p>Stanley/Stella ist der Schwerpunkt unserer Textilauswahl. Diese Seite zeigt, was die Marke auszeichnet, woraus ihre wichtigsten Modelle bestehen — und lässt dich den kompletten Textilkatalog direkt hier durchblättern.</p>
+      <h1>Stanley/Stella: Wo Qualität auf Nachhaltigkeit trifft</h1>
+      <p>Stanley/Stella ist der Schwerpunkt unserer Textilauswahl. Hier erfährst du, was die Marke auszeichnet und woraus die wichtigsten Modelle bestehen. Unseren Textilkatalog mit individueller Auswahl für dich findest du direkt hier!</p>
       <div class="page-hero-actions">
         <a class="btn btn-primary" href="#katalog">Katalog durchblättern</a>
         <a class="btn btn-outline" href="index.html#kontakt">Jetzt anfragen</a>
@@ -1312,14 +1325,20 @@
   <!-- ============ MARQUEE ============ -->
   <div class="marquee-big" aria-hidden="true">
     <div class="marquee-track">
-      <span>Stanley/Stella</span><span class="sep">✕</span>
-      <span>Stanley/Stella</span><span class="sep">✕</span>
-      <span>Stanley/Stella</span><span class="sep">✕</span>
-      <span>Stanley/Stella</span><span class="sep">✕</span>
-      <span>Stanley/Stella</span><span class="sep">✕</span>
-      <span>Stanley/Stella</span><span class="sep">✕</span>
-      <span>Stanley/Stella</span><span class="sep">✕</span>
-      <span>Stanley/Stella</span><span class="sep">✕</span>
+      <span>Cruiser 2.0</span><span class="sep">✕</span>
+      <span>Crafter</span><span class="sep">✕</span>
+      <span>Cultivator</span><span class="sep">✕</span>
+      <span>Breezer</span><span class="sep">✕</span>
+      <span>Navigator</span><span class="sep">✕</span>
+      <span>Creator 2.0</span><span class="sep">✕</span>
+      <span>Drummer 2.0</span><span class="sep">✕</span>
+      <span>Cruiser 2.0</span><span class="sep">✕</span>
+      <span>Crafter</span><span class="sep">✕</span>
+      <span>Cultivator</span><span class="sep">✕</span>
+      <span>Breezer</span><span class="sep">✕</span>
+      <span>Navigator</span><span class="sep">✕</span>
+      <span>Creator 2.0</span><span class="sep">✕</span>
+      <span>Drummer 2.0</span><span class="sep">✕</span>
     </div>
   </div>
 
@@ -1327,9 +1346,8 @@
   <section class="section alt" id="anatomie">
     <div class="container">
       <div class="section-head reveal">
-        <span class="eyebrow">Anatomie</span>
-        <h2>Zwei Icons, einmal auseinandergenommen</h2>
-        <p>Statt nur ein fertiges Kleidungsstück zu zeigen: hier sind die Konstruktionsdetails der beiden meistgefragten Stanley/Stella-Modelle einzeln aufgeschlüsselt — jede Angabe laut Verarbeitungshinweisen im offiziellen Datenblatt.</p>
+        <h2>Was steckt nun dahinter?</h2>
+        <p>Hier findest du die wichtigsten Bestandteile der zwei Bestsellerprodukte „Creator 2.0“ und „Cruiser 2.0“, damit du auch wirklich siehst, was den Unterschied macht!</p>
       </div>
 
       <div class="anatomy-block">
@@ -1384,7 +1402,7 @@
       <div class="section-head reveal">
         <span class="eyebrow">Kompletter Katalog</span>
         <h2>Direkt hier durchblättern</h2>
-        <p>Der gesamte Nadel &amp; Zwirn-Textilkatalog als Online-Blätterkatalog — alle Stanley/Stella-Modelle mit Material, Größen, Farben und Pflegehinweisen, Seite für Seite wie ein gedrucktes Heft.</p>
+        <p>Der gesamte Textilkatalog von Nadel &amp; Zwirn als Online-Blätterkatalog: alle Stanley/Stella-Modelle mit Material, Größen, Farben und Pflegehinweisen für die richtige Wäsche.</p>
       </div>
       <div class="flip-embed-frame reveal">
         <iframe src="Produktkatalog Flipbook.html" title="Nadel &amp; Zwirn Textilkatalog, Online-Blätterkatalog" loading="lazy"></iframe>
@@ -1402,11 +1420,14 @@
   <!-- ============ DIE MARKE ============ -->
   <section class="section alt" id="marke">
     <div class="container">
-      <div class="warum-intro-grid">
-        <div class="section-head reveal" style="margin-bottom: 0;">
-          <span class="eyebrow">Die Marke</span>
-          <h2>Wenige Modelle, dafür konsequent durchdacht</h2>
-          <p>Stanley/Stella baut sein Sortiment nicht auf schnell wechselnden Saisonkollektionen auf, sondern auf einer überschaubaren Zahl fest etablierter "Icon"-Modelle — erkennbar an Namen wie Creator, Cruiser oder Navigator, die über Jahre hinweg als "2.0"-Version weiterentwickelt statt ersetzt werden. Für Nadel &amp; Zwirn heißt das: eine stabile, langfristig nachbestellbare textile Basis für Stickerei, statt einer Blankware, die nächste Saison schon wieder anders ausfällt.</p>
+      <div class="section-head reveal">
+        <span class="eyebrow">Die Marke</span>
+        <h2>Wenige Modelle, dafür konsequent durchdacht</h2>
+      </div>
+      <div class="marke-grid">
+        <div class="marke-text reveal">
+          <p>Stanley/Stella baut sein Sortiment nicht auf schnell wechselnden Saisonkollektionen auf, sondern auf einer überschaubaren Zahl fest etablierter „Icon“-Modelle, erkennbar an Namen wie Creator, Cruiser oder Navigator, die über Jahre hinweg als „2.0“-Version weiterentwickelt statt ersetzt werden. Für Nadel &amp; Zwirn heißt das: stabile, langfristig nachbestellbare Textilien für deine Projekte!</p>
+          <p>Über das reine Produkt hinaus positioniert sich Stanley/Stella als nachhaltige Fashion-Marke: Der Materialfokus liegt durchgängig auf zertifizierter Bio-Baumwolle und, bei vielen Modellen, einem zusätzlichen Anteil recycelter Fasern. Mit unserem zu 100 % recycelten Stickgarn ist deine Bekleidung daher nachhaltiger als je zuvor.</p>
         </div>
         <!-- Hinweis fuer Wartung (kein sichtbarer Kundenhinweis): Quelle ist das
              offizielle Stanley/Stella-Video von deren Cloudinary-CDN
@@ -1430,8 +1451,6 @@
         </div>
       </div>
 
-      <p>Über das reine Produkt hinaus positioniert sich Stanley/Stella als nachhaltige Fashion-Marke: der Materialfokus liegt durchgängig auf zertifizierter Bio-Baumwolle und, bei vielen Modellen, einem zusätzlichen Anteil recycelter Fasern. Alle Angaben dazu auf dieser Seite stammen aus denselben offiziellen Datenblättern, die auch dem gedruckten Nadel &amp; Zwirn-Textilkatalog zugrunde liegen.</p>
-
       <div class="stat-rows reveal">
         <div class="stat-row">
           <span class="stat-label">Größenspektrum</span>
@@ -1454,8 +1473,8 @@
     <div class="container">
       <div class="section-head reveal">
         <span class="eyebrow">Warum ausgerechnet Stanley/Stella</span>
-        <h2>Drei Gründe für diese Textilbasis</h2>
-        <p>Wenn es um die Textilbasis geht, ist Stanley/Stella bei Nadel &amp; Zwirn die erste Wahl. Diese drei Punkte sind der Grund dafür.</p>
+        <h2>Aber warum genau Stanley/Stella?</h2>
+        <p>Wenn es um die Textilbasis geht, ist Stanley/Stella unsere erste Wahl. Diese drei Punkte sind der Grund dafür.</p>
       </div>
       <ul class="why-list">
         <li class="reveal">
@@ -1522,7 +1541,7 @@
       <div class="section-head reveal">
         <span class="eyebrow">Schwarz auf Weiß</span>
         <h2>Vier Zertifizierungen im Überblick</h2>
-        <p>Diese Prüfzeichen finden sich, modellabhängig, auf den Datenblättern und Etiketten der Stanley/Stella-Textilien, die Nadel &amp; Zwirn bestickt.</p>
+        <p>Diese Prüfzeichen finden sich, modellabhängig, auf den Datenblättern und Etiketten der Stanley/Stella-Textilien. Aber was bedeuten sie überhaupt?</p>
       </div>
     </div>
     <div class="cert-grid reveal">
@@ -1555,10 +1574,7 @@
       <div class="section-head reveal">
         <span class="eyebrow">Nicht nur Stanley/Stella</span>
         <h2>Bestickt wird auch anderes</h2>
-        <p>Stanley/Stella ist der Schwerpunkt, aber keine Bedingung: Kappen, Mützen, Handtücher,
-           Bademäntel und Textilien, die du selbst mitbringst, werden genauso bestickt. Ob dein Teil
-           dafür geeignet ist, hängt vor allem vom Material und von der Verarbeitung ab —
-           frag im Zweifel einfach kurz an.</p>
+        <p>Stanley/Stella ist unser Schwerpunkt, aber keine Bedingung: Kappen, Mützen, Handtücher, Bademäntel und Textilien, die du selbst mitbringst, werden genauso bestickt. Ob dein Teil dafür geeignet ist, hängt vor allem vom Material und von der Verarbeitung ab. Frag im Zweifel einfach kurz bei uns nach.</p>
       </div>
     </div>
 

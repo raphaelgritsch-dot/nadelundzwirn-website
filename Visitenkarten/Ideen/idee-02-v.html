@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="de"><head><meta charset="UTF-8"><title>02v</title>
+<link href="../../fonts/fonts.css" rel="stylesheet">
+<style>
+  @page{ size: 89mm 59mm; margin: 0; }
+  *{ box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  html, body{ margin: 0; padding: 0; }
+  body{ width: 89mm; height: 59mm; }
+  :root{ --bg:#0a0a0a; --ink:#f3f2ee; --dim:#a7a6a1; --faint:#6c6c67; --red:#c9282c; --line:#2b2b2b;
+    --disp:'Archivo Black','Inter',Arial,sans-serif; --body:'Inter',Arial,sans-serif; --script:'Yellowtail',cursive; }
+  p{ margin: 0; }
+  .page{ position: relative; width: 89mm; height: 59mm; overflow: hidden; background: var(--bg); color: var(--ink); font-family: var(--body); }
+  .t{ position: absolute; left: 2mm; top: 2mm; width: 85mm; height: 55mm; }
+  .frame{ position: absolute; inset: 3.5mm; border: 0.35mm solid var(--red); pointer-events: none; }
+  .abs{ position: absolute; }
+  .caps{ font-weight: 700; text-transform: uppercase; }
+  .qr{ position: absolute; background: #fff; padding: 1.1mm; }
+  .qr img{ width: 100%; height: 100%; display: block; }
+
+ .f2{ position:absolute; inset:5.4mm; border:0.2mm solid #2e2e2e; }
+ .word{ position:absolute; left:0; right:0; top:50%; transform:translateY(-56%); text-align:center; font-family:var(--script); font-size:11.5mm; line-height:1; }
+ .lab{ position:absolute; left:50%; bottom:3.5mm; transform:translate(-50%,50%); background:var(--bg); padding:0 2.6mm; font-size:1.7mm; letter-spacing:.3em; color:var(--dim); white-space:nowrap; line-height:1; }
+</style></head>
+<body><div class="page"><div class="t"><div class="frame"></div><div class="f2"></div><p class="word">Nadel &amp; Zwirn</p><p class="lab caps">Stickerei aus Klagenfurt</p></div></div></body></html>

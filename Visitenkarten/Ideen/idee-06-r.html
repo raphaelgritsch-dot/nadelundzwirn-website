@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="de"><head><meta charset="UTF-8"><title>06r</title>
+<link href="../../fonts/fonts.css" rel="stylesheet">
+<style>
+  @page{ size: 89mm 59mm; margin: 0; }
+  *{ box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  html, body{ margin: 0; padding: 0; }
+  body{ width: 89mm; height: 59mm; }
+  :root{ --bg:#0a0a0a; --ink:#f3f2ee; --dim:#a7a6a1; --faint:#6c6c67; --red:#c9282c; --line:#2b2b2b;
+    --disp:'Archivo Black','Inter',Arial,sans-serif; --body:'Inter',Arial,sans-serif; --script:'Yellowtail',cursive; }
+  p{ margin: 0; }
+  .page{ position: relative; width: 89mm; height: 59mm; overflow: hidden; background: var(--bg); color: var(--ink); font-family: var(--body); }
+  .t{ position: absolute; left: 2mm; top: 2mm; width: 85mm; height: 55mm; }
+  .frame{ position: absolute; inset: 3.5mm; border: 0.35mm solid var(--red); pointer-events: none; }
+  .abs{ position: absolute; }
+  .caps{ font-weight: 700; text-transform: uppercase; }
+  .qr{ position: absolute; background: #fff; padding: 1.1mm; }
+  .qr img{ width: 100%; height: 100%; display: block; }
+
+ .band{ position:absolute; left:-6mm; white-space:nowrap; font-family:var(--disp); text-transform:uppercase; font-size:11mm; line-height:1; color:#1d1d1b; letter-spacing:.01em; }
+ .band i{ font-style:normal; font-family:var(--body); font-size:6.4mm; color:var(--red); margin:0 3mm; vertical-align:middle; }
+
+ .band{ top:-4.2mm; }
+ .name{ left:9mm; top:13mm; font-family:var(--disp); text-transform:uppercase; font-size:4.4mm; line-height:1; }
+ .role{ left:9mm; top:18.6mm; font-size:1.8mm; letter-spacing:.24em; color:var(--red); }
+ .rows{ left:9mm; top:25.5mm; font-size:2.5mm; }
+ .row{ display:flex; align-items:center; height:5mm; } .row b{ color:var(--red); font-weight:400; font-size:2mm; width:4.6mm; }
+</style></head>
+<body><div class="page"><div class="t"><div class="band">NADEL<i>✕</i>ZWIRN<i>✕</i>NADEL<i>✕</i>ZWIRN</div><p class="abs name">Raphael Gritsch</p><p class="abs role caps">Gründer</p><div class="abs rows"><div class="row"><b>✕</b>+43 677 61817640</div><div class="row"><b>✕</b>office@nadelundzwirn.at</div><div class="row"><b>✕</b>www.nadelundzwirn.at</div><div class="row"><b>✕</b>Klagenfurt, Kärnten</div></div><div class="qr" style="right:9mm;bottom:8mm;width:17mm;height:17mm"><img src="../qr-nadelundzwirn.svg" alt="QR"></div></div></div></body></html>

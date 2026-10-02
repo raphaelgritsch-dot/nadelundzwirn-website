@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="de"><head><meta charset="UTF-8"><title>03r</title>
+<link href="../../fonts/fonts.css" rel="stylesheet">
+<style>
+  @page{ size: 89mm 59mm; margin: 0; }
+  *{ box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  html, body{ margin: 0; padding: 0; }
+  body{ width: 89mm; height: 59mm; }
+  :root{ --bg:#0a0a0a; --ink:#f3f2ee; --dim:#a7a6a1; --faint:#6c6c67; --red:#c9282c; --line:#2b2b2b;
+    --disp:'Archivo Black','Inter',Arial,sans-serif; --body:'Inter',Arial,sans-serif; --script:'Yellowtail',cursive; }
+  p{ margin: 0; }
+  .page{ position: relative; width: 89mm; height: 59mm; overflow: hidden; background: var(--bg); color: var(--ink); font-family: var(--body); }
+  .t{ position: absolute; left: 2mm; top: 2mm; width: 85mm; height: 55mm; }
+  .frame{ position: absolute; inset: 3.5mm; border: 0.35mm solid var(--red); pointer-events: none; }
+  .abs{ position: absolute; }
+  .caps{ font-weight: 700; text-transform: uppercase; }
+  .qr{ position: absolute; background: #fff; padding: 1.1mm; }
+  .qr img{ width: 100%; height: 100%; display: block; }
+
+ .c{ position:absolute; width:5mm; height:5mm; border:0 solid var(--red); }
+ .tl{ left:4mm; top:4mm; border-top-width:.45mm; border-left-width:.45mm; }
+ .tr{ right:4mm; top:4mm; border-top-width:.45mm; border-right-width:.45mm; }
+ .bl{ left:4mm; bottom:4mm; border-bottom-width:.45mm; border-left-width:.45mm; }
+ .br{ right:4mm; bottom:4mm; border-bottom-width:.45mm; border-right-width:.45mm; }
+
+ .name{ left:10mm; top:10mm; font-family:var(--disp); text-transform:uppercase; font-size:4.4mm; line-height:1; }
+ .role{ left:10mm; top:15.6mm; font-size:1.8mm; letter-spacing:.24em; color:var(--red); }
+ .rows{ left:10mm; top:24mm; }
+ .row{ display:flex; align-items:center; height:5mm; font-size:2.5mm; }
+ .row b{ color:var(--red); font-weight:400; font-size:2.2mm; width:5mm; }
+</style></head>
+<body><div class="page"><div class="t"><i class="c tl"></i><i class="c tr"></i><i class="c bl"></i><i class="c br"></i><p class="abs name">Raphael Gritsch</p><p class="abs role caps">Gründer</p><div class="abs rows"><div class="row"><b>✕</b>+43 677 61817640</div><div class="row"><b>✕</b>office@nadelundzwirn.at</div><div class="row"><b>✕</b>www.nadelundzwirn.at</div><div class="row"><b>✕</b>Klagenfurt, Kärnten</div></div><div class="qr" style="right:10mm;bottom:10mm;width:17mm;height:17mm"><img src="../qr-nadelundzwirn.svg" alt="QR"></div></div></div></body></html>

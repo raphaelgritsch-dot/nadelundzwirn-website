@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Visitenkarte Vorderseite (2026) | Nadel &amp; Zwirn</title>
+<link href="../../fonts/fonts.css" rel="stylesheet">
+<style>
+  /* Druckformat: 85 x 55 mm Endformat + 2 mm Beschnitt rundum = 89 x 59 mm.
+     Alles Wichtige liegt mind. 3 mm innerhalb des Endformats (Sicherheitsabstand). */
+  @page{ size: 89mm 59mm; margin: 0; }
+  *{ box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  html, body{ margin: 0; padding: 0; }
+  body{ width: 89mm; height: 59mm; }
+  :root{
+    --bg-0: #0a0a0a;
+    --fg: #f3f2ee;
+    --fg-dim: #a7a6a1;
+    --fg-faint: #6c6c67;
+    --line: #2b2b2b;
+    --red: #c9282c;
+    --font-display: 'Archivo Black', 'Inter', Arial, sans-serif;
+    --font-body: 'Inter', Arial, sans-serif;
+    --font-script: 'Yellowtail', cursive;
+  }
+  .page{
+    position: relative;
+    width: 89mm; height: 59mm;
+    overflow: hidden;
+    background: var(--bg-0);
+    font-family: var(--font-body);
+    color: var(--fg);
+  }
+  /* Endformat-Rahmen: 2 mm vom Seitenrand */
+  .trim{ position: absolute; left: 2mm; top: 2mm; width: 85mm; height: 55mm; }
+  .eyebrow{
+    display: flex; align-items: center; gap: 1.8mm;
+    font-weight: 700; font-size: 1.75mm; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--fg-dim); margin: 0;
+  }
+  .eyebrow::before{ content: ''; width: 4mm; height: 0.3mm; background: var(--red); }
+
+  .frame{ position: absolute; left: 3.5mm; top: 3.5mm; right: 3.5mm; bottom: 3.5mm; border: 0.35mm solid var(--red); pointer-events: none; }
+  .center{ position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .redline{ width: 11mm; border-top: 0.5mm solid var(--red); margin: 4.2mm 0 3.4mm; }
+  .tag{ margin: 0; font-weight: 600; font-size: 1.9mm; letter-spacing: 0.32em; text-transform: uppercase; color: var(--fg-dim); padding-left: 0.32em; }
+  .word{ font-family: var(--font-script); font-size: 12mm; line-height: 1; color: var(--fg); margin: 0; }
+</style>
+</head>
+<body>
+  <div class="page">
+    <div class="trim"><div class="frame"></div></div>
+    <div class="center">
+      <p class="word">Nadel &amp; Zwirn</p>
+      <div class="redline"></div>
+      <p class="tag">Stickerei aus Klagenfurt</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -70,8 +70,8 @@ css = """
  .f2{ position:absolute; inset:5.4mm; border:0.2mm solid #2e2e2e; }
  .name{ left:8mm; top:8mm; font-family:var(--disp); text-transform:uppercase; font-size:4.6mm; line-height:1; }
  .role{ left:8mm; top:13.6mm; font-size:1.8mm; letter-spacing:.24em; color:var(--red); }
- .rows{ left:8mm; right:8mm; top:26mm; border-top:.25mm solid var(--line); }
- .row{ display:grid; grid-template-columns:14mm 1fr; align-items:center; padding:1.2mm 0; border-bottom:.25mm solid var(--line); }
+ .rows{ left:8mm; right:8mm; top:24.8mm; border-top:.25mm solid var(--line); }
+ .row{ display:grid; grid-template-columns:14mm 1fr; align-items:center; padding:1mm 0; border-bottom:.25mm solid var(--line); }
  .k{ font-size:1.5mm; letter-spacing:.24em; color:var(--faint); }
  .v{ font-size:2.5mm; }
 """

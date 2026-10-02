@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="de"><head><meta charset="UTF-8"><title>02r</title>
+<link href="../../fonts/fonts.css" rel="stylesheet">
+<style>
+  @page{ size: 89mm 59mm; margin: 0; }
+  *{ box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  html, body{ margin: 0; padding: 0; }
+  body{ width: 89mm; height: 59mm; }
+  :root{ --bg:#0a0a0a; --ink:#f3f2ee; --dim:#a7a6a1; --faint:#6c6c67; --red:#c9282c; --line:#2b2b2b;
+    --disp:'Archivo Black','Inter',Arial,sans-serif; --body:'Inter',Arial,sans-serif; --script:'Yellowtail',cursive; }
+  p{ margin: 0; }
+  .page{ position: relative; width: 89mm; height: 59mm; overflow: hidden; background: var(--bg); color: var(--ink); font-family: var(--body); }
+  .t{ position: absolute; left: 2mm; top: 2mm; width: 85mm; height: 55mm; }
+  .frame{ position: absolute; inset: 3.5mm; border: 0.35mm solid var(--red); pointer-events: none; }
+  .abs{ position: absolute; }
+  .caps{ font-weight: 700; text-transform: uppercase; }
+  .qr{ position: absolute; background: #fff; padding: 1.1mm; }
+  .qr img{ width: 100%; height: 100%; display: block; }
+
+ .f2{ position:absolute; inset:5.4mm; border:0.2mm solid #2e2e2e; }
+ .name{ left:8mm; top:8mm; font-family:var(--disp); text-transform:uppercase; font-size:4.6mm; line-height:1; }
+ .role{ left:8mm; top:13.6mm; font-size:1.8mm; letter-spacing:.24em; color:var(--red); }
+ .rows{ left:8mm; right:8mm; top:24.8mm; border-top:.25mm solid var(--line); }
+ .row{ display:grid; grid-template-columns:14mm 1fr; align-items:center; padding:1mm 0; border-bottom:.25mm solid var(--line); }
+ .k{ font-size:1.5mm; letter-spacing:.24em; color:var(--faint); }
+ .v{ font-size:2.5mm; }
+</style></head>
+<body><div class="page"><div class="t"><div class="frame"></div><div class="f2"></div><p class="abs name">Raphael Gritsch</p><p class="abs role caps">Gründer</p><div class="qr" style="right:8mm;top:8mm;width:15.5mm;height:15.5mm"><img src="../qr-nadelundzwirn.svg" alt="QR"></div><div class="abs rows"><div class="row"><span class="k caps">Tel</span><span class="v">+43 677 61817640</span></div><div class="row"><span class="k caps">Mail</span><span class="v">office@nadelundzwirn.at</span></div><div class="row"><span class="k caps">Web</span><span class="v">www.nadelundzwirn.at</span></div><div class="row"><span class="k caps">Ort</span><span class="v">Klagenfurt, Kärnten</span></div></div></div></div></body></html>

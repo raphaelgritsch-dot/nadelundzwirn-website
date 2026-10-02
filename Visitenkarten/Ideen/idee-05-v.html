@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="de"><head><meta charset="UTF-8"><title>05v</title>
+<link href="../../fonts/fonts.css" rel="stylesheet">
+<style>
+  @page{ size: 89mm 59mm; margin: 0; }
+  *{ box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  html, body{ margin: 0; padding: 0; }
+  body{ width: 89mm; height: 59mm; }
+  :root{ --bg:#0a0a0a; --ink:#f3f2ee; --dim:#a7a6a1; --faint:#6c6c67; --red:#c9282c; --line:#2b2b2b;
+    --disp:'Archivo Black','Inter',Arial,sans-serif; --body:'Inter',Arial,sans-serif; --script:'Yellowtail',cursive; }
+  p{ margin: 0; }
+  .page{ position: relative; width: 89mm; height: 59mm; overflow: hidden; background: var(--bg); color: var(--ink); font-family: var(--body); }
+  .t{ position: absolute; left: 2mm; top: 2mm; width: 85mm; height: 55mm; }
+  .frame{ position: absolute; inset: 3.5mm; border: 0.35mm solid var(--red); pointer-events: none; }
+  .abs{ position: absolute; }
+  .caps{ font-weight: 700; text-transform: uppercase; }
+  .qr{ position: absolute; background: #fff; padding: 1.1mm; }
+  .qr img{ width: 100%; height: 100%; display: block; }
+
+ .mono{ position:absolute; left:0; right:0; top:13mm; display:flex; justify-content:center; align-items:center; gap:3.4mm; font-family:var(--disp); font-size:19mm; line-height:1; }
+ .xx{ position:relative; width:10.5mm; height:10.5mm; }
+ .xx::before,.xx::after{ content:''; position:absolute; left:50%; top:50%; width:14.5mm; height:1.7mm; background:var(--red); }
+ .xx::before{ transform:translate(-50%,-50%) rotate(45deg); }
+ .xx::after{ transform:translate(-50%,-50%) rotate(-45deg); }
+ .n1{ position:absolute; left:0; right:0; top:36.5mm; text-align:center; font-size:2.2mm; letter-spacing:.34em; }
+ .n2{ position:absolute; left:0; right:0; top:41mm; text-align:center; font-size:1.7mm; letter-spacing:.3em; color:var(--dim); }
+</style></head>
+<body><div class="page"><div class="t"><div class="frame"></div><div class="mono"><span>N</span><i class="xx"></i><span>Z</span></div><p class="n1 caps">Nadel &amp; Zwirn</p><p class="n2 caps">Stickerei aus Klagenfurt</p></div></div></body></html>

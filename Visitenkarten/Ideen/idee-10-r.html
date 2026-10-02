@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="de"><head><meta charset="UTF-8"><title>10r</title>
+<link href="../../fonts/fonts.css" rel="stylesheet">
+<style>
+  @page{ size: 89mm 59mm; margin: 0; }
+  *{ box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  html, body{ margin: 0; padding: 0; }
+  body{ width: 89mm; height: 59mm; }
+  :root{ --bg:#0a0a0a; --ink:#f3f2ee; --dim:#a7a6a1; --faint:#6c6c67; --red:#c9282c; --line:#2b2b2b;
+    --disp:'Archivo Black','Inter',Arial,sans-serif; --body:'Inter',Arial,sans-serif; --script:'Yellowtail',cursive; }
+  p{ margin: 0; }
+  .page{ position: relative; width: 89mm; height: 59mm; overflow: hidden; background: var(--bg); color: var(--ink); font-family: var(--body); }
+  .t{ position: absolute; left: 2mm; top: 2mm; width: 85mm; height: 55mm; }
+  .frame{ position: absolute; inset: 3.5mm; border: 0.35mm solid var(--red); pointer-events: none; }
+  .abs{ position: absolute; }
+  .caps{ font-weight: 700; text-transform: uppercase; }
+  .qr{ position: absolute; background: #fff; padding: 1.1mm; }
+  .qr img{ width: 100%; height: 100%; display: block; }
+
+ .name{ left:8mm; top:8mm; font-family:var(--disp); text-transform:uppercase; font-size:5.2mm; line-height:1.02; }
+ .role{ left:8mm; top:19.4mm; font-size:1.8mm; letter-spacing:.24em; color:var(--red); }
+ .hl{ position:absolute; left:8mm; right:8mm; top:28mm; border-top:.25mm solid var(--line); }
+ .rows{ left:8mm; top:30.2mm; font-size:2.45mm; line-height:4.5mm; }
+</style></head>
+<body><div class="page"><div class="t"><div class="frame"></div><p class="abs name">Raphael<br>Gritsch</p><p class="abs role caps">Gründer</p><div class="qr" style="right:8mm;top:8mm;width:16mm;height:16mm"><img src="../qr-nadelundzwirn.svg" alt="QR"></div><div class="hl"></div><div class="abs rows"><p>+43 677 61817640</p><p>office@nadelundzwirn.at</p><p>www.nadelundzwirn.at</p><p>Klagenfurt, Kärnten</p></div></div></div></body></html>

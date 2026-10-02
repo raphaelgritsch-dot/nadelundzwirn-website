@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Visitenkarte Entwurf Diagonal | Nadel &amp; Zwirn</title>
+<link href="../fonts/fonts.css" rel="stylesheet">
+<style>
+  /* Entwurf: 85 x 55 mm Endformat + 2 mm Beschnitt = 89 x 59 mm */
+  @page{ size: 89mm 59mm; margin: 0; }
+  *{ box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  html, body{ margin: 0; padding: 0; }
+  body{ width: 89mm; height: 59mm; }
+  :root{ --bg-0:#0a0a0a; --fg:#f3f2ee; --red:#c9282c; }
+  .page{ position: relative; width: 89mm; height: 59mm; overflow: hidden; background: var(--bg-0); }
+  svg.art{ position: absolute; inset: 0; width: 89mm; height: 59mm; }
+  .qr{ position: absolute; left: 60.8mm; top: 7.2mm; width: 17.4mm; height: 17.4mm; background: #fff; padding: 1.1mm; }
+  .qr img{ width: 100%; height: 100%; display: block; }
+  .word{ position: absolute; left: 8mm; bottom: 15.5mm; margin: 0; font-family: 'Yellowtail', cursive; font-size: 10.5mm; line-height: 1; color: var(--fg); }
+  .tag{ position: absolute; left: 8.4mm; bottom: 9.6mm; margin: 0; font-family: 'Inter', Arial, sans-serif; font-weight: 600; font-size: 2mm; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(243,242,238,0.88); }
+</style>
+</head>
+<body>
+  <div class="page">
+    <svg class="art" viewBox="0 0 89 59" preserveAspectRatio="none" aria-hidden="true">
+      <polygon points="0,0 89,59 0,59" fill="#c9282c"/>
+      <line x1="10" y1="0" x2="40" y2="19.89" stroke="#c9282c" stroke-width="1.9"/><line x1="19" y1="0" x2="48" y2="19.22" stroke="#c9282c" stroke-width="1.9"/><line x1="28" y1="0" x2="55" y2="17.90" stroke="#c9282c" stroke-width="1.9"/>
+      <rect x="58" y="-1" width="21.8" height="35" fill="#c9282c"/>
+    </svg>
+    <div class="qr"><img src="qr-nadelundzwirn.svg" alt="QR-Code zu nadelundzwirn.at"></div>
+    <p class="word">Nadel &amp; Zwirn</p>
+    <p class="tag">Stickerei aus Klagenfurt</p>
+  </div>
+</body>
+</html>

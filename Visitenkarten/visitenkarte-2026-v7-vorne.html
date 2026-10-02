@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="de"><head><meta charset="UTF-8"><title>07v</title>
+<link href="../fonts/fonts.css" rel="stylesheet">
+<style>
+  @page{ size: 89mm 59mm; margin: 0; }
+  *{ box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  html, body{ margin: 0; padding: 0; }
+  body{ width: 89mm; height: 59mm; }
+  :root{ --bg:#0a0a0a; --ink:#f3f2ee; --dim:#a7a6a1; --faint:#6c6c67; --red:#c9282c; --line:#2b2b2b;
+    --disp:'Archivo Black','Inter',Arial,sans-serif; --body:'Inter',Arial,sans-serif; --script:'Yellowtail',cursive; }
+  p{ margin: 0; }
+  .page{ position: relative; width: 89mm; height: 59mm; overflow: hidden; background: var(--bg); color: var(--ink); font-family: var(--body); }
+  .t{ position: absolute; left: 2mm; top: 2mm; width: 85mm; height: 55mm; }
+  .frame{ position: absolute; inset: 3.5mm; border: 0.35mm solid var(--red); pointer-events: none; }
+  .abs{ position: absolute; }
+  .caps{ font-weight: 700; text-transform: uppercase; }
+  .qr{ position: absolute; background: #fff; padding: 1.1mm; }
+  .qr img{ width: 100%; height: 100%; display: block; }
+
+ .bar{ position:absolute; left:0; top:0; bottom:0; width:8.5mm; background:var(--red); }
+ .word{ position:absolute; left:0; right:0; top:19mm; text-align:center; font-family:var(--script); font-size:12mm; line-height:1; }
+ .tag{ position:absolute; left:0; right:0; top:34.4mm; text-align:center; padding-left:.3em; font-size:1.8mm; letter-spacing:.3em; color:var(--dim); }
+
+ .c{ position:absolute; width:5mm; height:5mm; border:0 solid var(--red); }
+ .tl{ left:4mm; top:4mm; border-top-width:.45mm; border-left-width:.45mm; }
+ .tr{ right:4mm; top:4mm; border-top-width:.45mm; border-right-width:.45mm; }
+ .bl{ left:4mm; bottom:4mm; border-bottom-width:.45mm; border-left-width:.45mm; }
+ .br{ right:4mm; bottom:4mm; border-bottom-width:.45mm; border-right-width:.45mm; }
+</style></head>
+<body><div class="page"><div class="t"><i class="c tl"></i><i class="c tr"></i><i class="c bl"></i><i class="c br"></i><p class="word">Nadel &amp; Zwirn</p><p class="tag caps">Stickerei aus Klagenfurt</p></div></div></body></html>

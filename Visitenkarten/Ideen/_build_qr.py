@@ -68,13 +68,13 @@ def doc(n, css, body):
 
 # 01 Scan-Rahmen: rote Winkel um den QR-Code wie ein Kamerasucher
 css = """
- .sf{ position:absolute; left:8mm; top:50%; transform:translateY(-50%); width:21.5mm; height:21.5mm; }
+ .sf{ position:absolute; left:6.5mm; top:50%; transform:translateY(-50%); width:24mm; height:24mm; }
  .sf i{ position:absolute; width:3.4mm; height:3.4mm; border:0 solid var(--red); }
  .sf .a{ left:0; top:0; border-top-width:.4mm; border-left-width:.4mm; } .sf .b{ right:0; top:0; border-top-width:.4mm; border-right-width:.4mm; }
  .sf .c2{ left:0; bottom:0; border-bottom-width:.4mm; border-left-width:.4mm; } .sf .d{ right:0; bottom:0; border-bottom-width:.4mm; border-right-width:.4mm; }
 """
 body = (corners() + '<div class="sf"><i class="a"></i><i class="b"></i><i class="c2"></i><i class="d"></i></div>'
-        '<div class="qr" style="left:10.6mm;top:50%;transform:translateY(-50%);width:16.3mm;height:16.3mm">' + QR + '</div>'
+        '<div class="qr" style="left:10.2mm;top:50%;transform:translateY(-50%);width:17.2mm;height:17.2mm">' + QR + '</div>'
         + head(34) + rows(style='left:34mm;top:21.5mm'))
 doc(1, css, body)
 

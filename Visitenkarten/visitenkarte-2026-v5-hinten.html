@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="de"><head><meta charset="UTF-8"><title>07r</title>
+<link href="../fonts/fonts.css" rel="stylesheet">
+<style>
+  @page{ size: 89mm 59mm; margin: 0; }
+  *{ box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  html, body{ margin: 0; padding: 0; }
+  body{ width: 89mm; height: 59mm; }
+  :root{ --bg:#0a0a0a; --ink:#f3f2ee; --dim:#a7a6a1; --faint:#6c6c67; --red:#c9282c; --line:#2b2b2b;
+    --disp:'Archivo Black','Inter',Arial,sans-serif; --body:'Inter',Arial,sans-serif; --script:'Yellowtail',cursive; }
+  p{ margin: 0; }
+  .page{ position: relative; width: 89mm; height: 59mm; overflow: hidden; background: var(--bg); color: var(--ink); font-family: var(--body); }
+  .t{ position: absolute; left: 2mm; top: 2mm; width: 85mm; height: 55mm; }
+  .frame{ position: absolute; inset: 3.5mm; border: 0.35mm solid var(--red); pointer-events: none; }
+  .abs{ position: absolute; }
+  .caps{ font-weight: 700; text-transform: uppercase; }
+  .qr{ position: absolute; background: transparent; padding: 1.1mm; }
+  .qr img{ width: 100%; height: 100%; display: block; }
+
+ .bar{ position:absolute; right:0; top:0; bottom:0; width:8.5mm; background:var(--red); }
+ .name{ left:34mm; top:8.5mm; font-family:var(--disp); text-transform:uppercase; font-size:4mm; line-height:1; }
+ .role{ left:34mm; top:13.7mm; font-size:1.8mm; letter-spacing:.24em; color:var(--red); }
+ .rows{ left:34mm; top:21.5mm; }
+ .row{ display:flex; align-items:center; height:5.5mm; font-size:2.5mm; }
+ .ic{ width:4.6mm; height:4.6mm; border:.3mm solid var(--red); border-radius:50%; color:var(--red); display:flex; align-items:center; justify-content:center; margin-right:2.6mm; flex:none; }
+ .ic svg{ width:2.3mm; height:2.3mm; }
+
+ .c{ position:absolute; width:5mm; height:5mm; border:0 solid var(--red); }
+ .tl{ left:4mm; top:4mm; border-top-width:.45mm; border-left-width:.45mm; }
+ .tr{ right:4mm; top:4mm; border-top-width:.45mm; border-right-width:.45mm; }
+ .bl{ left:4mm; bottom:4mm; border-bottom-width:.45mm; border-left-width:.45mm; }
+ .br{ right:4mm; bottom:4mm; border-bottom-width:.45mm; border-right-width:.45mm; }
+</style></head>
+<body><div class="page"><div class="t"><i class="c tl"></i><i class="c tr"></i><i class="c bl"></i><i class="c br"></i><p class="abs name">Raphael Gritsch</p><p class="abs role caps">Gründer</p><div class="qr" style="left:9.5mm;top:50%;transform:translateY(-50%);width:19.5mm;height:19.5mm"><img src="qr-nadelundzwirn-hell.svg" alt="QR"></div><div class="abs rows"><div class="row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 3a2 2 0 0 1-.5 2.1L8 10.1a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c1 .3 2 .5 3 .7a2 2 0 0 1 1.6 2z"/></svg></span>+43 677 61817640</div><div class="row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 6l10 7 10-7"/></svg></span>office@nadelundzwirn.at</div><div class="row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 0 20M12 2a15.3 15.3 0 0 0 0 20"/></svg></span>www.nadelundzwirn.at</div><div class="row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></span>Klagenfurt, Kärnten</div></div></div></div></div></body></html>

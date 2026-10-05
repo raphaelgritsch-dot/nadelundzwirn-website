@@ -258,15 +258,6 @@
     text-decoration: none;
     color: var(--fg);
   }
-  .brand-emblem{
-    height: 64px;
-    width: auto;
-    align-self: center;
-    /* Logo vektor.png hat einen reinen schwarzen Bildhintergrund. Screen-Blend
-       macht dieses Schwarz auf dem dunklen Header unsichtbar, nur die farbigen
-       Linien (Pantherkopf-Emblem) bleiben sichtbar. */
-    mix-blend-mode: screen;
-  }
   .brand-script{
     font-family: var(--font-script);
     font-size: 2rem;
@@ -1300,7 +1291,6 @@
 <header class="site-header">
   <div class="header-inner">
     <a class="brand-link" href="#top">
-      <img class="brand-emblem" src="Logo vektor.png" alt="Nadel &amp; Zwirn Emblem: Pantherkopf mit gekreuzten Nähnadeln">
       <span class="brand-script">Nadel &amp; Zwirn</span>
     </a>
     <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Menü öffnen">
